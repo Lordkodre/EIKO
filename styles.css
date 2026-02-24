@@ -34,14 +34,22 @@ header{
   padding:14px 18px; margin:0 -18px 28px;
 }
 
+/* Brand / logo i header */
 .brand{display:flex; gap:12px; align-items:center}
-.logo{
-  width:38px; height:38px; border-radius:12px;
-  object-fit: contain;
-  background: rgba(255,255,255,.06);
-  border: 1px solid var(--line);
-  padding:6px;
-  box-shadow: 0 10px 26px rgba(0,0,0,.25);
+.brandlink{display:block; line-height:0}
+.brandlogo{
+  height:56px;            /* juster høyde her */
+  width:auto;
+  display:block;
+  background: transparent; /* ingen bakgrunn */
+  border: none;            /* ingen ramme */
+  padding: 0;
+  box-shadow: none;
+}
+
+@media (max-width:900px){
+  .brandlogo{height:48px;}
+  header{position:relative}
 }
 
 .nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
@@ -108,7 +116,7 @@ footer{
   grid-template-columns: 1.25fr .75fr;
   align-items:stretch;
 }
-@media (max-width:900px){ .hero{grid-template-columns:1fr} header{position:relative} }
+@media (max-width:900px){ .hero{grid-template-columns:1fr} }
 .hero .left{padding:26px}
 .right{padding:18px; display:flex; flex-direction:column; gap:14px}
 .badge{
@@ -116,9 +124,7 @@ footer{
   background: rgba(255,255,255,.03);
 }
 
-.page{
-  padding:22px;
-}
+.page{padding:22px}
 .pagehead{
   display:flex; gap:14px; align-items:flex-end; justify-content:space-between; flex-wrap:wrap;
   padding:22px;
@@ -171,6 +177,7 @@ tr:last-child td{border-bottom:0}
   background: rgba(99,179,255,.10);
   color: var(--muted);
 }
+
 .cardimg{
   width:100%;
   height:180px;
@@ -181,7 +188,6 @@ tr:last-child td{border-bottom:0}
   margin-bottom:12px;
   box-shadow: 0 16px 30px rgba(0,0,0,.25);
 }
-
 @media (max-width:900px){
   .cardimg{height:170px;}
 }
