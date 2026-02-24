@@ -9,8 +9,9 @@
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <!-- KUN LOGO (ingen tekst) -->
+
+    <!-- HEADER HAR NÅ PANEL-STIL -->
+    <header class="panel header-panel">
       <div class="brand">
         <a class="brandlink" href="index.html" aria-label="EIKO Additive hjem">
           <img class="brandlogo" src="logo.png" alt="EIKO Additive logo" />
@@ -87,24 +88,33 @@
       </aside>
     </section>
 
-<section class="section">
+    <section class="section faq">
       <h2>FAQ</h2>
-      <div style="display:grid; gap:10px">
-        <details>
+
+      <div class="faq-wrap">
+        <details class="panel faq-item">
           <summary>Hvilke filer kan jeg sende?</summary>
-          <p>STEP er best, men STL går også. Legg gjerne ved toleranser og hvilken flate som er kritisk.</p>
+          <div class="faq-body">
+            <p>STEP er best, men STL går også. Legg gjerne ved toleranser og hvilken flate som er kritisk.</p>
+          </div>
         </details>
-        <details>
+
+        <details class="panel faq-item">
           <summary>Kan dere hjelpe med materialvalg?</summary>
-          <p>Ja — vi velger ut fra temperatur, kjemi, UV/salt, last og forventet levetid.</p>
+          <div class="faq-body">
+            <p>Ja — vi velger ut fra temperatur, kjemi, UV/salt, last og forventet levetid.</p>
+          </div>
         </details>
-        <details>
+
+        <details class="panel faq-item">
           <summary>Hvordan får jeg pene flater og presise hull?</summary>
-          <p>Da bruker vi gjerne CNC på kritiske flater, hull og presspassninger.</p>
+          <div class="faq-body">
+            <p>Da bruker vi gjerne CNC på kritiske flater, hull og presspassninger.</p>
+          </div>
         </details>
       </div>
     </section>
-    
+
     <footer>
       <div class="small">© <span id="y"></span> EIKO Additive</div>
       <div class="small">Adressesen 1, 5918 Isdalstø</div>
@@ -116,4 +126,3 @@
   </script>
 </body>
 </html>
-
