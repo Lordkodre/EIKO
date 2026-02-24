@@ -10,11 +10,13 @@
 <body>
   <div class="wrap">
     <header>
+      <!-- KUN LOGO (ingen tekst) -->
       <div class="brand">
-        <a href="index.html">
-          <img src="logo.png" alt="EIKO Additive" style="height:70px; object-fit:contain;" />
+        <a class="brandlink" href="index.html" aria-label="EIKO Additive hjem">
+          <img class="brandlogo" src="logo.png" alt="EIKO Additive logo" />
         </a>
       </div>
+
       <nav class="nav">
         <a class="active" href="index.html">Hjem</a>
         <a href="tjenester.html">Tjenester</a>
@@ -26,13 +28,11 @@
 
     <section class="hero">
       <div class="panel left">
-        <div class="kicker">Norsk Produksjon</div>
-        <h1>Funksjonelle deler i  High Performance Polymerer – raskt og presist.</h1>
+        <div class="kicker">Produksjon på Vestlandet</div>
+        <h1>Funksjonelle deler i High Performance Polymerer – raskt og presist.</h1>
         <p class="small" style="font-size:16px; margin:0 0 18px;">
-          Er du eller din bedrift på jakt etter kvalitet og ekstrem ytelse?
-          Da kan vi hjelpe deg å gjøre din visjon mulig ved bruk stor-format-3D-printing(LFAM) av høy ytelses polymere(HPP).
-          Teknologien muligjør ekstrem ytelse i alle formater uten å kompromitere på vekt eller stryke.
-          Perfekt for industri, maritimt, romfart, energi, helse og krevende applikasjoner.
+          Vi leverer prototyper og småserier i materialer som tåler varme, kjemikalier og mekanisk belastning.
+          Perfekt for industri, maritimt, romfart, energi og krevende applikasjoner.
         </p>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
           <a class="btn primary" href="kontakt.html">Be om tilbud</a>
@@ -58,7 +58,6 @@
         </div>
       </div>
 
-      <!-- Dette er “boksen ved siden av”, som blir værende på startsiden -->
       <aside class="panel right">
         <div class="badge">
           <strong>EIKO tar deg fra idé til del</strong>
@@ -98,6 +97,4 @@
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
-
 </html>
-
