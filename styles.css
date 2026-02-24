@@ -32,11 +32,10 @@ header{
   gap:16px;
 
   position:sticky;
-  top:0;
-  z-index:10;
+  top:20px;              /* Litt luft fra toppen */
+  z-index:100;
 
-  /* Samme stil som panel */
-  background: rgba(18,26,42,.82);
+  background: rgba(18,26,42,.92);
   border:1px solid var(--line);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
@@ -202,4 +201,5 @@ tr:last-child td{border-bottom:0}
 @media (max-width:900px){
   .cardimg{height:170px;}
 }
+
 
