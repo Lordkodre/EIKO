@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontakt – EIKO Additive</title>
+  <meta name="description" content="Kontakt EIKO Additive – vi er alltid åpne for en prat om 3D-print, CNC og design." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="EIKO Additive logo" />
+        <div>
+          <div style="font-weight:800;">EIKO Additive</div>
+          <div class="small">3D-print • CNC • Prototyper</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Hjem</a>
+        <a href="tjenester.html">Tjenester</a>
+        <a href="materialer.html">Materialer</a>
+        <a href="prosess.html">Prosess</a>
+        <a class="active" href="kontakt.html">Kontakt</a>
+      </nav>
+    </header>
+
+    <section class="panel pagehead">
+      <div class="meta">
+        <div class="kicker">Kontakt</div>
+        <h1>Ta kontakt</h1>
+        <p class="small" style="font-size:16px; margin:0;">
+          Vi er alltid åpne for en uforpliktende prat – enten du har en idé, en eksisterende del som må forbedres,
+          eller du trenger materialvalg i et krevende miljø.
+        </p>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn primary" href="mailto:EIKO@EIKOAdditive.no">Send e-post</a>
+        <a class="btn" href="tjenester.html">Se tjenester</a>
+      </div>
+    </section>
+
+    <section class="grid2">
+      <div class="panel card">
+        <div class="kicker">Kontaktinfo</div>
+        <h2>EIKO Additive</h2>
+        <ul class="list">
+          <li><strong style="color:var(--text);">E-post:</strong> <a href="mailto:EIKO@EIKOAdditive.no" style="text-decoration:underline;">EIKO@EIKOAdditive.no</a></li>
+          <li><strong style="color:var(--text);">Adresse:</strong> Adressesen 1, 5918 Isdalstø</li>
+        </ul>
+        <div class="note">
+          Send gjerne STEP/STL, antall, toleranser og miljøkrav (temp/kjemi/UV/salt) – så svarer vi raskere med en god anbefaling.
+        </div>
+      </div>
+
+      <div class="panel card">
+        <div class="kicker">Hva bør du sende?</div>
+        <h2>For raskt tilbud</h2>
+        <ul class="list">
+          <li>STEP/STL eller tegning + mål og toleranser</li>
+          <li>Tiltenkt temperatur- og kjemi-eksponering</li>
+          <li>Antall + ønsket levering</li>
+          <li>Eventuelle krav til dokumentasjon</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div class="small">© <span id="y"></span> EIKO Additive</div>
+      <div class="small">Adressesen 1, 5918 Isdalstø</div>
+    </footer>
+  </div>
+
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

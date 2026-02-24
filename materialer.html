@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Materialer – EIKO Additive</title>
+  <meta name="description" content="Materialer vi printer i: PEI, TPI, PEEK, PEKK og PA6-CF." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="EIKO Additive logo" />
+        <div>
+          <div style="font-weight:800;">EIKO Additive</div>
+          <div class="small">3D-print • CNC • Prototyper</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Hjem</a>
+        <a href="tjenester.html">Tjenester</a>
+        <a class="active" href="materialer.html">Materialer</a>
+        <a href="prosess.html">Prosess</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </header>
+
+    <section class="panel pagehead">
+      <div class="meta">
+        <div class="kicker">Materialer</div>
+        <h1>Materialer vi printer i</h1>
+        <p class="small" style="font-size:16px; margin:0;">
+          Under er en oversikt med typiske mekaniske egenskaper. Vi hjelper gjerne med materialvalg basert på temperatur,
+          kjemisk miljø og krav til styrke/stivhet.
+        </p>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn primary" href="kontakt.html">Spør om materialvalg</a>
+        <a class="btn" href="tjenester.html">Se tjenester</a>
+      </div>
+    </section>
+
+    <section class="panel page" style="margin-top:14px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Materiale</th>
+            <th>UTS XY [MPa]</th>
+            <th>UTS Z [MPa]</th>
+            <th>E-modul [GPa]</th>
+            <th>Brukstemp [°C]*</th>
+            <th>Kort om</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--text);">PEI (Ultem)</strong></td>
+            <td>~90–110</td>
+            <td>~80-100</td>
+            <td>~3.0–3.4</td>
+            <td>~170 (kont.)</td>
+            <td>God dimensjonsstabilitet, flammeegenskaper og høy Tg.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--text);">TPI</strong></td>
+            <td>~80–110</td>
+            <td>~70-95</td>
+            <td>~2.5–3.5</td>
+            <td>~200+ (applikasjon avh.)</td>
+            <td>Høy temperaturytelse, god kjemi, brukt i krevende miljø.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--text);">PEEK</strong></td>
+            <td>~90–115</td>
+            <td>~80-110</td>
+            <td>~3.6–4.0</td>
+            <td>~240 (kont.)</td>
+            <td>Svært høy kjemi- og temperaturbestandighet, industri-favoritt.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--text);">PEKK</strong></td>
+            <td>~95–120</td>
+            <td>~75-105</td>
+            <td>~3.5–4.2</td>
+            <td>~230–250 (kont.)</td>
+            <td>PEEK-familie med ofte bedre prosessvindu og god høytemp-ytelse.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--text);">PA6-CF</strong></td>
+            <td>~90–140</td>
+            <td>~80–120</td>
+            <td>~6–12</td>
+            <td>~120–150 (avh.)</td>
+            <td>Høy stivhet (CF), god styrke/vekt. Fukt påvirker egenskaper.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong style="color:var(--text);">Note:</strong>
+        *Brukstemperatur avhenger av last, tid (kryp), geometri og miljø. Tallene er retningsgivende.
+        Vi kan også printe i mer generiske materialer (f.eks. PETG/ABS/ASA/PA-varianter) når det er riktig valg for kost/lead time.
+      </div>
+    </section>
+
+    <footer>
+      <div class="small">© <span id="y"></span> EIKO Additive</div>
+      <div class="small"><a href="kontakt.html" style="text-decoration:underline;">EIKO@EIKOAdditive.no</a></div>
+    </footer>
+  </div>
+
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tjenester – EIKO Additive</title>
+  <meta name="description" content="Tjenester: 3D-printing, CNC maskinering, design og topologioptimalisering." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="EIKO Additive logo" />
+        <div>
+          <div style="font-weight:800;">EIKO Additive</div>
+          <div class="small">3D-print • CNC • Prototyper</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Hjem</a>
+        <a class="active" href="tjenester.html">Tjenester</a>
+        <a href="materialer.html">Materialer</a>
+        <a href="prosess.html">Prosess</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </header>
+
+    <section class="panel pagehead">
+      <div class="meta">
+        <div class="kicker">Tjenester</div>
+        <h1>Hva vi kan levere</h1>
+        <p class="small" style="font-size:16px; margin:0;">
+          Fra én prototype til repeterbar småserie: vi kombinerer høytemperatur 3D-print med CNC og engineering-støtte.
+        </p>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn primary" href="kontakt.html">Be om tilbud</a>
+        <a class="btn" href="prosess.html">Se prosess</a>
+      </div>
+    </section>
+
+    <!-- 4 kort: nå med bilder -->
+    <section class="grid2" style="margin-top:14px;">
+      <div class="panel card">
+        <img class="cardimg" src="PEEKFFF.png" alt="3D-printing i PEEK/High performance polymers" />
+        <div class="kicker">3D-printing</div>
+        <h2>High performance polymerer</h2>
+        <ul class="list">
+          <li>Prototyper og småserier</li>
+          <li>Varme-/kjemibestandige deler</li>
+          <li>Funksjonelle, lette og sterke komponenter </li>
+          <li>Kan printes i mange størrelser, max 1m<sup class="exp">3</sup> </li>
+        </ul>
+      </div>
+
+      <div class="panel card">
+        <img class="cardimg" src="CNCFFF.png" alt="CNC maskinering og etterbearbeiding" />
+        <div class="kicker">CNC</div>
+        <h2>Maskinering & finishing</h2>
+        <ul class="list">
+          <li>Planfresing, boring, gjenging</li>
+          <li>Toleranser og passninger</li>
+          <li>Integrering av metall i print</li>
+          <li>Presspassnigner og forsegningsflater </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="grid2">
+      <div class="panel card">
+        <img class="cardimg" src="CADFFF.png" alt="CAD og designarbeid" />
+        <div class="kicker">Design</div>
+        <h2>Design for additive</h2>
+        <ul class="list">
+          <li>Forbedring av printbarhet</li>
+          <li>Tilpasning av styrke, toleranser og utmatting</li>
+          <li>Bruk av Compliant mechanisems</li>
+          <li>Rask iterasjon: fra CAD til del</li>
+        </ul>
+      </div>
+
+      <div class="panel card">
+        <img class="cardimg" src="ENGFFF.png" alt="Engineering og topologioptimalisering" />
+        <div class="kicker">Engineering</div>
+        <h2>Topologioptimalisering</h2>
+        <ul class="list">
+          <li>Redusere vekt uten å miste funksjon</li>
+          <li>Stivhet/styrke optimalisert for lasttilfeller</li>
+          <li>Geometri som utnytter additive produksjon</li>
+          <li>Maksimal utnyttelse av materialet</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div class="small">© <span id="y"></span> EIKO Additive</div>
+      <div class="small"><a href="kontakt.html" style="text-decoration:underline;">EIKO@EIKOAdditive.no</a></div>
+    </footer>
+  </div>
+
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

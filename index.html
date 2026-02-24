@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EIKO Additive – Høytemperatur 3D-print & CNC</title>
+  <meta name="description" content="EIKO Additive leverer 3D-printing i høyytelsespolymerer, CNC, design og topologioptimalisering." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="EIKO Additive logo" />
+        <div>
+          <div style="font-weight:800; letter-spacing:-.01em;">EIKO Additive</div>
+          <div class="small">3D-print • CNC • Prototyper</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="active" href="index.html">Hjem</a>
+        <a href="tjenester.html">Tjenester</a>
+        <a href="materialer.html">Materialer</a>
+        <a href="prosess.html">Prosess</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="panel left">
+        <div class="kicker">Produksjon på Vestlandet</div>
+        <h1>Funksjonelle deler i High Performance Polymerer – raskt og presist.</h1>
+        <p class="small" style="font-size:16px; margin:0 0 18px;">
+          Vi leverer prototyper og småserier i materialer som tåler varme, kjemikalier og mekanisk belastning.
+          Perfekt for industri, maritimt, romfart, energi og krevende applikasjoner.
+        </p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn primary" href="kontakt.html">Be om tilbud</a>
+          <a class="btn" href="tjenester.html">Se tjenester</a>
+        </div>
+
+        <div class="grid3">
+          <div class="panel card">
+            <div class="kicker">Rask levering</div>
+            <h2>1–5 dager</h2>
+            <div class="small">Typisk lead time på prototyper.</div>
+          </div>
+          <div class="panel card">
+            <div class="kicker">Kvalitet</div>
+            <h2>Kontroll</h2>
+            <div class="small">Isotrope og nøyaktige deler, og dokumentasjon ved behov.</div>
+          </div>
+          <div class="panel card">
+            <div class="kicker">Materialer</div>
+            <h2>PEEK / PEI / TPI</h2>
+            <div class="small">Høy temperatur og kjemikalieresistens.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dette er “boksen ved siden av”, som blir værende på startsiden -->
+      <aside class="panel right">
+        <div class="badge">
+          <strong>EIKO tar deg fra idé til del</strong>
+          <ul class="list">
+            <li>3D-printing i high performance polymers</li>
+            <li>Design-tjenester</li>
+            <li>Topologi-optimalisering</li>
+            <li>Post prosessering med CNC</li>
+          </ul>
+        </div>
+
+        <div class="badge">
+          <strong>Hva du kan sende oss</strong>
+          <ul class="list">
+            <li>STEP / STL + toleranser</li>
+            <li>Miljø: temp, kjemi, UV/salt</li>
+            <li>Antall + ønsket levering</li>
+          </ul>
+        </div>
+
+        <div class="badge">
+          <strong>Snarvei</strong>
+          <div class="small">
+            Se materialoversikt og egenskaper på <a href="materialer.html" style="text-decoration:underline;">Materialer</a>.
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <div class="small">© <span id="y"></span> EIKO Additive</div>
+      <div class="small">Adressesen 1, 5918 Isdalstø</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
