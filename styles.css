@@ -270,3 +270,16 @@ tr:last-child td{border-bottom:0}
   gap: 18px;
   flex-wrap: wrap;
 }
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background: 
+    radial-gradient(1200px 800px at 20% -10%, rgba(72,242,194,0.18), transparent 70%),
+    radial-gradient(1000px 700px at 80% 10%, rgba(122,167,255,0.22), transparent 75%),
+    linear-gradient(180deg, #071018 0%, #0b1c2a 50%, #071018 100%);
+  
+  background-attachment: fixed;
+}
