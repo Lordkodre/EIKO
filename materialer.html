@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EIKO Additive – Kontakt</title>
-  <meta name="description" content="Kontakt EIKO Additive for LFAM i høyytelsespolymerer, post-maskinering, materialvalg og topologioptimalisering." />
+  <title>EIKO Additive – Tjenester</title>
+  <meta name="description" content="EIKO Additive leverer 3D-printing i høyytelsespolymerer, CNC, design og topologioptimalisering." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
@@ -35,47 +35,29 @@
       .header-panel{ flex-wrap:wrap; }
       .header-panel .nav{ width:100%; justify-content:flex-start; }
     }
-
-    .contact-grid{
-      display:grid;
-      gap:14px;
-      grid-template-columns: 1.1fr .9fr;
-      margin-top:14px;
-    }
-    @media (max-width:900px){
-      .contact-grid{ grid-template-columns:1fr; }
-    }
-    .input{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      color: #e8eefc;
-      outline:none;
-    }
-    .input::placeholder{ color: rgba(147,164,199,.75); }
-    label{ display:block; margin:10px 0 6px; color: #93a4c7; font-size:13px; }
-    textarea.input{ min-height:140px; resize:vertical; }
   </style>
 </head>
 
 <body>
   <div class="wrap">
 
-    <header class="header-panel panel">
-      <a href="index.html" style="display:flex; align-items:center; gap:12px;">
-        <img class="brandlogo" src="logo.png" alt="EIKO Additive logo">
-      </a>
+    <!-- HEADER / TOOLBAR -->
+    <header class="panel header-panel">
+      <div class="brand">
+        <a class="brandlink" href="index.html" aria-label="EIKO Additive hjem">
+          <img class="brandlogo" src="logo.png" alt="EIKO Additive logo" />
+        </a>
+      </div>
 
       <nav class="nav" aria-label="Hovedmeny">
         <a href="index.html" data-i18n="nav_home">Hjem</a>
-        <a href="tjenester.html" data-i18n="nav_services">Tjenester</a>
+        <a class="active" href="tjenester.html" data-i18n="nav_services">Tjenester</a>
         <a href="materialer.html" data-i18n="nav_materials">Materialer</a>
-        <a href="faq.html" data-i18n="nav_faq">FAQ</a>
-        <a class="active" href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
+        <a href="prosess.html" data-i18n="nav_process">Prosess</a>
+        <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
       </nav>
 
+      <!-- Språkvelger -->
       <div class="lang-switch" aria-label="Velg språk">
         <button class="flagbtn" id="btn-no" type="button" aria-label="Norsk">
           <img src="flag-no.png" alt="Norsk flagg">
@@ -246,3 +228,4 @@
   </script>
 </body>
 </html>
+
