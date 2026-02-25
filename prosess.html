@@ -3,14 +3,47 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EIKO Additive – Høytemperatur 3D-print & CNC</title>
+  <title>EIKO Additive – Prosess</title>
   <meta name="description" content="EIKO Additive leverer 3D-printing i høyytelsespolymerer, CNC, design og topologioptimalisering." />
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Språkvelger (samme som de andre sidene) */
+    .lang-switch{
+      display:flex; align-items:center; gap:10px;
+      margin-left:auto;
+    }
+    .flagbtn{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:36px; height:26px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      cursor:pointer;
+      padding:0;
+    }
+    .flagbtn img{
+      width:22px; height:16px; object-fit:cover;
+      border-radius:3px;
+      display:block;
+    }
+    .flagbtn.active{
+      border-color: rgba(99,179,255,.45);
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+    }
+
+    @media (max-width:900px){
+      .lang-switch{ width:100%; justify-content:flex-end; }
+      .header-panel{ flex-wrap:wrap; }
+      .header-panel .nav{ width:100%; justify-content:flex-start; }
+    }
+  </style>
 </head>
+
 <body>
   <div class="wrap">
 
-    <!-- HEADER HAR PANEL-STIL -->
+    <!-- HEADER / TOOLBAR -->
     <header class="panel header-panel">
       <div class="brand">
         <a class="brandlink" href="index.html" aria-label="EIKO Additive hjem">
@@ -18,89 +51,234 @@
         </a>
       </div>
 
-      <nav class="nav">
-        <a href="index.html">Hjem</a>
-        <a href="tjenester.html">Tjenester</a>
-        <a href="materialer.html">Materialer</a>
-        <a class="active" href="prosess.html">Prosess</a>
-        <a href="kontakt.html">Kontakt</a>
+      <nav class="nav" aria-label="Hovedmeny">
+        <a href="index.html" data-i18n="nav_home">Hjem</a>
+        <a href="tjenester.html" data-i18n="nav_services">Tjenester</a>
+        <a href="materialer.html" data-i18n="nav_materials">Materialer</a>
+        <a class="active" href="prosess.html" data-i18n="nav_process">Prosess</a>
+        <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
       </nav>
+
+      <!-- Språkvelger -->
+      <div class="lang-switch" aria-label="Velg språk">
+        <button class="flagbtn" id="btn-no" type="button" aria-label="Norsk">
+          <img src="flag-no.png" alt="Norsk flagg">
+        </button>
+        <button class="flagbtn" id="btn-en" type="button" aria-label="English">
+          <img src="flag-us.png" alt="US flag">
+        </button>
+      </div>
     </header>
 
+    <!-- PAGE HEAD -->
     <section class="panel pagehead">
       <div class="meta">
-        <div class="kicker">Prosess</div>
-        <h1>Fra konsept til ferdig del</h1>
-        <p class="small" style="font-size:16px; margin:0;">
+        <div class="kicker" data-i18n="kicker_process">Prosess</div>
+        <h1 data-i18n="h1_process">Fra konsept til ferdig del</h1>
+        <p class="small" data-i18n="p_process_intro" style="font-size:16px; margin:0;">
           Vi kan ta imot alt fra en idé, en skisse eller en STEP-fil – og levere en ferdig komponent.
           Har du allerede en del? Vi kan også hjelpe med å utbedre og forbedre eksisterende løsninger.
         </p>
       </div>
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <a class="btn primary" href="kontakt.html">Start en dialog</a>
-        <a class="btn" href="tjenester.html">Se tjenester</a>
+        <a class="btn primary" href="kontakt.html" data-i18n="cta_start_dialog">Start en dialog</a>
+        <a class="btn" href="tjenester.html" data-i18n="cta_view_services">Se tjenester</a>
       </div>
     </section>
 
     <section class="grid2">
       <div class="panel card">
-        <div class="kicker">1) Avklaring</div>
-        <h2>Krav & miljø</h2>
+        <div class="kicker" data-i18n="step1_kicker">1) Avklaring</div>
+        <h2 data-i18n="step1_h2">Krav & miljø</h2>
         <ul class="list">
-          <li>Temperatur, kjemi, UV/salt og last</li>
-          <li>Toleranser, overflate, innfesting</li>
-          <li>Antall, lead time og kostmål</li>
+          <li data-i18n="step1_li1">Temperatur, kjemi, UV/salt og last</li>
+          <li data-i18n="step1_li2">Toleranser, overflate, innfesting</li>
+          <li data-i18n="step1_li3">Antall, lead time og kostmål</li>
         </ul>
       </div>
+
       <div class="panel card">
-        <div class="kicker">2) Materialvalg</div>
-        <h2>Riktig polymer</h2>
+        <div class="kicker" data-i18n="step2_kicker">2) Materialvalg</div>
+        <h2 data-i18n="step2_h2">Riktig polymer</h2>
         <ul class="list">
-          <li>PEEK/PEKK/PEI/TPI/PA6-CF etter behov</li>
-          <li>Designjusteringer for styrke og printbarhet</li>
-          <li>Plan for etterbehandling (CNC) ved behov</li>
+          <li data-i18n="step2_li1">PEEK/PEKK/PEI/TPI/PA6-CF etter behov</li>
+          <li data-i18n="step2_li2">Designjusteringer for styrke og printbarhet</li>
+          <li data-i18n="step2_li3">Plan for etterbehandling (CNC) ved behov</li>
         </ul>
       </div>
     </section>
 
     <section class="grid2">
       <div class="panel card">
-        <div class="kicker">3) Produksjon</div>
-        <h2>3D-print og kvalitet</h2>
+        <div class="kicker" data-i18n="step3_kicker">3) Produksjon</div>
+        <h2 data-i18n="step3_h2">3D-print og kvalitet</h2>
         <ul class="list">
-          <li>Kontroll på prosess og repeterbarhet</li>
-          <li>Prototyping med raske iterasjoner</li>
-          <li>Småserier med stabile parametere</li>
+          <li data-i18n="step3_li1">Kontroll på prosess og repeterbarhet</li>
+          <li data-i18n="step3_li2">Prototyping med raske iterasjoner</li>
+          <li data-i18n="step3_li3">Småserier med stabile parametere</li>
         </ul>
       </div>
+
       <div class="panel card">
-        <div class="kicker">4) Post-prosess</div>
-        <h2>CNC & sluttresultat</h2>
+        <div class="kicker" data-i18n="step4_kicker">4) Post-prosess</div>
+        <h2 data-i18n="step4_h2">CNC & sluttresultat</h2>
         <ul class="list">
-          <li>Planfres, boring, gjenging</li>
-          <li>Passninger, flater og presisjon</li>
-          <li>Levering / henting</li>
+          <li data-i18n="step4_li1">Planfres, boring, gjenging</li>
+          <li data-i18n="step4_li2">Passninger, flater og presisjon</li>
+          <li data-i18n="step4_li3">Levering / henting</li>
         </ul>
       </div>
     </section>
 
     <section class="panel page" style="margin-top:14px;">
-      <div class="kicker">Eksisterende deler</div>
-      <h2>Vi kan forbedre det du allerede har</h2>
+      <div class="kicker" data-i18n="existing_kicker">Eksisterende deler</div>
+      <h2 data-i18n="existing_h2">Vi kan forbedre det du allerede har</h2>
       <ul class="list">
-        <li>Bytte materiale for bedre temperatur/kjemi-egenskaper</li>
-        <li>Redesign for økt styrke eller lavere vekt</li>
-        <li>Rask erstatning av utgåtte/legacy komponenter</li>
-        <li>Tilpasning for enklere montering og service</li>
+        <li data-i18n="existing_li1">Bytte materiale for bedre temperatur/kjemi-egenskaper</li>
+        <li data-i18n="existing_li2">Redesign for økt styrke eller lavere vekt</li>
+        <li data-i18n="existing_li3">Rask erstatning av utgåtte/legacy komponenter</li>
+        <li data-i18n="existing_li4">Tilpasning for enklere montering og service</li>
       </ul>
     </section>
 
     <footer>
       <div class="small">© <span id="y"></span> EIKO Additive</div>
-      <div class="small"><a href="kontakt.html" style="text-decoration:underline;">EIKO@EIKOAdditive.no</a></div>
+      <div class="small">
+        <a href="kontakt.html" style="text-decoration:underline;" data-i18n="footer_email">EIKO@EIKOAdditive.no</a>
+      </div>
     </footer>
   </div>
 
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("y").textContent = new Date().getFullYear();
+
+      const i18n = {
+        no: {
+          nav_home: "Hjem",
+          nav_services: "Tjenester",
+          nav_materials: "Materialer",
+          nav_process: "Prosess",
+          nav_contact: "Kontakt",
+
+          kicker_process: "Prosess",
+          h1_process: "Fra konsept til ferdig del",
+          p_process_intro:
+            "Vi kan ta imot alt fra en idé, en skisse eller en STEP-fil – og levere en ferdig komponent. Har du allerede en del? Vi kan også hjelpe med å utbedre og forbedre eksisterende løsninger.",
+
+          cta_start_dialog: "Start en dialog",
+          cta_view_services: "Se tjenester",
+
+          step1_kicker: "1) Avklaring",
+          step1_h2: "Krav & miljø",
+          step1_li1: "Temperatur, kjemi, UV/salt og last",
+          step1_li2: "Toleranser, overflate, innfesting",
+          step1_li3: "Antall, lead time og kostmål",
+
+          step2_kicker: "2) Materialvalg",
+          step2_h2: "Riktig polymer",
+          step2_li1: "PEEK/PEKK/PEI/TPI/PA6-CF etter behov",
+          step2_li2: "Designjusteringer for styrke og printbarhet",
+          step2_li3: "Plan for etterbehandling (CNC) ved behov",
+
+          step3_kicker: "3) Produksjon",
+          step3_h2: "3D-print og kvalitet",
+          step3_li1: "Kontroll på prosess og repeterbarhet",
+          step3_li2: "Prototyping med raske iterasjoner",
+          step3_li3: "Småserier med stabile parametere",
+
+          step4_kicker: "4) Post-prosess",
+          step4_h2: "CNC & sluttresultat",
+          step4_li1: "Planfres, boring, gjenging",
+          step4_li2: "Passninger, flater og presisjon",
+          step4_li3: "Levering / henting",
+
+          existing_kicker: "Eksisterende deler",
+          existing_h2: "Vi kan forbedre det du allerede har",
+          existing_li1: "Bytte materiale for bedre temperatur/kjemi-egenskaper",
+          existing_li2: "Redesign for økt styrke eller lavere vekt",
+          existing_li3: "Rask erstatning av utgåtte/legacy komponenter",
+          existing_li4: "Tilpasning for enklere montering og service",
+
+          footer_email: "EIKO@EIKOAdditive.no"
+        },
+
+        en: {
+          nav_home: "Home",
+          nav_services: "Services",
+          nav_materials: "Materials",
+          nav_process: "Process",
+          nav_contact: "Contact",
+
+          kicker_process: "Process",
+          h1_process: "From concept to finished part",
+          p_process_intro:
+            "We can take anything from an idea, a sketch, or a STEP file — and deliver a finished component. Already have a part? We can also help improve and refine existing solutions.",
+
+          cta_start_dialog: "Start a dialog",
+          cta_view_services: "View services",
+
+          step1_kicker: "1) Clarification",
+          step1_h2: "Requirements & environment",
+          step1_li1: "Temperature, chemicals, UV/salt exposure and loads",
+          step1_li2: "Tolerances, surfaces, interfaces/mounting",
+          step1_li3: "Quantity, lead time and cost targets",
+
+          step2_kicker: "2) Material selection",
+          step2_h2: "The right polymer",
+          step2_li1: "PEEK/PEKK/PEI/TPI/PA6-CF as needed",
+          step2_li2: "Design adjustments for strength and printability",
+          step2_li3: "Post-processing plan (CNC) when required",
+
+          step3_kicker: "3) Production",
+          step3_h2: "3D printing and quality",
+          step3_li1: "Process control and repeatability",
+          step3_li2: "Rapid prototyping with fast iterations",
+          step3_li3: "Small series with stable parameters",
+
+          step4_kicker: "4) Post-processing",
+          step4_h2: "CNC & final result",
+          step4_li1: "Facing, drilling, tapping",
+          step4_li2: "Fits, surfaces and precision",
+          step4_li3: "Delivery / pickup",
+
+          existing_kicker: "Existing parts",
+          existing_h2: "We can improve what you already have",
+          existing_li1: "Change material for better temperature/chemical performance",
+          existing_li2: "Redesign for higher strength or lower weight",
+          existing_li3: "Fast replacement of discontinued/legacy components",
+          existing_li4: "Adaptations for easier assembly and service",
+
+          footer_email: "EIKO@EIKOAdditive.no"
+        }
+      };
+
+      function setLanguage(lang) {
+        const dict = i18n[lang] || i18n.no;
+
+        document.documentElement.lang = (lang === "en") ? "en" : "no";
+
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+          const key = el.getAttribute("data-i18n");
+          if (dict[key]) el.textContent = dict[key];
+        });
+
+        const btnNo = document.getElementById("btn-no");
+        const btnEn = document.getElementById("btn-en");
+        if (btnNo) btnNo.classList.toggle("active", lang === "no");
+        if (btnEn) btnEn.classList.toggle("active", lang === "en");
+
+        localStorage.setItem("eiko_lang", lang);
+      }
+
+      const btnNo = document.getElementById("btn-no");
+      const btnEn = document.getElementById("btn-en");
+      if (btnNo) btnNo.addEventListener("click", () => setLanguage("no"));
+      if (btnEn) btnEn.addEventListener("click", () => setLanguage("en"));
+
+      const saved = localStorage.getItem("eiko_lang");
+      setLanguage(saved === "en" ? "en" : "no");
+    });
+  </script>
 </body>
 </html>
