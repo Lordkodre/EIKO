@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title data-i18n="contact_title">EIKO Additive – Kontakt</title>
+  <title>EIKO Additive – Kontakt</title>
   <meta name="description" content="Kontakt EIKO Additive for LFAM i høyytelsespolymerer, post-maskinering, materialvalg og topologioptimalisering." />
   <link rel="stylesheet" href="styles.css" />
 
@@ -74,7 +74,7 @@
         <a href="index.html" data-i18n="nav_home">Hjem</a>
         <a href="tjenester.html" data-i18n="nav_services">Tjenester</a>
         <a href="materialer.html" data-i18n="nav_materials">Materialer</a>
-        <a href="faq.html" data-i18n="nav_faq">FAQ</a>
+        <a href="prosess.html" data-i18n="nav_process">Prosess</a>
         <a class="active" href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
       </nav>
 
@@ -97,7 +97,6 @@
       </p>
 
       <div class="contact-grid">
-        <!-- Venstre: enkel "skjema"-layout (ikke faktisk sending uten backend) -->
         <div class="panel card">
           <h2 style="font-size:18px; margin-top:0;" data-i18n="form_h2">Forespørsel</h2>
 
@@ -118,7 +117,6 @@
           </div>
 
           <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
-            <!-- Denne knappen kan byttes til mailto hvis du vil -->
             <a class="btn primary" href="mailto:post@eikoadditive.no?subject=Foresp%C3%B8rsel%20LFAM%20/%20HPP" data-i18n="form_cta_email">
               Send e-post
             </a>
@@ -126,7 +124,6 @@
           </div>
         </div>
 
-        <!-- Høyre: kontaktinfo -->
         <aside class="panel card">
           <h2 style="font-size:18px; margin-top:0;" data-i18n="info_h2">Kontaktinfo</h2>
 
@@ -160,7 +157,7 @@
         nav_home: "Hjem",
         nav_services: "Tjenester",
         nav_materials: "Materialer",
-        nav_faq: "FAQ",
+        nav_process: "Prosess",
         nav_contact: "Kontakt",
 
         contact_title: "EIKO Additive – Kontakt",
@@ -191,7 +188,7 @@
         nav_home: "Home",
         nav_services: "Services",
         nav_materials: "Materials",
-        nav_faq: "FAQ",
+        nav_process: "Process",
         nav_contact: "Contact",
 
         contact_title: "EIKO Additive – Contact",
@@ -229,7 +226,6 @@
         if (dict[key]) el.textContent = dict[key];
       });
 
-      // Title (siden title har data-i18n, men vi setter den eksplisitt for sikkerhet)
       document.title = dict.contact_title || document.title;
 
       document.getElementById("btn-no").classList.toggle("active", lang === "no");
