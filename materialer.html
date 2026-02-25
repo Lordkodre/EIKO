@@ -4,28 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EIKO Additive – Materialer</title>
-  <meta name="description" content="Materialtabell for høyytelsespolymerer: brukstemperatur, UTS, kjemi, UV, kryp og printbarhet." />
+  <meta name="description" content="Materialtabell: maks driftstemperatur, UTS, flytegrense og E-modul." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    .lang-switch{
-      display:flex; align-items:center; gap:10px;
-      margin-left:auto;
-    }
+    .lang-switch{ display:flex; align-items:center; gap:10px; margin-left:auto; }
     .flagbtn{
       display:inline-flex; align-items:center; justify-content:center;
-      width:36px; height:26px;
-      border-radius:8px;
+      width:36px; height:26px; border-radius:8px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
-      cursor:pointer;
-      padding:0;
+      cursor:pointer; padding:0;
     }
-    .flagbtn img{
-      width:22px; height:16px; object-fit:cover;
-      border-radius:3px;
-      display:block;
-    }
+    .flagbtn img{ width:22px; height:16px; object-fit:cover; border-radius:3px; display:block; }
     .flagbtn.active{
       border-color: rgba(99,179,255,.45);
       box-shadow: 0 10px 24px rgba(0,0,0,.25);
@@ -36,7 +27,7 @@
       .header-panel .nav{ width:100%; justify-content:flex-start; }
     }
 
-    /* Tabell-stil som passer "panel" look */
+    /* Table container */
     .table-wrap{
       overflow-x:auto;
       border-radius: 18px;
@@ -48,21 +39,16 @@
       width:100%;
       border-collapse: separate;
       border-spacing: 0;
-      min-width: 1100px; /* gjør at den blir "tabell" og scroller på mobil */
+      min-width: 860px; /* scroller på mobil */
     }
     .material-table th,
     .material-table td{
       padding: 12px 12px;
       border-bottom: 1px solid rgba(255,255,255,.06);
-      vertical-align: top;
+      vertical-align: middle;
       font-size: 13px;
       color: #d9e4ff;
       white-space: nowrap;
-    }
-    .material-table td.note,
-    .material-table td.wrap{
-      white-space: normal;
-      min-width: 220px;
     }
     .material-table thead th{
       position: sticky;
@@ -74,24 +60,27 @@
       color:#eaf1ff;
       border-bottom: 1px solid rgba(255,255,255,.10);
     }
-    .material-table tr:hover td{
-      background: rgba(255,255,255,.02);
-    }
+    .material-table tr:hover td{ background: rgba(255,255,255,.02); }
 
-    .chip{
+    /* Simple “how good” tags */
+    .pill{
       display:inline-flex;
       align-items:center;
-      padding:4px 8px;
+      gap:6px;
+      padding:4px 10px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
       font-size: 12px;
-      white-space: nowrap;
     }
-    .subtle{
-      color: rgba(147,164,199,.90);
-      font-size: 12px;
-    }
+    .pill strong{ font-weight:700; }
+    .subtle{ color: rgba(147,164,199,.92); font-size: 12px; }
+    .wrapcell{ white-space: normal; min-width: 220px; }
+
+    /* “levels” without colors (keeps design consistent) */
+    .lvl-high{ }
+    .lvl-mid{ }
+    .lvl-low{ }
   </style>
 </head>
 
@@ -129,10 +118,9 @@
     <section class="panel pagehead">
       <div class="meta">
         <div class="kicker" data-i18n="kicker_materials">Materialer</div>
-        <h1 data-i18n="h1_materials">Materialoversikt – rask sammenligning</h1>
+        <h1 data-i18n="h1_materials">Rask sammenligning</h1>
         <p class="small" data-i18n="p_materials_intro" style="font-size:16px; margin:0;">
-          Under er en praktisk “shopping-liste” over egenskaper. Tall er typiske estimater og påvirkes av grade og print-retning.
-          For tilbud bruker vi kravene dine (temp, kjemi, last, toleranser) og foreslår best polymer + prosess.
+          Typiske materialdata for 3D-printede deler. Verdier varierer med grade og print-retning.
         </p>
       </div>
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
@@ -144,7 +132,7 @@
     <!-- TABLE -->
     <section class="panel page" style="margin-top:14px;">
       <div class="kicker" data-i18n="table_kicker">Tabell</div>
-      <h2 data-i18n="table_h2">Typiske materialdata (grovt)</h2>
+      <h2 data-i18n="table_h2">Kjerneparametre</h2>
       <div class="subtle" data-i18n="table_hint" style="margin-bottom:10px;">
         Tips: På mobil kan du scrolle tabellen sidelengs.
       </div>
@@ -154,107 +142,69 @@
           <thead>
             <tr>
               <th data-i18n="th_material">Material</th>
-              <th data-i18n="th_use_temp">Brukstemp (kont.)</th>
-              <th data-i18n="th_uts">UTS (typisk)</th>
+              <th data-i18n="th_level">Nivå</th>
+              <th data-i18n="th_temp">Maks driftstemperatur</th>
+              <th data-i18n="th_uts">UTS</th>
               <th data-i18n="th_yield">Flytegrense</th>
-              <th data-i18n="th_chem">Kjemi</th>
-              <th data-i18n="th_uv">UV</th>
-              <th data-i18n="th_salt">Saltvann</th>
-              <th data-i18n="th_chlorine">Klor</th>
-              <th data-i18n="th_print">Printbarhet</th>
-              <th data-i18n="th_shrink">Krymp/warp</th>
-              <th data-i18n="th_fatigue">Utmatting</th>
-              <th data-i18n="th_creep">Kryp</th>
-              <th data-i18n="th_notes">Notater</th>
+              <th data-i18n="th_emod">E-modul</th>
+              <th data-i18n="th_note">Kommentar</th>
             </tr>
           </thead>
 
           <tbody>
             <tr>
-              <td><span class="chip">PEEK</span></td>
+              <td><strong>PEEK</strong></td>
+              <td>
+                <span class="pill lvl-high"><strong data-i18n="lvl_top">Topp</strong> <span class="subtle" data-i18n="lvl_temp_strength">temp + styrke</span></span>
+              </td>
               <td>240–260°C</td>
               <td>90–110 MPa</td>
-              <td>~70–95 MPa</td>
-              <td>⭐⭐⭐⭐⭐</td>
-              <td>⭐⭐⭐☆</td>
-              <td>⭐⭐⭐⭐⭐</td>
-              <td>⭐⭐⭐⭐☆</td>
-              <td>⭐⭐☆ (krever “seriøs” maskin)</td>
-              <td>⭐⭐⭐☆</td>
-              <td>⭐⭐⭐⭐☆</td>
-              <td>⭐⭐⭐⭐☆</td>
-              <td class="note">Best når temp + kjemi er hardest. Print er anisotrop – CNC på kritiske flater anbefales.</td>
+              <td>70–95 MPa</td>
+              <td>3.5–4.0 GPa</td>
+              <td class="wrapcell" data-i18n="note_peek">Best når driftstemperatur og kjemi er krevende.</td>
             </tr>
 
             <tr>
-              <td><span class="chip">PEKK</span></td>
+              <td><strong>PEKK</strong></td>
+              <td>
+                <span class="pill lvl-high"><strong data-i18n="lvl_top">Topp</strong> <span class="subtle" data-i18n="lvl_temp_strength">temp + styrke</span></span>
+              </td>
               <td>230–260°C</td>
               <td>85–110 MPa</td>
-              <td>~65–90 MPa</td>
-              <td>⭐⭐⭐⭐⭐</td>
-              <td>⭐⭐⭐☆</td>
-              <td>⭐⭐⭐⭐⭐</td>
-              <td>⭐⭐⭐⭐☆</td>
-              <td>⭐⭐⭐ (ofte litt enklere enn PEEK)</td>
-              <td>⭐⭐⭐☆</td>
-              <td>⭐⭐⭐⭐☆</td>
-              <td>⭐⭐⭐⭐☆</td>
-              <td class="note">God “PEEK-klassen” ytelse med litt større prosessvindu (avhenger av grade/krystallinitet).</td>
+              <td>65–90 MPa</td>
+              <td>3.0–4.0 GPa</td>
+              <td class="wrapcell" data-i18n="note_pekk">PEEK-klassen ytelse, ofte større prosessvindu (grade-avhengig).</td>
             </tr>
 
             <tr>
-              <td><span class="chip">PEI (ULTEM)</span></td>
+              <td><strong>PEI (ULTEM)</strong></td>
+              <td>
+                <span class="pill lvl-mid"><strong data-i18n="lvl_high">Høy</strong> <span class="subtle" data-i18n="lvl_temp">temp</span></span>
+              </td>
               <td>160–180°C</td>
               <td>70–90 MPa</td>
-              <td>~55–75 MPa</td>
-              <td>⭐⭐⭐⭐☆</td>
-              <td>⭐⭐☆ (ofte coating/tiltak)</td>
-              <td>⭐⭐⭐⭐☆</td>
-              <td>⭐⭐⭐☆</td>
-              <td>⭐⭐⭐⭐ (høytemp men “snillere”)</td>
-              <td>⭐⭐⭐☆</td>
-              <td>⭐⭐⭐☆</td>
-              <td>⭐⭐⭐☆</td>
-              <td class="note">Sterk kandidat for varme, stivhet og god “value”. UV utendørs krever ofte beskyttelse.</td>
+              <td>55–75 MPa</td>
+              <td>2.8–3.4 GPa</td>
+              <td class="wrapcell" data-i18n="note_pei">God stivhet og “value” i høytemp-segmentet.</td>
             </tr>
 
             <tr>
-              <td><span class="chip">TPI</span></td>
-              <td>~200–240°C*</td>
-              <td>—*</td>
-              <td>—*</td>
-              <td>⭐⭐⭐⭐☆</td>
-              <td>⭐⭐⭐☆</td>
-              <td>⭐⭐⭐⭐☆</td>
-              <td>⭐⭐⭐☆</td>
-              <td>⭐⭐ (niche / prosessavhengig)</td>
-              <td>⭐⭐⭐☆</td>
-              <td>⭐⭐⭐☆</td>
-              <td>⭐⭐⭐☆</td>
-              <td class="note">*TPI varierer mye mellom varianter. Her bør vi fylle inn data for den spesifikke graden dere ønsker.</td>
-            </tr>
-
-            <tr>
-              <td><span class="chip">PA6-CF / Nylon-CF</span></td>
+              <td><strong>PA6-CF</strong></td>
+              <td>
+                <span class="pill lvl-mid"><strong data-i18n="lvl_high">Høy</strong> <span class="subtle" data-i18n="lvl_stiffness">stivhet</span></span>
+              </td>
               <td>100–150°C</td>
               <td>60–90 MPa</td>
               <td>—</td>
-              <td>⭐⭐⭐☆</td>
-              <td>⭐⭐☆</td>
-              <td>⭐⭐⭐☆</td>
-              <td>⭐⭐☆</td>
-              <td>⭐⭐⭐⭐⭐</td>
-              <td>⭐⭐⭐ (CF hjelper)</td>
-              <td>⭐⭐⭐☆</td>
-              <td>⭐⭐☆ (fukt/varme påvirker)</td>
-              <td class="note">Veldig bra til jigger/fixtures og strukturer. Husk fukt (PA) + creep ved varme/last.</td>
+              <td>5–10 GPa</td>
+              <td class="wrapcell" data-i18n="note_pa6cf">Veldig bra til jigger/fixtures og strukturdeler. Fukt påvirker.</td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <div class="note" style="margin-top:12px;" data-i18n="table_note">
-        ⭐ = lav / dårligere, ⭐⭐⭐⭐⭐ = høy / bedre. Tall og rating er grove – vi kan lage en “din versjon” av tabellen per materiale/grade (datablad + printparametre).
+        Verdier er typiske intervaller. Hvis du vil kan vi endre til “min/typ/max” eller bruke tall fra spesifikke datablad (material-grade).
       </div>
     </section>
 
@@ -277,33 +227,36 @@
           nav_contact: "Kontakt",
 
           kicker_materials: "Materialer",
-          h1_materials: "Materialoversikt – rask sammenligning",
-          p_materials_intro:
-            "Under er en praktisk “shopping-liste” over egenskaper. Tall er typiske estimater og påvirkes av grade og print-retning. For tilbud bruker vi kravene dine (temp, kjemi, last, toleranser) og foreslår best polymer + prosess.",
+          h1_materials: "Rask sammenligning",
+          p_materials_intro: "Typiske materialdata for 3D-printede deler. Verdier varierer med grade og print-retning.",
 
           cta_help_select: "Hjelp meg å velge",
           cta_view_process: "Se prosess",
 
           table_kicker: "Tabell",
-          table_h2: "Typiske materialdata (grovt)",
+          table_h2: "Kjerneparametre",
           table_hint: "Tips: På mobil kan du scrolle tabellen sidelengs.",
 
           th_material: "Material",
-          th_use_temp: "Brukstemp (kont.)",
-          th_uts: "UTS (typisk)",
+          th_level: "Nivå",
+          th_temp: "Maks driftstemperatur",
+          th_uts: "UTS",
           th_yield: "Flytegrense",
-          th_chem: "Kjemi",
-          th_uv: "UV",
-          th_salt: "Saltvann",
-          th_chlorine: "Klor",
-          th_print: "Printbarhet",
-          th_shrink: "Krymp/warp",
-          th_fatigue: "Utmatting",
-          th_creep: "Kryp",
-          th_notes: "Notater",
+          th_emod: "E-modul",
+          th_note: "Kommentar",
 
-          table_note:
-            "⭐ = lav / dårligere, ⭐⭐⭐⭐⭐ = høy / bedre. Tall og rating er grove – vi kan lage en “din versjon” av tabellen per materiale/grade (datablad + printparametre)."
+          lvl_top: "Topp",
+          lvl_high: "Høy",
+          lvl_temp_strength: "temp + styrke",
+          lvl_temp: "temp",
+          lvl_stiffness: "stivhet",
+
+          note_peek: "Best når driftstemperatur og kjemi er krevende.",
+          note_pekk: "PEEK-klassen ytelse, ofte større prosessvindu (grade-avhengig).",
+          note_pei: "God stivhet og “value” i høytemp-segmentet.",
+          note_pa6cf: "Veldig bra til jigger/fixtures og strukturdeler. Fukt påvirker.",
+
+          table_note: "Verdier er typiske intervaller. Hvis du vil kan vi endre til “min/typ/max” eller bruke tall fra spesifikke datablad (material-grade)."
         },
 
         en: {
@@ -314,33 +267,36 @@
           nav_contact: "Contact",
 
           kicker_materials: "Materials",
-          h1_materials: "Materials overview – quick comparison",
-          p_materials_intro:
-            "This is a practical quick-compare table. Values are rough typical estimates and depend heavily on grade and print orientation. For quotes we use your requirements (temperature, chemistry, loads, tolerances) and recommend the best polymer + process.",
+          h1_materials: "Quick comparison",
+          p_materials_intro: "Typical material data for 3D printed parts. Values depend on grade and print orientation.",
 
           cta_help_select: "Help me choose",
           cta_view_process: "View process",
 
           table_kicker: "Table",
-          table_h2: "Typical material data (rough)",
+          table_h2: "Core parameters",
           table_hint: "Tip: On mobile you can scroll the table sideways.",
 
           th_material: "Material",
-          th_use_temp: "Service temp (cont.)",
-          th_uts: "UTS (typical)",
-          th_yield: "Yield",
-          th_chem: "Chemicals",
-          th_uv: "UV",
-          th_salt: "Seawater",
-          th_chlorine: "Chlorine",
-          th_print: "Printability",
-          th_shrink: "Shrink/warp",
-          th_fatigue: "Fatigue",
-          th_creep: "Creep",
-          th_notes: "Notes",
+          th_level: "Level",
+          th_temp: "Max service temperature",
+          th_uts: "UTS",
+          th_yield: "Yield strength",
+          th_emod: "Young’s modulus",
+          th_note: "Comment",
 
-          table_note:
-            "⭐ = lower/worse, ⭐⭐⭐⭐⭐ = higher/better. Values and ratings are rough — we can produce a ‘your version’ table per material/grade (datasheet + print parameters)."
+          lvl_top: "Top",
+          lvl_high: "High",
+          lvl_temp_strength: "temp + strength",
+          lvl_temp: "temp",
+          lvl_stiffness: "stiffness",
+
+          note_peek: "Best choice when service temperature and chemicals are demanding.",
+          note_pekk: "PEEK-class performance, often a wider process window (grade dependent).",
+          note_pei: "Great stiffness and value in the high-temp segment.",
+          note_pa6cf: "Excellent for jigs/fixtures and structural parts. Moisture matters.",
+
+          table_note: "Values are typical ranges. If you want, we can switch to min/typ/max or use numbers from specific datasheets (material grade)."
         }
       };
 
@@ -353,10 +309,8 @@
           if (dict[key]) el.textContent = dict[key];
         });
 
-        const btnNo = document.getElementById("btn-no");
-        const btnEn = document.getElementById("btn-en");
-        if (btnNo) btnNo.classList.toggle("active", lang === "no");
-        if (btnEn) btnEn.classList.toggle("active", lang === "en");
+        document.getElementById("btn-no").classList.toggle("active", lang === "no");
+        document.getElementById("btn-en").classList.toggle("active", lang === "en");
 
         localStorage.setItem("eiko_lang", lang);
       }
