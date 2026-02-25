@@ -74,7 +74,7 @@
         <div class="kicker" data-i18n="kicker_services">Tjenester</div>
         <h1 data-i18n="h1_services">Fra idé til ferdig komponent</h1>
         <p class="small" data-i18n="p_services_intro" style="font-size:16px; margin:0;">
-          Vi tilbyr storformat 3D-print (LFAM/FFF) i høyytelsespolymerer, post-maskinering på CNC, og støtte til design/materialvalg.
+          Vi tilbyr additive manufacturing (LFAM/FFF) i høyytelsespolymerer, maskinering på CNC, og støtte til CAD og engineering.
         </p>
       </div>
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
@@ -85,22 +85,25 @@
 
     <!-- SERVICES -->
     <section class="grid2" style="margin-top:14px;">
+      <!-- 1) Storformat 3D-print -> Additive manufacturing (merged) -->
       <div class="panel card">
         <div class="kicker">LFAM / FFF</div>
-        <h2 data-i18n="svc1_title">Storformat 3D-print</h2>
+        <h2 data-i18n="svc1_title">Additive manufacturing</h2>
         <p class="small" data-i18n="svc1_desc">
-          Store funksjonelle deler og prototyper – raskt, robust og med materialer til krevende miljø.
+          Store funksjonelle deler og prototyper – i polymerer som tåler varme, kjemi og mekanisk last. Vi hjelper også med materialvalg og prosess for å sikre riktig ytelse og levetid.
         </p>
         <ul class="list">
-          <li data-i18n="svc1_li1">Store geometrier og tykke vegger</li>
-          <li data-i18n="svc1_li2">Høytemp polymerer (HPP)</li>
-          <li data-i18n="svc1_li3">Prototyper og småserier</li>
+          <li data-i18n="svc1_li1">Store geometrier og tykke vegger (LFAM/FFF)</li>
+          <li data-i18n="svc1_li2">HPP-materialer: PEEK, PEKK, PEI (ULTEM), TPI</li>
+          <li data-i18n="svc1_li3">Prototyper og småserier – print alene eller print + maskinering</li>
         </ul>
       </div>
 
+      <!-- 3) Post-maskinering -> Maskinering + bilde -->
       <div class="panel card">
+        <img class="cardimg" src="CNCFFF.png" alt="Maskinering / CNC" />
         <div class="kicker">CNC</div>
-        <h2 data-i18n="svc2_title">Post-maskinering</h2>
+        <h2 data-i18n="svc2_title">Maskinering</h2>
         <p class="small" data-i18n="svc2_desc">
           Vi maskinerer kritiske flater, hull og innfestinger slik at du får riktige toleranser der det trengs.
         </p>
@@ -113,29 +116,33 @@
     </section>
 
     <section class="grid2">
+      <!-- 2) Design for Additive -> CAD design + bilde -->
       <div class="panel card">
-        <div class="kicker">Design</div>
-        <h2 data-i18n="svc3_title">Design for Additive</h2>
+        <img class="cardimg" src="CADFFF.png" alt="CAD design" />
+        <div class="kicker">CAD</div>
+        <h2 data-i18n="svc3_title">CAD design</h2>
         <p class="small" data-i18n="svc3_desc">
-          Vi hjelper deg å designe deler som utnytter additive produksjon – mindre vekt, færre deler og bedre ytelse.
+          Vi hjelper deg med CAD fra konsept til produksjonsklar modell – tilpasset additive manufacturing og etterarbeid.
         </p>
         <ul class="list">
-          <li data-i18n="svc3_li1">Optimalisering for print og etterarbeid</li>
-          <li data-i18n="svc3_li2">Funksjonsflater og toleranser</li>
-          <li data-i18n="svc3_li3">Kost/vekt/ytelse-balanse</li>
+          <li data-i18n="svc3_li1">Design for printbarhet, stivhet og produksjon</li>
+          <li data-i18n="svc3_li2">Funksjonsflater, innfestinger og toleranser</li>
+          <li data-i18n="svc3_li3">Reduksjon av deler og enklere montasje</li>
         </ul>
       </div>
 
+      <!-- 4) Rådgivning og materialvalg -> Engineering + bilde + topo/analyse -->
       <div class="panel card">
-        <div class="kicker">Materialvalg</div>
-        <h2 data-i18n="svc4_title">Rådgivning og materialvalg</h2>
+        <img class="cardimg" src="ENGFFF.png" alt="Engineering" />
+        <div class="kicker">Engineering</div>
+        <h2 data-i18n="svc4_title">Engineering</h2>
         <p class="small" data-i18n="svc4_desc">
-          Temperatur, kjemi, last og levetid styrer valg av polymer. Vi foreslår riktig materiale og prosess.
+          Vi støtter utvikling med topologioptimalisering og analyser for å redusere vekt, øke stivhet og forbedre ytelse. Målet er deler som fungerer i praksis – og som kan produseres effektivt.
         </p>
         <ul class="list">
-          <li data-i18n="svc4_li1">PEEK, PEKK, PEI (ULTEM), TPI</li>
-          <li data-i18n="svc4_li2">Kryp/utmatting og dimensjonsstabilitet</li>
-          <li data-i18n="svc4_li3">Miljø: UV, salt, kjemi</li>
+          <li data-i18n="svc4_li1">Topologioptimalisering for vekt/stivhet</li>
+          <li data-i18n="svc4_li2">Lastforståelse, dimensjonering og designvalg</li>
+          <li data-i18n="svc4_li3">DFM for additive + maskinering (toleranser, etterarbeid, levetid)</li>
         </ul>
       </div>
     </section>
@@ -160,7 +167,8 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("y").textContent = new Date().getFullYear();
+      // bugfix: riktig id er "year"
+      document.getElementById("year").textContent = new Date().getFullYear();
 
       const i18n = {
         no: {
@@ -172,34 +180,34 @@
 
           kicker_services: "Tjenester",
           h1_services: "Fra idé til ferdig komponent",
-          p_services_intro: "Vi tilbyr storformat 3D-print (LFAM/FFF) i høyytelsespolymerer, post-maskinering på CNC, og støtte til design/materialvalg.",
+          p_services_intro: "Vi tilbyr additive manufacturing (LFAM/FFF) i høyytelsespolymerer, maskinering på CNC, og støtte til CAD og engineering.",
 
           cta_request_quote: "Be om tilbud",
           cta_view_process: "Se prosess",
 
-          svc1_title: "Storformat 3D-print",
-          svc1_desc: "Store funksjonelle deler og prototyper – raskt, robust og med materialer til krevende miljø.",
-          svc1_li1: "Store geometrier og tykke vegger",
-          svc1_li2: "Høytemp polymerer (HPP)",
-          svc1_li3: "Prototyper og småserier",
+          svc1_title: "Additive manufacturing",
+          svc1_desc: "Store funksjonelle deler og prototyper – i polymerer som tåler varme, kjemi og mekanisk last. Vi hjelper også med materialvalg og prosess for å sikre riktig ytelse og levetid.",
+          svc1_li1: "Store geometrier og tykke vegger (LFAM/FFF)",
+          svc1_li2: "HPP-materialer: PEEK, PEKK, PEI (ULTEM), TPI",
+          svc1_li3: "Prototyper og småserier – print alene eller print + maskinering",
 
-          svc2_title: "Post-maskinering",
+          svc2_title: "Maskinering",
           svc2_desc: "Vi maskinerer kritiske flater, hull og innfestinger slik at du får riktige toleranser der det trengs.",
           svc2_li1: "Planhet, tetningsflater og presisjonshull",
           svc2_li2: "Bearbeiding av store emner",
           svc2_li3: "Kombi: print + maskinering",
 
-          svc3_title: "Design for Additive",
-          svc3_desc: "Vi hjelper deg å designe deler som utnytter additive produksjon – mindre vekt, færre deler og bedre ytelse.",
-          svc3_li1: "Optimalisering for print og etterarbeid",
-          svc3_li2: "Funksjonsflater og toleranser",
-          svc3_li3: "Kost/vekt/ytelse-balanse",
+          svc3_title: "CAD design",
+          svc3_desc: "Vi hjelper deg med CAD fra konsept til produksjonsklar modell – tilpasset additive manufacturing og etterarbeid.",
+          svc3_li1: "Design for printbarhet, stivhet og produksjon",
+          svc3_li2: "Funksjonsflater, innfestinger og toleranser",
+          svc3_li3: "Reduksjon av deler og enklere montasje",
 
-          svc4_title: "Rådgivning og materialvalg",
-          svc4_desc: "Temperatur, kjemi, last og levetid styrer valg av polymer. Vi foreslår riktig materiale og prosess.",
-          svc4_li1: "PEEK, PEKK, PEI (ULTEM), TPI",
-          svc4_li2: "Kryp/utmatting og dimensjonsstabilitet",
-          svc4_li3: "Miljø: UV, salt, kjemi",
+          svc4_title: "Engineering",
+          svc4_desc: "Vi støtter utvikling med topologioptimalisering og analyser for å redusere vekt, øke stivhet og forbedre ytelse. Målet er deler som fungerer i praksis – og som kan produseres effektivt.",
+          svc4_li1: "Topologioptimalisering for vekt/stivhet",
+          svc4_li2: "Lastforståelse, dimensjonering og designvalg",
+          svc4_li3: "DFM for additive + maskinering (toleranser, etterarbeid, levetid)",
 
           cta_kicker: "Neste steg",
           cta_h2: "Send oss krav – vi foreslår løsning",
@@ -217,34 +225,34 @@
 
           kicker_services: "Services",
           h1_services: "From idea to finished component",
-          p_services_intro: "We provide large-format 3D printing (LFAM/FFF) in high-performance polymers, CNC post-machining, and support for design/material selection.",
+          p_services_intro: "We provide additive manufacturing (LFAM/FFF) in high-performance polymers, CNC machining, and support for CAD and engineering.",
 
           cta_request_quote: "Request a quote",
           cta_view_process: "View process",
 
-          svc1_title: "Large-format 3D printing",
-          svc1_desc: "Large functional parts and prototypes — fast, robust, and suited for demanding environments.",
-          svc1_li1: "Large geometries and thick walls",
-          svc1_li2: "High-performance polymers (HPP)",
-          svc1_li3: "Prototypes and small batches",
+          svc1_title: "Additive manufacturing",
+          svc1_desc: "Large functional parts and prototypes — in polymers built for heat, chemicals and mechanical loads. We also support material selection and process choices to ensure performance and lifetime.",
+          svc1_li1: "Large geometries and thick walls (LFAM/FFF)",
+          svc1_li2: "HPP materials: PEEK, PEKK, PEI (ULTEM), TPI",
+          svc1_li3: "Prototypes and small batches — print only or print + machining",
 
-          svc2_title: "Post-machining",
+          svc2_title: "Machining",
           svc2_desc: "We machine critical surfaces, holes and interfaces to achieve the tolerances you need.",
           svc2_li1: "Flatness, sealing faces and precision holes",
           svc2_li2: "Machining of large parts",
           svc2_li3: "Combo: print + machining",
 
-          svc3_title: "Design for Additive",
-          svc3_desc: "We help you design parts that leverage additive manufacturing — lower weight, fewer parts and better performance.",
-          svc3_li1: "Optimization for printing and post-processing",
-          svc3_li2: "Functional surfaces and tolerances",
-          svc3_li3: "Cost/weight/performance trade-offs",
+          svc3_title: "CAD design",
+          svc3_desc: "We support CAD from concept to production-ready models — tailored for additive manufacturing and post-processing.",
+          svc3_li1: "Design for printability, stiffness and production",
+          svc3_li2: "Functional surfaces, interfaces and tolerances",
+          svc3_li3: "Part consolidation and simpler assembly",
 
-          svc4_title: "Advisory & material selection",
-          svc4_desc: "Temperature, chemicals, loads and lifetime drive polymer selection. We recommend the right material and process.",
-          svc4_li1: "PEEK, PEKK, PEI (ULTEM), TPI",
-          svc4_li2: "Creep/fatigue and dimensional stability",
-          svc4_li3: "Environment: UV, salt, chemicals",
+          svc4_title: "Engineering",
+          svc4_desc: "We support development with topology optimization and analyses to reduce weight, increase stiffness and improve performance. The goal is parts that work in real life — and can be manufactured efficiently.",
+          svc4_li1: "Topology optimization for weight/stiffness",
+          svc4_li2: "Load understanding, sizing and design decisions",
+          svc4_li3: "DFM for additive + machining (tolerances, post-processing, lifetime)",
 
           cta_kicker: "Next step",
           cta_h2: "Send requirements — we’ll propose the best solution",
@@ -279,4 +287,3 @@
   </script>
 </body>
 </html>
-
