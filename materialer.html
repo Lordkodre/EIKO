@@ -27,7 +27,6 @@
       .header-panel .nav{ width:100%; justify-content:flex-start; }
     }
 
-    /* Table container */
     .table-wrap{
       overflow-x:auto;
       border-radius: 18px;
@@ -39,7 +38,7 @@
       width:100%;
       border-collapse: separate;
       border-spacing: 0;
-      min-width: 860px; /* scroller på mobil */
+      min-width: 760px;
     }
     .material-table th,
     .material-table td{
@@ -60,42 +59,32 @@
       color:#eaf1ff;
       border-bottom: 1px solid rgba(255,255,255,.10);
     }
-    .material-table tr:hover td{ background: rgba(255,255,255,.02); }
-
-    /* Simple “how good” tags */
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
+    .material-table tr:hover td{
+      background: rgba(255,255,255,.02);
+    }
+    .wrapcell{
+      white-space: normal;
+      min-width: 220px;
+    }
+    .subtle{
+      color: rgba(147,164,199,.92);
       font-size: 12px;
     }
-    .pill strong{ font-weight:700; }
-    .subtle{ color: rgba(147,164,199,.92); font-size: 12px; }
-    .wrapcell{ white-space: normal; min-width: 220px; }
-
-    /* “levels” without colors (keeps design consistent) */
-    .lvl-high{ }
-    .lvl-mid{ }
-    .lvl-low{ }
   </style>
 </head>
 
 <body>
   <div class="wrap">
 
-    <!-- HEADER / TOOLBAR -->
+    <!-- HEADER -->
     <header class="panel header-panel">
       <div class="brand">
-        <a class="brandlink" href="index.html" aria-label="EIKO Additive hjem">
+        <a class="brandlink" href="index.html">
           <img class="brandlogo" src="logo.png" alt="EIKO Additive logo" />
         </a>
       </div>
 
-      <nav class="nav" aria-label="Hovedmeny">
+      <nav class="nav">
         <a href="index.html" data-i18n="nav_home">Hjem</a>
         <a href="tjenester.html" data-i18n="nav_services">Tjenester</a>
         <a class="active" href="materialer.html" data-i18n="nav_materials">Materialer</a>
@@ -103,14 +92,9 @@
         <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
       </nav>
 
-      <!-- Språkvelger -->
-      <div class="lang-switch" aria-label="Velg språk">
-        <button class="flagbtn" id="btn-no" type="button" aria-label="Norsk">
-          <img src="flag-no.png" alt="Norsk flagg">
-        </button>
-        <button class="flagbtn" id="btn-en" type="button" aria-label="English">
-          <img src="flag-us.png" alt="US flag">
-        </button>
+      <div class="lang-switch">
+        <button class="flagbtn" id="btn-no"><img src="flag-no.png" alt=""></button>
+        <button class="flagbtn" id="btn-en"><img src="flag-us.png" alt=""></button>
       </div>
     </header>
 
@@ -119,208 +103,78 @@
       <div class="meta">
         <div class="kicker" data-i18n="kicker_materials">Materialer</div>
         <h1 data-i18n="h1_materials">Rask sammenligning</h1>
-        <p class="small" data-i18n="p_materials_intro" style="font-size:16px; margin:0;">
+        <p class="small" data-i18n="p_materials_intro" style="font-size:16px;">
           Typiske materialdata for 3D-printede deler. Verdier varierer med grade og print-retning.
         </p>
-      </div>
-      <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <a class="btn primary" href="kontakt.html" data-i18n="cta_help_select">Hjelp meg å velge</a>
-        <a class="btn" href="prosess.html" data-i18n="cta_view_process">Se prosess</a>
       </div>
     </section>
 
     <!-- TABLE -->
     <section class="panel page" style="margin-top:14px;">
-      <div class="kicker" data-i18n="table_kicker">Tabell</div>
-      <h2 data-i18n="table_h2">Kjerneparametre</h2>
-      <div class="subtle" data-i18n="table_hint" style="margin-bottom:10px;">
-        Tips: På mobil kan du scrolle tabellen sidelengs.
-      </div>
-
       <div class="table-wrap">
-        <table class="material-table" aria-label="Materialtabell">
+        <table class="material-table">
           <thead>
             <tr>
-              <th data-i18n="th_material">Material</th>
-              <th data-i18n="th_level">Nivå</th>
-              <th data-i18n="th_temp">Maks driftstemperatur</th>
-              <th data-i18n="th_uts">UTS</th>
-              <th data-i18n="th_yield">Flytegrense</th>
-              <th data-i18n="th_emod">E-modul</th>
-              <th data-i18n="th_note">Kommentar</th>
+              <th>Material</th>
+              <th>Maks driftstemperatur</th>
+              <th>UTS</th>
+              <th>Flytegrense</th>
+              <th>E-modul</th>
+              <th>Kommentar</th>
             </tr>
           </thead>
-
           <tbody>
             <tr>
               <td><strong>PEEK</strong></td>
-              <td>
-                <span class="pill lvl-high"><strong data-i18n="lvl_top">Topp</strong> <span class="subtle" data-i18n="lvl_temp_strength">temp + styrke</span></span>
-              </td>
               <td>240–260°C</td>
               <td>90–110 MPa</td>
               <td>70–95 MPa</td>
               <td>3.5–4.0 GPa</td>
-              <td class="wrapcell" data-i18n="note_peek">Best når driftstemperatur og kjemi er krevende.</td>
+              <td class="wrapcell">Best når temperatur og kjemisk miljø er krevende.</td>
             </tr>
 
             <tr>
               <td><strong>PEKK</strong></td>
-              <td>
-                <span class="pill lvl-high"><strong data-i18n="lvl_top">Topp</strong> <span class="subtle" data-i18n="lvl_temp_strength">temp + styrke</span></span>
-              </td>
               <td>230–260°C</td>
               <td>85–110 MPa</td>
               <td>65–90 MPa</td>
               <td>3.0–4.0 GPa</td>
-              <td class="wrapcell" data-i18n="note_pekk">PEEK-klassen ytelse, ofte større prosessvindu (grade-avhengig).</td>
+              <td class="wrapcell">PEEK-klasse ytelse, ofte enklere prosessering.</td>
             </tr>
 
             <tr>
               <td><strong>PEI (ULTEM)</strong></td>
-              <td>
-                <span class="pill lvl-mid"><strong data-i18n="lvl_high">Høy</strong> <span class="subtle" data-i18n="lvl_temp">temp</span></span>
-              </td>
               <td>160–180°C</td>
               <td>70–90 MPa</td>
               <td>55–75 MPa</td>
               <td>2.8–3.4 GPa</td>
-              <td class="wrapcell" data-i18n="note_pei">God stivhet og “value” i høytemp-segmentet.</td>
+              <td class="wrapcell">God stivhet og pris/ytelse i høytemp-segmentet.</td>
             </tr>
 
             <tr>
               <td><strong>PA6-CF</strong></td>
-              <td>
-                <span class="pill lvl-mid"><strong data-i18n="lvl_high">Høy</strong> <span class="subtle" data-i18n="lvl_stiffness">stivhet</span></span>
-              </td>
               <td>100–150°C</td>
               <td>60–90 MPa</td>
               <td>—</td>
               <td>5–10 GPa</td>
-              <td class="wrapcell" data-i18n="note_pa6cf">Veldig bra til jigger/fixtures og strukturdeler. Fukt påvirker.</td>
+              <td class="wrapcell">Høy stivhet. Egnet for jigger/fixtures og strukturdeler.</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <div class="note" style="margin-top:12px;" data-i18n="table_note">
-        Verdier er typiske intervaller. Hvis du vil kan vi endre til “min/typ/max” eller bruke tall fra spesifikke datablad (material-grade).
+      <div class="note" style="margin-top:12px;">
+        Verdier er typiske intervaller og avhenger av material-grade og print-retning.
       </div>
     </section>
 
     <footer>
       <div class="small">© <span id="y"></span> EIKO Additive</div>
-      <div class="small"><a href="kontakt.html" style="text-decoration:underline;">EIKO@EIKOAdditive.no</a></div>
     </footer>
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("y").textContent = new Date().getFullYear();
-
-      const i18n = {
-        no: {
-          nav_home: "Hjem",
-          nav_services: "Tjenester",
-          nav_materials: "Materialer",
-          nav_process: "Prosess",
-          nav_contact: "Kontakt",
-
-          kicker_materials: "Materialer",
-          h1_materials: "Rask sammenligning",
-          p_materials_intro: "Typiske materialdata for 3D-printede deler. Verdier varierer med grade og print-retning.",
-
-          cta_help_select: "Hjelp meg å velge",
-          cta_view_process: "Se prosess",
-
-          table_kicker: "Tabell",
-          table_h2: "Kjerneparametre",
-          table_hint: "Tips: På mobil kan du scrolle tabellen sidelengs.",
-
-          th_material: "Material",
-          th_level: "Nivå",
-          th_temp: "Maks driftstemperatur",
-          th_uts: "UTS",
-          th_yield: "Flytegrense",
-          th_emod: "E-modul",
-          th_note: "Kommentar",
-
-          lvl_top: "Topp",
-          lvl_high: "Høy",
-          lvl_temp_strength: "temp + styrke",
-          lvl_temp: "temp",
-          lvl_stiffness: "stivhet",
-
-          note_peek: "Best når driftstemperatur og kjemi er krevende.",
-          note_pekk: "PEEK-klassen ytelse, ofte større prosessvindu (grade-avhengig).",
-          note_pei: "God stivhet og “value” i høytemp-segmentet.",
-          note_pa6cf: "Veldig bra til jigger/fixtures og strukturdeler. Fukt påvirker.",
-
-          table_note: "Verdier er typiske intervaller. Hvis du vil kan vi endre til “min/typ/max” eller bruke tall fra spesifikke datablad (material-grade)."
-        },
-
-        en: {
-          nav_home: "Home",
-          nav_services: "Services",
-          nav_materials: "Materials",
-          nav_process: "Process",
-          nav_contact: "Contact",
-
-          kicker_materials: "Materials",
-          h1_materials: "Quick comparison",
-          p_materials_intro: "Typical material data for 3D printed parts. Values depend on grade and print orientation.",
-
-          cta_help_select: "Help me choose",
-          cta_view_process: "View process",
-
-          table_kicker: "Table",
-          table_h2: "Core parameters",
-          table_hint: "Tip: On mobile you can scroll the table sideways.",
-
-          th_material: "Material",
-          th_level: "Level",
-          th_temp: "Max service temperature",
-          th_uts: "UTS",
-          th_yield: "Yield strength",
-          th_emod: "Young’s modulus",
-          th_note: "Comment",
-
-          lvl_top: "Top",
-          lvl_high: "High",
-          lvl_temp_strength: "temp + strength",
-          lvl_temp: "temp",
-          lvl_stiffness: "stiffness",
-
-          note_peek: "Best choice when service temperature and chemicals are demanding.",
-          note_pekk: "PEEK-class performance, often a wider process window (grade dependent).",
-          note_pei: "Great stiffness and value in the high-temp segment.",
-          note_pa6cf: "Excellent for jigs/fixtures and structural parts. Moisture matters.",
-
-          table_note: "Values are typical ranges. If you want, we can switch to min/typ/max or use numbers from specific datasheets (material grade)."
-        }
-      };
-
-      function setLanguage(lang){
-        const dict = i18n[lang] || i18n.no;
-        document.documentElement.lang = (lang === "en") ? "en" : "no";
-
-        document.querySelectorAll("[data-i18n]").forEach(el => {
-          const key = el.getAttribute("data-i18n");
-          if (dict[key]) el.textContent = dict[key];
-        });
-
-        document.getElementById("btn-no").classList.toggle("active", lang === "no");
-        document.getElementById("btn-en").classList.toggle("active", lang === "en");
-
-        localStorage.setItem("eiko_lang", lang);
-      }
-
-      document.getElementById("btn-no").addEventListener("click", () => setLanguage("no"));
-      document.getElementById("btn-en").addEventListener("click", () => setLanguage("en"));
-
-      const saved = localStorage.getItem("eiko_lang");
-      setLanguage(saved === "en" ? "en" : "no");
-    });
+    document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
