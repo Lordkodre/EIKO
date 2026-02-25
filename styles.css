@@ -283,3 +283,12 @@ body {
   
   background-attachment: fixed;
 }
+
+.cardimg{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:16px;
+  opacity:0.95;
+}
