@@ -8,44 +8,32 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
+    /* Liten, diskret språkvelger (kan flyttes til styles.css om du vil) */
     .lang-switch{
-      display:flex;
-      align-items:center;
-      gap:10px;
+      display:flex; align-items:center; gap:10px;
       margin-left:auto;
     }
-
     .flagbtn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:36px;
-      height:26px;
+      display:inline-flex; align-items:center; justify-content:center;
+      width:36px; height:26px;
       border-radius:8px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
       cursor:pointer;
       padding:0;
     }
-
     .flagbtn img{
-      width:22px;
-      height:16px;
-      object-fit:cover;
+      width:22px; height:16px; object-fit:cover;
       border-radius:3px;
       display:block;
     }
-
     .flagbtn.active{
       border-color: rgba(99,179,255,.45);
       box-shadow: 0 10px 24px rgba(0,0,0,.25);
     }
-
-    /* VIKTIG: sørg for at headeren wrap'er slik at alt blir synlig på mobil */
-    @media (max-width: 900px){
-      .header-panel{ flex-wrap: wrap; }
-      .header-panel .nav{ width:100%; justify-content:flex-start; }
+    @media (max-width:900px){
       .lang-switch{ width:100%; justify-content:flex-end; }
+      .header-panel{ flex-wrap:wrap; }
     }
   </style>
 </head>
@@ -58,7 +46,7 @@
         <img class="brandlogo" src="logo.png" alt="EIKO Additive logo">
       </a>
 
-      <nav class="nav">
+      <nav class="nav" aria-label="Hovedmeny">
         <a class="active" href="index.html" data-i18n="nav_home">Hjem</a>
         <a href="tjenester.html" data-i18n="nav_services">Tjenester</a>
         <a href="materialer.html" data-i18n="nav_materials">Materialer</a>
@@ -82,11 +70,111 @@
       <div class="kicker" data-i18n="hero_kicker">LFAM / Storformat 3D-print</div>
       <h1 data-i18n="hero_h1">Høyytelsespolymerer for de tøffeste forhold</h1>
 
-      <img class="cardimg" style="height:450px;" src="lfam.png" alt="LFAM">
+      <img class="cardimg" style="height:450px;" src="lfam.png" alt="Large format additive manufacturing hero image">
 
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <a class="btn primary" href="kontakt.html" data-i18n="hero_cta_offer">Be om tilbud</a>
         <a class="btn" href="tjenester.html" data-i18n="hero_cta_services">Hva vi tilbyr</a>
+      </div>
+
+      <div class="grid2" style="margin-top:14px;">
+        <div class="panel card">
+          <h2 style="font-size:18px; margin-top:0;" data-i18n="why_lfam_h2">Hvorfor LFAM?</h2>
+          <ul class="list">
+            <li data-i18n="why_lfam_1">Store geometrier uten segmentering</li>
+            <li data-i18n="why_lfam_2">Redusert produksjonstid</li>
+            <li data-i18n="why_lfam_3">CNC makinering for presisjon</li>
+          </ul>
+        </div>
+
+        <div class="panel card">
+          <h2 style="font-size:18px; margin-top:0;" data-i18n="why_hpp_h2">Hvorfor høyytelsespolymerer?</h2>
+          <ul class="list">
+            <li data-i18n="why_hpp_1">Høy driftstemperatur og lite tap av styrke</li>
+            <li data-i18n="why_hpp_2">Kjemikaliebestandig og slitestyrke</li>
+            <li data-i18n="why_hpp_3">Egnet til funksjonelle deler og produksjon</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EKSEMPLER / CASES -->
+    <section class="panel page" style="margin-top:14px;">
+      <div class="kicker" data-i18n="examples_kicker">Eksempler</div>
+      <h2 data-i18n="examples_h2">Typiske leveranser</h2>
+
+      <div class="grid3">
+        <div class="panel card">
+          <img class="cardimg" src="images/jigs-fixtures.jpg" alt="Jigs and fixtures">
+          <h2 style="font-size:18px; margin-top:0;" data-i18n="ex_1_title">Stryktuelle komponenter</h2>
+          <p class="small" data-i18n="ex_1_desc">Der ekstrem styrke, robusthet, temperatur og vekt er kritisk.</p>
+        </div>
+
+        <div class="panel card">
+          <img class="cardimg" src="images/tooling.jpg" alt="Tooling">
+          <h2 style="font-size:18px; margin-top:0;" data-i18n="ex_2_title">Verktøy og formverktøy</h2>
+          <p class="small" data-i18n="ex_2_desc">Termisk robuste verktøy, maskinbaser, holdere og adaptere.</p>
+        </div>
+
+        <div class="panel card">
+          <img class="cardimg" src="images/housings.jpg" alt="Enclosures and housings">
+          <h2 style="font-size:18px; margin-top:0;" data-i18n="ex_3_title">Kapslinger / strukturdeler</h2>
+          <p class="small" data-i18n="ex_3_desc">Store kapslinger og strukturer – print + CNC på flater/innfestinger.</p>
+        </div>
+      </div>
+
+      <div class="note" data-i18n="examples_note">
+        Har du en del som “egentlig burde vært metall”, men der varme/kjemi/vekt taler for polymer? Send oss krav – vi foreslår løsning.
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="panel page" style="margin-top:14px;">
+      <div class="kicker" data-i18n="faq_kicker">FAQ</div>
+      <h2 data-i18n="faq_h2">Vanlige spørsmål</h2>
+
+      <div class="faq-wrap">
+        <details class="panel faq-item">
+          <summary data-i18n="faq_q1">Hvilke filer trenger dere for å gi tilbud?</summary>
+          <div class="faq-body small" data-i18n="faq_a1">
+            Helst STEP/IGES, gjerne også tegninger (PDF) om du har kritiske mål. Legg ved krav til temperatur, last, kjemi/miljø,
+            toleranser og ønsket etterarbeid (maskinering/montering).
+          </div>
+        </details>
+
+        <details class="panel faq-item">
+          <summary data-i18n="faq_q2">Når bør jeg velge post-maskinering?</summary>
+          <div class="faq-body small" data-i18n="faq_a2">
+            Når du har funksjonsflater, presise hull, planhet, tetningsflater eller andre toleransekrav.
+            Vi kombinerer LFAM og CNC slik at du får “best of both”.
+          </div>
+        </details>
+
+        <details class="panel faq-item">
+          <summary data-i18n="faq_q3">Kan dere hjelpe med materialvalg?</summary>
+          <div class="faq-body small" data-i18n="faq_a3">
+            Ja. Vi foreslår polymer basert på temperatur, kjemikalier, mekanisk last, kryp/utmatting og krav til dimensjonsstabilitet.
+          </div>
+        </details>
+
+        <details class="panel faq-item">
+          <summary data-i18n="faq_q4">Hva slags plast kan dere printe i?</summary>
+          <div class="faq-body small" data-i18n="faq_a4">
+            Vi kan printe i alle typer plast, kan du smelte det kan vi printe det.
+          </div>
+        </details>
+
+        <details class="panel faq-item">
+          <summary data-i18n="faq_q5">Kan dere levere deler “ferdig”?</summary>
+          <div class="faq-body small" data-i18n="faq_a5">
+            Ja – vi kan levere printede deler med nødvendig etterarbeid, maskinering, og (der det er relevant) dokumentasjon.
+          </div>
+        </details>
+      </div>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+        <a class="btn primary" href="kontakt.html" data-i18n="faq_cta_send">Send forespørsel</a>
+        <a class="btn" href="faq.html" data-i18n="faq_cta_all">Se all FAQ</a>
       </div>
     </section>
 
@@ -98,58 +186,138 @@
   </div>
 
   <script>
+    // År i footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Enkel i18n (NO/EN). Legg til flere nøkler etter behov.
     const i18n = {
       no: {
-        nav_home:"Hjem",
-        nav_services:"Tjenester",
-        nav_materials:"Materialer",
-        nav_faq:"FAQ",
-        nav_contact:"Kontakt",
-        hero_kicker:"LFAM / Storformat 3D-print",
-        hero_h1:"Høyytelsespolymerer for de tøffeste forhold",
-        hero_cta_offer:"Be om tilbud",
-        hero_cta_services:"Hva vi tilbyr",
-        footer_tagline:"Storformat 3D-print • HPP • CNC"
+        nav_home: "Hjem",
+        nav_services: "Tjenester",
+        nav_materials: "Materialer",
+        nav_faq: "FAQ",
+        nav_contact: "Kontakt",
+
+        hero_kicker: "LFAM / Storformat 3D-print",
+        hero_h1: "Høyytelsespolymerer for de tøffeste forhold",
+        hero_cta_offer: "Be om tilbud",
+        hero_cta_services: "Hva vi tilbyr",
+
+        why_lfam_h2: "Hvorfor LFAM?",
+        why_lfam_1: "Store geometrier uten segmentering",
+        why_lfam_2: "Redusert produksjonstid",
+        why_lfam_3: "CNC makinering for presisjon",
+
+        why_hpp_h2: "Hvorfor høyytelsespolymerer?",
+        why_hpp_1: "Høy driftstemperatur og lite tap av styrke",
+        why_hpp_2: "Kjemikaliebestandig og slitestyrke",
+        why_hpp_3: "Egnet til funksjonelle deler og produksjon",
+
+        examples_kicker: "Eksempler",
+        examples_h2: "Typiske leveranser",
+        ex_1_title: "Stryktuelle komponenter",
+        ex_1_desc: "Der ekstrem styrke, robusthet, temperatur og vekt er kritisk.",
+        ex_2_title: "Verktøy og formverktøy",
+        ex_2_desc: "Termisk robuste verktøy, maskinbaser, holdere og adaptere.",
+        ex_3_title: "Kapslinger / strukturdeler",
+        ex_3_desc: "Store kapslinger og strukturer – print + CNC på flater/innfestinger.",
+        examples_note: "Har du en del som “egentlig burde vært metall”, men der varme/kjemi/vekt taler for polymer? Send oss krav – vi foreslår løsning.",
+
+        faq_kicker: "FAQ",
+        faq_h2: "Vanlige spørsmål",
+        faq_q1: "Hvilke filer trenger dere for å gi tilbud?",
+        faq_a1: "Helst STEP/IGES, gjerne også tegninger (PDF) om du har kritiske mål. Legg ved krav til temperatur, last, kjemi/miljø, toleranser og ønsket etterarbeid (maskinering/montering).",
+        faq_q2: "Når bør jeg velge post-maskinering?",
+        faq_a2: "Når du har funksjonsflater, presise hull, planhet, tetningsflater eller andre toleransekrav. Vi kombinerer LFAM og CNC slik at du får “best of both”.",
+        faq_q3: "Kan dere hjelpe med materialvalg?",
+        faq_a3: "Ja. Vi foreslår polymer basert på temperatur, kjemikalier, mekanisk last, kryp/utmatting og krav til dimensjonsstabilitet.",
+        faq_q4: "Hva slags plast kan dere printe i?",
+        faq_a4: "Vi kan printe i alle typer plast, kan du smelte det kan vi printe det.",
+        faq_q5: "Kan dere levere deler “ferdig”?",
+        faq_a5: "Ja – vi kan levere printede deler med nødvendig etterarbeid, maskinering, og (der det er relevant) dokumentasjon.",
+        faq_cta_send: "Send forespørsel",
+        faq_cta_all: "Se all FAQ",
+
+        footer_tagline: "Storformat 3D-print • HPP • CNC"
       },
+
       en: {
-        nav_home:"Home",
-        nav_services:"Services",
-        nav_materials:"Materials",
-        nav_faq:"FAQ",
-        nav_contact:"Contact",
-        hero_kicker:"LFAM / Large-Format 3D Printing",
-        hero_h1:"High-performance polymers for the toughest environments",
-        hero_cta_offer:"Request a quote",
-        hero_cta_services:"What we offer",
-        footer_tagline:"Large-format 3D printing • HPP • CNC"
+        nav_home: "Home",
+        nav_services: "Services",
+        nav_materials: "Materials",
+        nav_faq: "FAQ",
+        nav_contact: "Contact",
+
+        hero_kicker: "LFAM / Large-Format 3D Printing",
+        hero_h1: "High-performance polymers for the toughest environments",
+        hero_cta_offer: "Request a quote",
+        hero_cta_services: "What we offer",
+
+        why_lfam_h2: "Why LFAM?",
+        why_lfam_1: "Large geometries without segmentation",
+        why_lfam_2: "Reduced lead time",
+        why_lfam_3: "CNC machining for precision",
+
+        why_hpp_h2: "Why high-performance polymers?",
+        why_hpp_1: "High service temperature with minimal strength loss",
+        why_hpp_2: "Chemical resistance and wear performance",
+        why_hpp_3: "Suitable for functional parts and production",
+
+        examples_kicker: "Examples",
+        examples_h2: "Typical deliveries",
+        ex_1_title: "Structural components",
+        ex_1_desc: "When extreme strength, robustness, temperature and weight are critical.",
+        ex_2_title: "Tooling and molds",
+        ex_2_desc: "Thermally robust tooling, machine bases, holders and adapters.",
+        ex_3_title: "Enclosures / structural parts",
+        ex_3_desc: "Large enclosures and structures — printing + CNC on critical surfaces/features.",
+        examples_note: "Have a part that would normally be metal, but heat/chemistry/weight favor polymers? Send requirements — we’ll propose the best solution.",
+
+        faq_kicker: "FAQ",
+        faq_h2: "Frequently asked questions",
+        faq_q1: "Which files do you need to provide a quote?",
+        faq_a1: "Preferably STEP/IGES, and drawings (PDF) if you have critical dimensions. Include requirements for temperature, loads, chemicals/environment, tolerances, and any post-processing (machining/assembly).",
+        faq_q2: "When should I choose post-machining?",
+        faq_a2: "When you need functional surfaces, precise holes, flatness, sealing faces, or other tight tolerances. We combine LFAM and CNC to get the best of both.",
+        faq_q3: "Can you help with material selection?",
+        faq_a3: "Yes. We recommend polymers based on temperature, chemicals, mechanical loads, creep/fatigue, and dimensional stability requirements.",
+        faq_q4: "What plastics can you print?",
+        faq_a4: "We can print most thermoplastics — if it can be melted, it can typically be printed (depending on requirements).",
+        faq_q5: "Can you deliver finished parts?",
+        faq_a5: "Yes — we deliver printed parts with the required post-processing, machining, and (when relevant) documentation.",
+        faq_cta_send: "Send inquiry",
+        faq_cta_all: "View full FAQ",
+
+        footer_tagline: "Large-format 3D printing • HPP • CNC"
       }
     };
 
-    function setLanguage(lang){
-      const dict = i18n[lang] || i18n.no;
-
+    function setLanguage(lang) {
+      // Oppdater html lang-attributt
       document.documentElement.lang = (lang === "en") ? "en" : "no";
 
+      // Bytt tekst på alle elementer med data-i18n
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
-        if (dict[key]) el.textContent = dict[key];
+        const value = i18n[lang]?.[key];
+        if (value) el.textContent = value;
       });
 
+      // Aktiv knapp
       document.getElementById("btn-no").classList.toggle("active", lang === "no");
       document.getElementById("btn-en").classList.toggle("active", lang === "en");
 
+      // Lagre valg
       localStorage.setItem("eiko_lang", lang);
     }
 
+    // Knapper
     document.getElementById("btn-no").addEventListener("click", () => setLanguage("no"));
     document.getElementById("btn-en").addEventListener("click", () => setLanguage("en"));
 
+    // Init: bruk lagret språk eller default NO
     const saved = localStorage.getItem("eiko_lang");
     setLanguage(saved === "en" ? "en" : "no");
   </script>
-
 </body>
 </html>
-
