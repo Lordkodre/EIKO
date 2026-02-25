@@ -3,14 +3,45 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EIKO Additive – Høytemperatur 3D-print & CNC</title>
+  <title>EIKO Additive – Tjenester</title>
   <meta name="description" content="EIKO Additive leverer 3D-printing i høyytelsespolymerer, CNC, design og topologioptimalisering." />
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .lang-switch{
+      display:flex; align-items:center; gap:10px;
+      margin-left:auto;
+    }
+    .flagbtn{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:36px; height:26px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      cursor:pointer;
+      padding:0;
+    }
+    .flagbtn img{
+      width:22px; height:16px; object-fit:cover;
+      border-radius:3px;
+      display:block;
+    }
+    .flagbtn.active{
+      border-color: rgba(99,179,255,.45);
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+    }
+    @media (max-width:900px){
+      .lang-switch{ width:100%; justify-content:flex-end; }
+      .header-panel{ flex-wrap:wrap; }
+      .header-panel .nav{ width:100%; justify-content:flex-start; }
+    }
+  </style>
 </head>
+
 <body>
   <div class="wrap">
 
-    <!-- HEADER HAR PANEL-STIL -->
+    <!-- HEADER / TOOLBAR -->
     <header class="panel header-panel">
       <div class="brand">
         <a class="brandlink" href="index.html" aria-label="EIKO Additive hjem">
@@ -18,51 +49,61 @@
         </a>
       </div>
 
-      <nav class="nav">
-        <a href="index.html">Hjem</a>
-        <a class="active" href="tjenester.html">Tjenester</a>
-        <a href="materialer.html">Materialer</a>
-        <a href="prosess.html">Prosess</a>
-        <a href="kontakt.html">Kontakt</a>
+      <nav class="nav" aria-label="Hovedmeny">
+        <a href="index.html" data-i18n="nav_home">Hjem</a>
+        <a class="active" href="tjenester.html" data-i18n="nav_services">Tjenester</a>
+        <a href="materialer.html" data-i18n="nav_materials">Materialer</a>
+        <a href="prosess.html" data-i18n="nav_process">Prosess</a>
+        <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
       </nav>
+
+      <!-- Språkvelger -->
+      <div class="lang-switch" aria-label="Velg språk">
+        <button class="flagbtn" id="btn-no" type="button" aria-label="Norsk">
+          <img src="flag-no.png" alt="Norsk flagg">
+        </button>
+        <button class="flagbtn" id="btn-en" type="button" aria-label="English">
+          <img src="flag-us.png" alt="US flag">
+        </button>
+      </div>
     </header>
 
     <section class="panel pagehead">
       <div class="meta">
-        <div class="kicker">Tjenester</div>
-        <h1>Hva vi kan levere</h1>
-        <p class="small" style="font-size:16px; margin:0;">
+        <div class="kicker" data-i18n="kicker_services">Tjenester</div>
+        <h1 data-i18n="h1_services">Hva vi kan levere</h1>
+        <p class="small" data-i18n="p_services_intro" style="font-size:16px; margin:0;">
           Fra én prototype til repeterbar småserie: vi kombinerer høytemperatur 3D-print med CNC og engineering-støtte.
         </p>
       </div>
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <a class="btn primary" href="kontakt.html">Be om tilbud</a>
-        <a class="btn" href="prosess.html">Se prosess</a>
+        <a class="btn primary" href="kontakt.html" data-i18n="cta_quote">Be om tilbud</a>
+        <a class="btn" href="prosess.html" data-i18n="cta_process">Se prosess</a>
       </div>
     </section>
 
     <section class="grid2" style="margin-top:14px;">
       <div class="panel card">
         <img class="cardimg" src="PEEKFFF.png" alt="3D-printing i high performance polymerer" />
-        <div class="kicker">3D-printing</div>
-        <h2>High performance polymerer</h2>
+        <div class="kicker" data-i18n="svc1_kicker">3D-printing</div>
+        <h2 data-i18n="svc1_h2">High performance polymerer</h2>
         <ul class="list">
-          <li>Prototyper og småserier</li>
-          <li>Varme-/kjemibestandige deler</li>
-          <li>Funksjonelle, lette og sterke komponenter</li>
-          <li>Kan printes i mange størrelser, max 1m<sup>3</sup></li>
+          <li data-i18n="svc1_li1">Prototyper og småserier</li>
+          <li data-i18n="svc1_li2">Varme-/kjemibestandige deler</li>
+          <li data-i18n="svc1_li3">Funksjonelle, lette og sterke komponenter</li>
+          <li data-i18n="svc1_li4">Kan printes i mange størrelser, max 1m<sup>3</sup></li>
         </ul>
       </div>
 
       <div class="panel card">
         <img class="cardimg" src="CNCFFF.png" alt="CNC maskinering og etterbearbeiding" />
-        <div class="kicker">CNC</div>
-        <h2>Maskinering & finishing</h2>
+        <div class="kicker" data-i18n="svc2_kicker">CNC</div>
+        <h2 data-i18n="svc2_h2">Maskinering & finishing</h2>
         <ul class="list">
-          <li>Planfresing, boring, gjenging</li>
-          <li>Toleranser og passninger</li>
-          <li>Integrering av metall i print</li>
-          <li>Presspassninger og forseglingsflater</li>
+          <li data-i18n="svc2_li1">Planfresing, boring, gjenging</li>
+          <li data-i18n="svc2_li2">Toleranser og passninger</li>
+          <li data-i18n="svc2_li3">Integrering av metall i print</li>
+          <li data-i18n="svc2_li4">Presspassninger og forseglingsflater</li>
         </ul>
       </div>
     </section>
@@ -70,25 +111,25 @@
     <section class="grid2">
       <div class="panel card">
         <img class="cardimg" src="CADFFF.png" alt="CAD og designarbeid" />
-        <div class="kicker">Design</div>
-        <h2>Design for additive</h2>
+        <div class="kicker" data-i18n="svc3_kicker">Design</div>
+        <h2 data-i18n="svc3_h2">Design for additive</h2>
         <ul class="list">
-          <li>Forbedring av printbarhet</li>
-          <li>Tilpasning av styrke, toleranser og utmatting</li>
-          <li>Bruk av compliant mechanisms</li>
-          <li>Rask iterasjon: fra CAD til del</li>
+          <li data-i18n="svc3_li1">Forbedring av printbarhet</li>
+          <li data-i18n="svc3_li2">Tilpasning av styrke, toleranser og utmatting</li>
+          <li data-i18n="svc3_li3">Bruk av compliant mechanisms</li>
+          <li data-i18n="svc3_li4">Rask iterasjon: fra CAD til del</li>
         </ul>
       </div>
 
       <div class="panel card">
         <img class="cardimg" src="ENGFFF.png" alt="Engineering og topologioptimalisering" />
-        <div class="kicker">Engineering</div>
-        <h2>Topologioptimalisering</h2>
+        <div class="kicker" data-i18n="svc4_kicker">Engineering</div>
+        <h2 data-i18n="svc4_h2">Topologioptimalisering</h2>
         <ul class="list">
-          <li>Redusere vekt uten å miste funksjon</li>
-          <li>Stivhet/styrke optimalisert for lasttilfeller</li>
-          <li>Geometri som utnytter additive produksjon</li>
-          <li>Maksimal utnyttelse av materialet</li>
+          <li data-i18n="svc4_li1">Redusere vekt uten å miste funksjon</li>
+          <li data-i18n="svc4_li2">Stivhet/styrke optimalisert for lasttilfeller</li>
+          <li data-i18n="svc4_li3">Geometri som utnytter additive produksjon</li>
+          <li data-i18n="svc4_li4">Maksimal utnyttelse av materialet</li>
         </ul>
       </div>
     </section>
@@ -99,6 +140,127 @@
     </footer>
   </div>
 
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("y").textContent = new Date().getFullYear();
+
+      const i18n = {
+        no: {
+          nav_home: "Hjem",
+          nav_services: "Tjenester",
+          nav_materials: "Materialer",
+          nav_process: "Prosess",
+          nav_contact: "Kontakt",
+
+          kicker_services: "Tjenester",
+          h1_services: "Hva vi kan levere",
+          p_services_intro: "Fra én prototype til repeterbar småserie: vi kombinerer høytemperatur 3D-print med CNC og engineering-støtte.",
+
+          cta_quote: "Be om tilbud",
+          cta_process: "Se prosess",
+
+          svc1_kicker: "3D-printing",
+          svc1_h2: "High performance polymerer",
+          svc1_li1: "Prototyper og småserier",
+          svc1_li2: "Varme-/kjemibestandige deler",
+          svc1_li3: "Funksjonelle, lette og sterke komponenter",
+          svc1_li4: "Kan printes i mange størrelser, max 1m<sup>3</sup>",
+
+          svc2_kicker: "CNC",
+          svc2_h2: "Maskinering & finishing",
+          svc2_li1: "Planfresing, boring, gjenging",
+          svc2_li2: "Toleranser og passninger",
+          svc2_li3: "Integrering av metall i print",
+          svc2_li4: "Presspassninger og forseglingsflater",
+
+          svc3_kicker: "Design",
+          svc3_h2: "Design for additive",
+          svc3_li1: "Forbedring av printbarhet",
+          svc3_li2: "Tilpasning av styrke, toleranser og utmatting",
+          svc3_li3: "Bruk av compliant mechanisms",
+          svc3_li4: "Rask iterasjon: fra CAD til del",
+
+          svc4_kicker: "Engineering",
+          svc4_h2: "Topologioptimalisering",
+          svc4_li1: "Redusere vekt uten å miste funksjon",
+          svc4_li2: "Stivhet/styrke optimalisert for lasttilfeller",
+          svc4_li3: "Geometri som utnytter additive produksjon",
+          svc4_li4: "Maksimal utnyttelse av materialet"
+        },
+
+        en: {
+          nav_home: "Home",
+          nav_services: "Services",
+          nav_materials: "Materials",
+          nav_process: "Process",
+          nav_contact: "Contact",
+
+          kicker_services: "Services",
+          h1_services: "What we deliver",
+          p_services_intro: "From a single prototype to repeatable small series: we combine high-temperature 3D printing with CNC and engineering support.",
+
+          cta_quote: "Request a quote",
+          cta_process: "View process",
+
+          svc1_kicker: "3D printing",
+          svc1_h2: "High-performance polymers",
+          svc1_li1: "Prototypes and small series",
+          svc1_li2: "Heat-/chemical-resistant parts",
+          svc1_li3: "Functional, lightweight and strong components",
+          svc1_li4: "Multiple sizes available, up to 1m<sup>3</sup>",
+
+          svc2_kicker: "CNC",
+          svc2_h2: "Machining & finishing",
+          svc2_li1: "Facing, drilling, tapping",
+          svc2_li2: "Tolerances and fits",
+          svc2_li3: "Metal integration in printed parts",
+          svc2_li4: "Press fits and sealing surfaces",
+
+          svc3_kicker: "Design",
+          svc3_h2: "Design for additive",
+          svc3_li1: "Improved printability",
+          svc3_li2: "Strength, tolerances and fatigue considerations",
+          svc3_li3: "Use of compliant mechanisms",
+          svc3_li4: "Fast iterations: from CAD to part",
+
+          svc4_kicker: "Engineering",
+          svc4_h2: "Topology optimization",
+          svc4_li1: "Reduce weight without losing function",
+          svc4_li2: "Stiffness/strength optimized for load cases",
+          svc4_li3: "Geometry that leverages additive manufacturing",
+          svc4_li4: "Maximum utilization of the material"
+        }
+      };
+
+      function setLanguage(lang){
+        const dict = i18n[lang] || i18n.no;
+
+        document.documentElement.lang = (lang === "en") ? "en" : "no";
+
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+          const key = el.getAttribute("data-i18n");
+          if (dict[key]) {
+            // NB: vi bruker innerHTML pga <sup> i en streng
+            el.innerHTML = dict[key];
+          }
+        });
+
+        const btnNo = document.getElementById("btn-no");
+        const btnEn = document.getElementById("btn-en");
+        if (btnNo) btnNo.classList.toggle("active", lang === "no");
+        if (btnEn) btnEn.classList.toggle("active", lang === "en");
+
+        localStorage.setItem("eiko_lang", lang);
+      }
+
+      const btnNo = document.getElementById("btn-no");
+      const btnEn = document.getElementById("btn-en");
+      if (btnNo) btnNo.addEventListener("click", () => setLanguage("no"));
+      if (btnEn) btnEn.addEventListener("click", () => setLanguage("en"));
+
+      const saved = localStorage.getItem("eiko_lang");
+      setLanguage(saved === "en" ? "en" : "no");
+    });
+  </script>
 </body>
 </html>
