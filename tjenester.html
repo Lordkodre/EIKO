@@ -262,11 +262,9 @@
         localStorage.setItem("eiko_lang", lang);
       }
 
-      // Knapper (sikrer at klikk fungerer)
       document.getElementById("btn-no").addEventListener("click", () => setLanguage("no"));
       document.getElementById("btn-en").addEventListener("click", () => setLanguage("en"));
 
-      // Init: bruk lagret språk eller default NO
       const saved = localStorage.getItem("eiko_lang");
       setLanguage(saved === "en" ? "en" : "no");
     });
