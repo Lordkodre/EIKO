@@ -90,9 +90,11 @@
       <div>© <span id="year"></span> EIKO Additive</div>
     </footer>
 
+  </div>
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("y").textContent = new Date().getFullYear();
+      document.getElementById("year").textContent = new Date().getFullYear();
 
       const i18n = {
         no: {
@@ -157,4 +159,3 @@
   </script>
 </body>
 </html>
-
