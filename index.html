@@ -72,54 +72,55 @@
 
       <img class="cardimg" style="height:450px;" src="lfam.png" alt="Large format additive manufacturing hero image">
 
-      <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <a class="btn primary" href="kontakt.html" data-i18n="hero_cta_offer">Be om tilbud</a>
-        <a class="btn" href="tjenester.html" data-i18n="hero_cta_services">Hva vi tilbyr</a>
-      </div>
-
       <div class="grid2" style="margin-top:14px;">
         <div class="panel card">
-          <h2 style="font-size:18px; margin-top:0;" data-i18n="why_lfam_h2">Hvorfor LFAM?</h2>
+          <h2 style="font-size:18px; margin-top:0;" data-i18n="why_lfam_h2">Hvorfor 3D-printe hos oss</h2>
           <ul class="list">
-            <li data-i18n="why_lfam_1">Store geometrier uten segmentering</li>
+            <li data-i18n="why_lfam_1">Vi produserer store deler uten segmentering.</li>
             <li data-i18n="why_lfam_2">Redusert produksjonstid</li>
-            <li data-i18n="why_lfam_3">CNC makinering for presisjon</li>
+            <li data-i18n="why_lfam_3">Maskinering for presisjon</li>
+            <li data-i18n="why_lfam_4">Stabile deler som tåler de tøffeste forhold</li>
           </ul>
         </div>
 
         <div class="panel card">
           <h2 style="font-size:18px; margin-top:0;" data-i18n="why_hpp_h2">Hvorfor høyytelsespolymerer?</h2>
           <ul class="list">
-            <li data-i18n="why_hpp_1">Høy driftstemperatur og lite tap av styrke</li>
-            <li data-i18n="why_hpp_2">Kjemikaliebestandig og slitestyrke</li>
-            <li data-i18n="why_hpp_3">Egnet til funksjonelle deler og produksjon</li>
+            <li data-i18n="why_hpp_1">Høy styrke og kjemikalieresistens</li>
+            <li data-i18n="why_hpp_2">Høy driftstemperatur uten tap av styrke</li>
+            <li data-i18n="why_hpp_3">Tøff nok til å erstatte metaller</li>
+            <li data-i18n="why_hpp_4">Det rette valget når vekt er kritisk</li>
           </ul>
         </div>
       </div>
+
+      <!-- Flyttet CTA hit (under "Hvorfor"-boksene) og fjernet "Be om tilbud" -->
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+        <a class="btn" href="tjenester.html" data-i18n="hero_cta_services">Hva vi tilbyr</a>
+      </div>
     </section>
 
-    <!-- EKSEMPLER / CASES -->
+    <!-- CASES -->
     <section class="panel page" style="margin-top:14px;">
-      <div class="kicker" data-i18n="examples_kicker">Eksempler</div>
       <h2 data-i18n="examples_h2">Typiske leveranser</h2>
 
       <div class="grid3">
         <div class="panel card">
           <img class="cardimg" src="images/jigs-fixtures.jpg" alt="Jigs and fixtures">
-          <h2 style="font-size:18px; margin-top:0;" data-i18n="ex_1_title">Stryktuelle komponenter</h2>
-          <p class="small" data-i18n="ex_1_desc">Der ekstrem styrke, robusthet, temperatur og vekt er kritisk.</p>
+          <h2 style="font-size:18px; margin-top:0;" data-i18n="ex_1_title">Space</h2>
+          <p class="small" data-i18n="ex_1_desc">Der vekt, styrke, temperatur og pålitelighet er ekstremt kritiske.</p>
         </div>
 
         <div class="panel card">
           <img class="cardimg" src="images/tooling.jpg" alt="Tooling">
-          <h2 style="font-size:18px; margin-top:0;" data-i18n="ex_2_title">Verktøy og formverktøy</h2>
-          <p class="small" data-i18n="ex_2_desc">Termisk robuste verktøy, maskinbaser, holdere og adaptere.</p>
+          <h2 style="font-size:18px; margin-top:0;" data-i18n="ex_2_title">Maritim</h2>
+          <p class="small" data-i18n="ex_2_desc">Der korrosjonsbestandighet, kjemikaliebestandighet og lead time er de største risikofaktorene for nedetid.</p>
         </div>
 
         <div class="panel card">
           <img class="cardimg" src="images/housings.jpg" alt="Enclosures and housings">
-          <h2 style="font-size:18px; margin-top:0;" data-i18n="ex_3_title">Kapslinger / strukturdeler</h2>
-          <p class="small" data-i18n="ex_3_desc">Store kapslinger og strukturer – print + CNC på flater/innfestinger.</p>
+          <h2 style="font-size:18px; margin-top:0;" data-i18n="ex_3_title">Helse</h2>
+          <p class="small" data-i18n="ex_3_desc">Der vekt, utmatting og formbarhet kan hjelpe pasienter til en enklere morgendag.</p>
         </div>
       </div>
 
@@ -172,9 +173,9 @@
         </details>
       </div>
 
+      <!-- Fjernet "Se prosess" nederst -->
       <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
         <a class="btn primary" href="kontakt.html" data-i18n="faq_cta_send">Send forespørsel</a>
-        <a class="btn" href="prosess.html" data-i18n="faq_cta_all">Se prosess</a>
       </div>
     </section>
 
@@ -199,27 +200,27 @@
 
         hero_kicker: "LFAM / Storformat 3D-print",
         hero_h1: "Høyytelsespolymerer for de tøffeste forhold",
-        hero_cta_offer: "Be om tilbud",
         hero_cta_services: "Hva vi tilbyr",
 
-        why_lfam_h2: "Hvorfor LFAM?",
-        why_lfam_1: "Store geometrier uten segmentering",
+        why_lfam_h2: "Hvorfor 3D-printe hos oss",
+        why_lfam_1: "Vi produserer store deler uten segmentering.",
         why_lfam_2: "Redusert produksjonstid",
-        why_lfam_3: "CNC makinering for presisjon",
+        why_lfam_3: "Maskinering for presisjon",
+        why_lfam_4: "Stabile deler som tåler de tøffeste forhold",
 
         why_hpp_h2: "Hvorfor høyytelsespolymerer?",
-        why_hpp_1: "Høy driftstemperatur og lite tap av styrke",
-        why_hpp_2: "Kjemikaliebestandig og slitestyrke",
-        why_hpp_3: "Egnet til funksjonelle deler og produksjon",
+        why_hpp_1: "Høy styrke og kjemikalieresistens",
+        why_hpp_2: "Høy driftstemperatur uten tap av styrke",
+        why_hpp_3: "Tøff nok til å erstatte metaller",
+        why_hpp_4: "Det rette valget når vekt er kritisk",
 
-        examples_kicker: "Eksempler",
         examples_h2: "Typiske leveranser",
-        ex_1_title: "Stryktuelle komponenter",
-        ex_1_desc: "Der ekstrem styrke, robusthet, temperatur og vekt er kritisk.",
-        ex_2_title: "Verktøy og formverktøy",
-        ex_2_desc: "Termisk robuste verktøy, maskinbaser, holdere og adaptere.",
-        ex_3_title: "Kapslinger / strukturdeler",
-        ex_3_desc: "Store kapslinger og strukturer – print + CNC på flater/innfestinger.",
+        ex_1_title: "Space",
+        ex_1_desc: "Der vekt, styrke, temperatur og pålitelighet er ekstremt kritiske.",
+        ex_2_title: "Maritim",
+        ex_2_desc: "Der korrosjonsbestandighet, kjemikaliebestandighet og lead time er de største risikofaktorene for nedetid.",
+        ex_3_title: "Helse",
+        ex_3_desc: "Der vekt, utmatting og formbarhet kan hjelpe pasienter til en enklere morgendag.",
         examples_note: "Har du en del som “egentlig burde vært metall”, men der varme/kjemi/vekt taler for polymer? Send oss krav – vi foreslår løsning.",
 
         faq_kicker: "FAQ",
@@ -235,7 +236,6 @@
         faq_q5: "Kan dere levere deler “ferdig”?",
         faq_a5: "Ja – vi kan levere printede deler med nødvendig etterarbeid, maskinering, og (der det er relevant) dokumentasjon.",
         faq_cta_send: "Send forespørsel",
-        faq_cta_all: "Se prosess",
       },
 
       en: {
@@ -247,27 +247,27 @@
 
         hero_kicker: "LFAM / Large-Format 3D Printing",
         hero_h1: "High-performance polymers for the toughest environments",
-        hero_cta_offer: "Request a quote",
         hero_cta_services: "What we offer",
 
-        why_lfam_h2: "Why LFAM?",
-        why_lfam_1: "Large geometries without segmentation",
+        why_lfam_h2: "Why 3D print with us",
+        why_lfam_1: "We produce large parts without segmentation.",
         why_lfam_2: "Reduced lead time",
-        why_lfam_3: "CNC machining for precision",
+        why_lfam_3: "Machining for precision",
+        why_lfam_4: "Stable parts built for the harshest conditions",
 
         why_hpp_h2: "Why high-performance polymers?",
-        why_hpp_1: "High service temperature with minimal strength loss",
-        why_hpp_2: "Chemical resistance and wear performance",
-        why_hpp_3: "Suitable for functional parts and production",
+        why_hpp_1: "High strength and chemical resistance",
+        why_hpp_2: "High service temperature without loss of strength",
+        why_hpp_3: "Tough enough to replace metals",
+        why_hpp_4: "The right choice when weight is critical",
 
-        examples_kicker: "Examples",
         examples_h2: "Typical deliveries",
-        ex_1_title: "Structural components",
-        ex_1_desc: "When extreme strength, robustness, temperature and weight are critical.",
-        ex_2_title: "Tooling and molds",
-        ex_2_desc: "Thermally robust tooling, machine bases, holders and adapters.",
-        ex_3_title: "Enclosures / structural parts",
-        ex_3_desc: "Large enclosures and structures — printing + CNC on critical surfaces/features.",
+        ex_1_title: "Space",
+        ex_1_desc: "Where weight, strength, temperature and reliability are extremely critical.",
+        ex_2_title: "Maritime",
+        ex_2_desc: "Where corrosion resistance, chemical resistance and lead time are the biggest risk factors for downtime.",
+        ex_3_title: "Healthcare",
+        ex_3_desc: "Where weight, fatigue performance and formability can help patients achieve an easier tomorrow.",
         examples_note: "Have a part that would normally be metal, but heat/chemistry/weight favor polymers? Send requirements — we’ll propose the best solution.",
 
         faq_kicker: "FAQ",
@@ -283,7 +283,6 @@
         faq_q5: "Can you deliver finished parts?",
         faq_a5: "Yes — we deliver printed parts with the required post-processing, machining, and (when relevant) documentation.",
         faq_cta_send: "Send inquiry",
-        faq_cta_all: "View process",
       }
     };
 
@@ -316,6 +315,3 @@
   </script>
 </body>
 </html>
-
-
-
