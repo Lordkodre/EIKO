@@ -163,10 +163,47 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Enkel i18n (NO/EN)
+      const i18n = {
+        no: {
+          nav_home: "Hjem",
+          nav_services: "Tjenester",
+          nav_materials: "Materialer",
+          nav_process: "Prosess",
+          nav_contact: "Kontakt",
+        },
+        en: {
+          nav_home: "Home",
+          nav_services: "Services",
+          nav_materials: "Materials",
+          nav_process: "Process",
+          nav_contact: "Contact",
+        }
+      };
+
+      function setLanguage(lang) {
+        document.documentElement.lang = (lang === "en") ? "en" : "no";
+
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+          const key = el.getAttribute("data-i18n");
+          const value = i18n[lang]?.[key];
+          if (value) el.textContent = value;
+        });
+
+        document.getElementById("btn-no").classList.toggle("active", lang === "no");
+        document.getElementById("btn-en").classList.toggle("active", lang === "en");
+
+        localStorage.setItem("eiko_lang", lang);
+      }
+
+      document.getElementById("btn-no").addEventListener("click", () => setLanguage("no"));
+      document.getElementById("btn-en").addEventListener("click", () => setLanguage("en"));
+
+      const saved = localStorage.getItem("eiko_lang");
+      setLanguage(saved === "en" ? "en" : "no");
     });
   </script>
 
 </body>
 </html>
-
-
