@@ -27,7 +27,7 @@ a{color:inherit; text-decoration:none}
 
 header{
   display:flex; align-items:center; justify-content:space-between; gap:16px;
-  position:sticky; top:0; z-index:10;
+  position:sticky; top:0; z-index: 1000;
   backdrop-filter: blur(10px);
   background: linear-gradient(to bottom, rgba(11,15,23,.75), rgba(11,15,23,.2));
   border-bottom:1px solid var(--line);
@@ -193,8 +193,6 @@ tr:last-child td{border-bottom:0}
 
 /* Gjør details "panel" clickable og ryddig */
 .faq-item{
-  /* .panel gir allerede avrundede hjørner osv.
-     Vi sørger bare for at innhold ikke flyter utenfor ved åpning */
   overflow: hidden;
 }
 
@@ -234,12 +232,12 @@ tr:last-child td{border-bottom:0}
   padding: 0 14px 14px;
 }
 
-/* Litt skillelinje når den åpnes (passer til "panel"-look) */
+/* Litt skillelinje når den åpnes */
 .faq-item[open] > summary{
   border-bottom: 1px solid rgba(255,255,255,.10);
 }
 
-/* Tastatur-fokus (nice, men diskret) */
+/* Tastatur-fokus */
 .faq-item > summary:focus{
   outline: none;
 }
