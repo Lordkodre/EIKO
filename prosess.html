@@ -28,18 +28,15 @@
       .header-panel .nav{ width:100%; justify-content:flex-start; }
     }
 
-    /* ✅ FIKS: ingen horisontal scrolling, grid pakker seg i rader */
+    /* ✅ 1 linje, uten scroll-bar: krymp boksene litt */
     .stepflow{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-      margin-top:14px;
-    }
-    @media (max-width:1100px){
-      .stepflow{ grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width:650px){
-      .stepflow{ grid-template-columns: 1fr; }
+      grid-template-columns: repeat(6, 1fr);
+      gap:8px;
+      margin-top:12px;
+
+      /* Viktig: ingen overflow/scrollbar */
+      overflow: hidden;
     }
 
     .stepcard{
@@ -47,44 +44,61 @@
       border:1px solid rgba(255,255,255,.08);
       background: rgba(255,255,255,.02);
       box-shadow: 0 18px 40px rgba(0,0,0,.18);
-      padding:12px 12px 10px;
-      min-height:200px; /* litt mer plass */
+
+      /* Litt strammere for å få alt på én linje */
+      padding:10px 10px 9px;
+      min-height:185px;
     }
+
     .stepnum{
-      width:28px; height:28px;
-      border-radius:10px;
+      width:26px; height:26px;
+      border-radius:9px;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.03);
       display:flex; align-items:center; justify-content:center;
       font-weight:800;
       color:#eaf1ff;
-      margin-bottom:8px;
-      font-size:13px;
+      margin-bottom:7px;
+      font-size:12px;
     }
     .stepicon{
-      font-size:20px;
-      margin-bottom:6px;
+      font-size:18px;
+      margin-bottom:5px;
     }
     .steptitle{
       font-weight:800;
       color:#eaf1ff;
       margin:0 0 6px 0;
-      font-size:14px;
+      font-size:13px;
+      line-height:1.15;
     }
     .steptext{
       margin:0;
       color: rgba(217,228,255,.92);
-      font-size:13px;
-      line-height:1.38;
+      font-size:12px;
+      line-height:1.32;
+      white-space: normal;
+      word-break: break-word;
     }
 
-    /* ✅ Ikke behov for scroll-hint når grid pakker seg */
+    /* Ikke relevant når vi ikke har scroll */
     .arrowhint{ display:none; }
 
     .dividerline{
       height:1px;
       background: rgba(255,255,255,.08);
       margin:20px 0;
+    }
+
+    /* Mobil: her er det fysisk umulig å få 6 bokser på én linje uten mikrotekst,
+       så vi lar de pakke seg pent i 2 rader. */
+    @media (max-width:900px){
+      .stepflow{ grid-template-columns: repeat(3, 1fr); gap:10px; overflow: visible; }
+      .stepcard{ min-height:170px; }
+      .steptext{ font-size:12px; }
+    }
+    @media (max-width:560px){
+      .stepflow{ grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
