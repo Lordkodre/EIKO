@@ -30,7 +30,7 @@
 
     .stepflow{
       display:grid;
-      grid-template-columns: repeat(6, minmax(160px, 1fr));
+      grid-template-columns: repeat(6, minmax(170px, 1fr));
       gap:10px;
       overflow-x:auto;
       padding-bottom:8px;
@@ -42,7 +42,7 @@
       background: rgba(255,255,255,.02);
       box-shadow: 0 18px 40px rgba(0,0,0,.18);
       padding:12px 12px 10px;
-      min-height:150px;
+      min-height:180px; /* litt mer plass til tekst */
     }
     .stepnum{
       width:28px; height:28px;
@@ -69,7 +69,7 @@
       margin:0;
       color: rgba(217,228,255,.92);
       font-size:13px;
-      line-height:1.35;
+      line-height:1.38;
     }
     .arrowhint{
       color: rgba(147,164,199,.92);
@@ -103,11 +103,11 @@
       </nav>
 
       <div class="lang-switch">
-        <button class="flagbtn" id="btn-no" type="button">
-          <img src="flag-no.png" alt="">
+        <button class="flagbtn" id="btn-no" type="button" aria-label="Norsk">
+          <img src="flag-no.png" alt="Norsk flagg">
         </button>
-        <button class="flagbtn" id="btn-en" type="button">
-          <img src="flag-us.png" alt="">
+        <button class="flagbtn" id="btn-en" type="button" aria-label="English">
+          <img src="flag-us.png" alt="US flag">
         </button>
       </div>
     </header>
@@ -138,42 +138,54 @@
           <div class="stepnum">1</div>
           <div class="stepicon">📩</div>
           <div class="steptitle" data-i18n="s1_title">Behov & krav</div>
-          <p class="steptext" data-i18n="s1_text">Kort avklaring av miljø, last og toleranser.</p>
+          <p class="steptext" data-i18n="s1_text">
+            Kort avklaring av miljø, last, toleranser, volum og leveringstid. Vi foreslår material og prosess basert på bruksområdet.
+          </p>
         </div>
 
         <div class="stepcard">
           <div class="stepnum">2</div>
           <div class="stepicon">🧩</div>
           <div class="steptitle" data-i18n="s2_title">Data inn</div>
-          <p class="steptext" data-i18n="s2_text">STEP/STL, tegning eller eksisterende del.</p>
+          <p class="steptext" data-i18n="s2_text">
+            STEP/STL, tegning, mål, eller en eksisterende del. Mangler du CAD? Vi kan modellere og forenkle geometri for print og CNC.
+          </p>
         </div>
 
         <div class="stepcard">
           <div class="stepnum">3</div>
           <div class="stepicon">🧠</div>
           <div class="steptitle" data-i18n="s3_title">DfAM</div>
-          <p class="steptext" data-i18n="s3_text">Optimalisering for printretning og styrke.</p>
+          <p class="steptext" data-i18n="s3_text">
+            Optimalisering for printretning, veggtykkelser, innfesting og Z-styrke. Ved behov planlegger vi også CNC-flater og toleranser.
+          </p>
         </div>
 
         <div class="stepcard">
           <div class="stepnum">4</div>
           <div class="stepicon">🖨️</div>
           <div class="steptitle" data-i18n="s4_title">3D-print</div>
-          <p class="steptext" data-i18n="s4_text">Produksjon i valgt polymer.</p>
+          <p class="steptext" data-i18n="s4_text">
+            Produksjon i valgt polymer med prosesskontroll for best mulig repeterbarhet og mekaniske egenskaper.
+          </p>
         </div>
 
         <div class="stepcard">
           <div class="stepnum">5</div>
           <div class="stepicon">🛠️</div>
           <div class="steptitle" data-i18n="s5_title">Etterbearbeiding</div>
-          <p class="steptext" data-i18n="s5_text">CNC og tilpasninger.</p>
+          <p class="steptext" data-i18n="s5_text">
+            CNC-maskinering av kritiske flater og hull, gjenger, innpressmuttere og tilpasninger. Leveres klar for montering.
+          </p>
         </div>
 
         <div class="stepcard">
           <div class="stepnum">6</div>
           <div class="stepicon">📦</div>
           <div class="steptitle" data-i18n="s6_title">Levering</div>
-          <p class="steptext" data-i18n="s6_text">Kontroll og levering.</p>
+          <p class="steptext" data-i18n="s6_text">
+            Kontroll av mål og kritiske features, dokumentasjon ved behov, og levering. Ønsker du videre optimalisering kan vi iterere raskt.
+          </p>
         </div>
       </div>
 
@@ -183,7 +195,6 @@
 
       <div class="dividerline"></div>
 
-      <!-- Kun CTA beholdt -->
       <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
         <div>
           <h2 data-i18n="h2_next">Klar for å starte?</h2>
@@ -206,6 +217,108 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Enkel i18n (NO/EN)
+  const i18n = {
+    no: {
+      nav_home: "Hjem",
+      nav_services: "Tjenester",
+      nav_materials: "Materialer",
+      nav_process: "Prosess",
+      nav_contact: "Kontakt",
+
+      kicker_process: "Prosess",
+      h1_process: "Fra konsept til ferdig del",
+      p_process_intro: "Vi kan ta imot alt fra en idé, en skisse eller en STEP-fil – og levere en ferdig komponent.",
+
+      cta_start_dialog: "Start en dialog",
+      cta_view_services: "Se tjenester",
+
+      h2_flow: "Slik ser et typisk løp ut",
+      p_flow_intro: "For de fleste prosjekter starter vi med en rask avklaring, før vi går videre til data, DfAM, produksjon og levering.",
+      flow_hint: "Tips: Scroll horisontalt på mobil/PC for å se hele flyten →",
+
+      s1_title: "Behov & krav",
+      s1_text: "Kort avklaring av miljø, last, toleranser, volum og leveringstid. Vi foreslår material og prosess basert på bruksområdet.",
+      s2_title: "Data inn",
+      s2_text: "STEP/STL, tegning, mål, eller en eksisterende del. Mangler du CAD? Vi kan modellere og forenkle geometri for print og CNC.",
+      s3_title: "DfAM",
+      s3_text: "Optimalisering for printretning, veggtykkelser, innfesting og Z-styrke. Ved behov planlegger vi også CNC-flater og toleranser.",
+      s4_title: "3D-print",
+      s4_text: "Produksjon i valgt polymer med prosesskontroll for best mulig repeterbarhet og mekaniske egenskaper.",
+      s5_title: "Etterbearbeiding",
+      s5_text: "CNC-maskinering av kritiske flater og hull, gjenger, innpressmuttere og tilpasninger. Leveres klar for montering.",
+      s6_title: "Levering",
+      s6_text: "Kontroll av mål og kritiske features, dokumentasjon ved behov, og levering. Ønsker du videre optimalisering kan vi iterere raskt.",
+
+      h2_next: "Klar for å starte?",
+      p_next: "Send oss en kort beskrivelse og eventuelle filer – så svarer vi med forslag til neste steg.",
+      cta_send_request: "Send forespørsel",
+      cta_view_materials: "Se materialer"
+    },
+    en: {
+      nav_home: "Home",
+      nav_services: "Services",
+      nav_materials: "Materials",
+      nav_process: "Process",
+      nav_contact: "Contact",
+
+      kicker_process: "Process",
+      h1_process: "From concept to finished part",
+      p_process_intro: "We can take anything from an idea, a sketch, or a STEP file — and deliver a finished component.",
+
+      cta_start_dialog: "Start a dialog",
+      cta_view_services: "View services",
+
+      h2_flow: "A typical project flow",
+      p_flow_intro: "Most projects start with quick scoping, then move through data, DfAM, production and delivery.",
+      flow_hint: "Tip: Scroll horizontally on mobile/desktop to view the full flow →",
+
+      s1_title: "Requirements",
+      s1_text: "Quick scoping of environment, loads, tolerances, volume and lead time. We recommend material and process based on the use case.",
+      s2_title: "Input data",
+      s2_text: "STEP/STL, drawings, dimensions, or an existing part. No CAD? We can model and simplify geometry for printing and CNC.",
+      s3_title: "DfAM",
+      s3_text: "Optimization for print orientation, wall thickness, interfaces and Z-strength. When needed, we also plan CNC surfaces and tolerances.",
+      s4_title: "3D printing",
+      s4_text: "Production in the selected polymer with process control aimed at repeatability and mechanical performance.",
+      s5_title: "Post-processing",
+      s5_text: "CNC machining of critical surfaces and holes, threads, inserts and fits. Delivered ready for assembly.",
+      s6_title: "Delivery",
+      s6_text: "Checks of critical features, documentation when needed, and delivery. If you want further optimization, we can iterate quickly.",
+
+      h2_next: "Ready to start?",
+      p_next: "Send a short description and any files — we’ll respond with recommended next steps.",
+      cta_send_request: "Send request",
+      cta_view_materials: "View materials"
+    }
+  };
+
+  function setLanguage(lang){
+    const dict = i18n[lang] || i18n.no;
+
+    document.documentElement.lang = (lang === "en") ? "en" : "no";
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (dict[key]) el.textContent = dict[key];
+    });
+
+    const btnNo = document.getElementById("btn-no");
+    const btnEn = document.getElementById("btn-en");
+    if (btnNo) btnNo.classList.toggle("active", lang === "no");
+    if (btnEn) btnEn.classList.toggle("active", lang === "en");
+
+    localStorage.setItem("eiko_lang", lang);
+  }
+
+  const btnNo = document.getElementById("btn-no");
+  const btnEn = document.getElementById("btn-en");
+  if (btnNo) btnNo.addEventListener("click", () => setLanguage("no"));
+  if (btnEn) btnEn.addEventListener("click", () => setLanguage("en"));
+
+  const saved = localStorage.getItem("eiko_lang");
+  setLanguage(saved === "en" ? "en" : "no");
 });
 </script>
 
