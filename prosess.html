@@ -4,28 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EIKO Additive – Prosess</title>
-  <meta name="description" content="EIKO Additive leverer 3D-printing i høyytelsespolymerer, CNC, design og topologioptimalisering." />
+  <meta name="description" content="Fra idé til ferdig del: design, DfAM, materialvalg, 3D-print i høyytelsespolymerer, CNC-etterbearbeiding og kvalitetssikring." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    .lang-switch{
-      display:flex; align-items:center; gap:10px;
-      margin-left:auto;
-    }
+    .lang-switch{ display:flex; align-items:center; gap:10px; margin-left:auto; }
     .flagbtn{
       display:inline-flex; align-items:center; justify-content:center;
       width:36px; height:26px;
       border-radius:8px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
-      cursor:pointer;
-      padding:0;
+      cursor:pointer; padding:0;
     }
-    .flagbtn img{
-      width:22px; height:16px; object-fit:cover;
-      border-radius:3px;
-      display:block;
-    }
+    .flagbtn img{ width:22px; height:16px; object-fit:cover; border-radius:3px; display:block; }
     .flagbtn.active{
       border-color: rgba(99,179,255,.45);
       box-shadow: 0 10px 24px rgba(0,0,0,.25);
@@ -34,6 +26,128 @@
       .lang-switch{ width:100%; justify-content:flex-end; }
       .header-panel{ flex-wrap:wrap; }
       .header-panel .nav{ width:100%; justify-content:flex-start; }
+    }
+
+    /* Page visuals (match "panel"-estetikken din) */
+    .process-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width:980px){
+      .process-grid{ grid-template-columns: 1fr; }
+    }
+
+    .stepflow{
+      display:grid;
+      grid-template-columns: repeat(6, minmax(160px, 1fr));
+      gap:10px;
+      overflow-x:auto;
+      padding-bottom:8px;
+    }
+    .stepcard{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+      padding:12px 12px 10px;
+      min-height:150px;
+      position:relative;
+    }
+    .stepnum{
+      width:28px; height:28px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800;
+      color:#eaf1ff;
+      margin-bottom:8px;
+      font-size:13px;
+    }
+    .stepicon{
+      font-size:20px;
+      line-height:1;
+      opacity:.95;
+      margin-bottom:6px;
+    }
+    .steptitle{
+      font-weight:800;
+      color:#eaf1ff;
+      margin:0 0 6px 0;
+      font-size:14px;
+      letter-spacing:.2px;
+    }
+    .steptext{
+      margin:0;
+      color: rgba(217,228,255,.92);
+      font-size:13px;
+      line-height:1.35;
+    }
+    .arrowhint{
+      display:flex; align-items:center; gap:8px;
+      color: rgba(147,164,199,.92);
+      font-size:12px;
+      margin-top:10px;
+    }
+
+    .mini-kpis{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+    }
+    .kpi{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+      padding:12px;
+    }
+    .kpi h3{
+      margin:0 0 8px 0;
+      font-size:14px;
+      color:#eaf1ff;
+      font-weight:800;
+    }
+    .kpi p{
+      margin:0;
+      color: rgba(217,228,255,.92);
+      font-size:13px;
+      line-height:1.35;
+    }
+    .kpi ul{
+      margin:8px 0 0 18px;
+      padding:0;
+      color: rgba(217,228,255,.92);
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    .faqgrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (max-width:980px){
+      .faqgrid{ grid-template-columns: 1fr; }
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: 999px;
+      padding:6px 10px;
+      font-size:12px;
+      color: rgba(217,228,255,.92);
+    }
+    .dividerline{
+      height:1px;
+      background: rgba(255,255,255,.08);
+      margin:12px 0;
     }
   </style>
 </head>
@@ -77,14 +191,165 @@
           Vi kan ta imot alt fra en idé, en skisse eller en STEP-fil – og levere en ferdig komponent.
           Har du allerede en del? Vi kan også hjelpe med å utbedre og forbedre eksisterende løsninger.
         </p>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+          <span class="pill" data-i18n="pill_fast">⚡ Rask avklaring</span>
+          <span class="pill" data-i18n="pill_hpp">🔥 Høyytelsespolymerer</span>
+          <span class="pill" data-i18n="pill_cnc">🧰 Print + CNC</span>
+          <span class="pill" data-i18n="pill_quality">✅ Dokumentasjon</span>
+        </div>
       </div>
+
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
         <a class="btn primary" href="kontakt.html" data-i18n="cta_start_dialog">Start en dialog</a>
         <a class="btn" href="tjenester.html" data-i18n="cta_view_services">Se tjenester</a>
       </div>
     </section>
 
-    <!-- (resten av prosess-siden din er uendret) -->
+    <!-- MAIN CONTENT -->
+    <section class="panel page" style="margin-top:14px;">
+      <h2 style="margin:0 0 10px 0;" data-i18n="h2_flow">Slik ser et typisk løp ut</h2>
+
+      <div class="stepflow" aria-label="Prosessflyt">
+        <div class="stepcard">
+          <div class="stepnum">1</div>
+          <div class="stepicon">📩</div>
+          <div class="steptitle" data-i18n="s1_title">Behov & krav</div>
+          <p class="steptext" data-i18n="s1_text">
+            Kort avklaring av miljø, last, toleranser, volum og leveringstid. Vi anbefaler riktig material og prosess.
+          </p>
+        </div>
+
+        <div class="stepcard">
+          <div class="stepnum">2</div>
+          <div class="stepicon">🧩</div>
+          <div class="steptitle" data-i18n="s2_title">Data inn</div>
+          <p class="steptext" data-i18n="s2_text">
+            STEP/STL, tegning, mål, eller en eksisterende del. Mangler du CAD? Vi kan modellere og forenkle geometri.
+          </p>
+        </div>
+
+        <div class="stepcard">
+          <div class="stepnum">3</div>
+          <div class="stepicon">🧠</div>
+          <div class="steptitle" data-i18n="s3_title">DfAM & verifisering</div>
+          <p class="steptext" data-i18n="s3_text">
+            Orientering, veggtykkelser, innfesting, krymp/warp og Z-styrke. Ved behov: topologioptimalisering.
+          </p>
+        </div>
+
+        <div class="stepcard">
+          <div class="stepnum">4</div>
+          <div class="stepicon">🖨️</div>
+          <div class="steptitle" data-i18n="s4_title">3D-print</div>
+          <p class="steptext" data-i18n="s4_text">
+            Utskrift i valgt polymer. Prosesskontroll med fokus på repeterbarhet og mekaniske egenskaper.
+          </p>
+        </div>
+
+        <div class="stepcard">
+          <div class="stepnum">5</div>
+          <div class="stepicon">🛠️</div>
+          <div class="steptitle" data-i18n="s5_title">Etterbearbeiding</div>
+          <p class="steptext" data-i18n="s5_text">
+            CNC-maskinering av flater/hull, gjenger, innpressmuttere og tilpasninger. Klar for montering.
+          </p>
+        </div>
+
+        <div class="stepcard">
+          <div class="stepnum">6</div>
+          <div class="stepicon">📦</div>
+          <div class="steptitle" data-i18n="s6_title">Kvalitet & levering</div>
+          <p class="steptext" data-i18n="s6_text">
+            Kontroll av mål/kritiske flater, dokumentasjon ved behov, og levering. Iterasjon hvis du ønsker videre optimalisering.
+          </p>
+        </div>
+      </div>
+
+      <div class="arrowhint" data-i18n="flow_hint">Tips: Scroll horisontalt på mobil/PC for å se hele flyten →</div>
+
+      <div class="dividerline"></div>
+
+      <div class="process-grid">
+        <div>
+          <h2 style="margin:0 0 10px 0;" data-i18n="h2_how_we_work">Hvordan vi jobber</h2>
+          <p class="small" style="font-size:15px; margin:0;" data-i18n="p_how_we_work">
+            Vi jobber tett med kunden og starter alltid med en rask avklaring: Hva er funksjonen, hva er risikoen, og hva er “good enough” for første iterasjon?
+            Målet er å komme raskt til en fysisk del, lære, og deretter forbedre – uten å miste kontroll på toleranser, materiale og dokumentasjon.
+          </p>
+
+          <div class="dividerline"></div>
+
+          <h3 style="margin:0 0 8px 0; color:#eaf1ff; font-weight:800;" data-i18n="h3_deliverables">Typiske leveranser</h3>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <span class="pill" data-i18n="d1">📐 CAD / DfAM-anbefaling</span>
+            <span class="pill" data-i18n="d2">🧵 Gjenger / inserts</span>
+            <span class="pill" data-i18n="d3">🧰 Print + CNC-maskinering</span>
+            <span class="pill" data-i18n="d4">🧾 Enkel dokumentasjon</span>
+          </div>
+
+          <div class="dividerline"></div>
+
+          <h3 style="margin:0 0 8px 0; color:#eaf1ff; font-weight:800;" data-i18n="h3_when_fit">Når dette passer ekstra godt</h3>
+          <div class="faqgrid">
+            <div class="kpi">
+              <h3 data-i18n="fit1_title">Høy temperatur / kjemi</h3>
+              <p data-i18n="fit1_text">Deler i krevende miljø der standardplast blir myk, sprø eller angripes av kjemikalier.</p>
+            </div>
+            <div class="kpi">
+              <h3 data-i18n="fit2_title">Få deler – høy verdi</h3>
+              <p data-i18n="fit2_text">Prototyper, reservedeler og spesialkomponenter der leveringstid og fleksibilitet betyr mest.</p>
+            </div>
+            <div class="kpi">
+              <h3 data-i18n="fit3_title">Fixturer og verktøy</h3>
+              <p data-i18n="fit3_text">Jigger, holdere og produksjonshjelpemidler som ofte gir stor ROI med rask iterasjon.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="mini-kpis" aria-label="Praktisk info">
+          <div class="kpi">
+            <h3 data-i18n="kpi1_title">Hva du kan sende oss</h3>
+            <ul>
+              <li data-i18n="kpi1_b1">STEP (.step/.stp) eller STL</li>
+              <li data-i18n="kpi1_b2">Tegning / mål / bilder</li>
+              <li data-i18n="kpi1_b3">Krav: temp, kjemi, last, toleranser</li>
+            </ul>
+          </div>
+
+          <div class="kpi">
+            <h3 data-i18n="kpi2_title">Materialvalg</h3>
+            <p data-i18n="kpi2_text">
+              Vi foreslår material basert på driftstemperatur, kjemisk eksponering, stivhet og styrke (inkl. Z-retning).
+              Ved behov kombinerer vi print med CNC for kritiske flater.
+            </p>
+          </div>
+
+          <div class="kpi">
+            <h3 data-i18n="kpi3_title">Iterasjon</h3>
+            <p data-i18n="kpi3_text">
+              Mange prosjekter starter med en “første del” for form/fit/function, og går deretter til optimalisering for styrke,
+              toleranser og repetérbarhet.
+            </p>
+          </div>
+        </aside>
+      </div>
+
+      <div class="dividerline"></div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <div>
+          <h2 style="margin:0 0 6px 0;" data-i18n="h2_next">Klar for å starte?</h2>
+          <p class="small" style="font-size:15px; margin:0;" data-i18n="p_next">
+            Send oss en kort beskrivelse og eventuelle filer – så svarer vi med forslag til material, prosess og neste steg.
+          </p>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn primary" href="kontakt.html" data-i18n="cta_send_request">Send forespørsel</a>
+          <a class="btn" href="materialer.html" data-i18n="cta_view_materials">Se materialer</a>
+        </div>
+      </div>
+    </section>
 
     <footer>
       <div>© <span id="year"></span> EIKO Additive</div>
@@ -109,8 +374,65 @@
           p_process_intro:
             "Vi kan ta imot alt fra en idé, en skisse eller en STEP-fil – og levere en ferdig komponent. Har du allerede en del? Vi kan også hjelpe med å utbedre og forbedre eksisterende løsninger.",
 
+          pill_fast: "⚡ Rask avklaring",
+          pill_hpp: "🔥 Høyytelsespolymerer",
+          pill_cnc: "🧰 Print + CNC",
+          pill_quality: "✅ Dokumentasjon",
+
           cta_start_dialog: "Start en dialog",
           cta_view_services: "Se tjenester",
+
+          h2_flow: "Slik ser et typisk løp ut",
+          flow_hint: "Tips: Scroll horisontalt på mobil/PC for å se hele flyten →",
+
+          s1_title: "Behov & krav",
+          s1_text: "Kort avklaring av miljø, last, toleranser, volum og leveringstid. Vi anbefaler riktig material og prosess.",
+          s2_title: "Data inn",
+          s2_text: "STEP/STL, tegning, mål, eller en eksisterende del. Mangler du CAD? Vi kan modellere og forenkle geometri.",
+          s3_title: "DfAM & verifisering",
+          s3_text: "Orientering, veggtykkelser, innfesting, krymp/warp og Z-styrke. Ved behov: topologioptimalisering.",
+          s4_title: "3D-print",
+          s4_text: "Utskrift i valgt polymer. Prosesskontroll med fokus på repeterbarhet og mekaniske egenskaper.",
+          s5_title: "Etterbearbeiding",
+          s5_text: "CNC-maskinering av flater/hull, gjenger, innpressmuttere og tilpasninger. Klar for montering.",
+          s6_title: "Kvalitet & levering",
+          s6_text: "Kontroll av mål/kritiske flater, dokumentasjon ved behov, og levering. Iterasjon hvis du ønsker videre optimalisering.",
+
+          h2_how_we_work: "Hvordan vi jobber",
+          p_how_we_work:
+            "Vi jobber tett med kunden og starter alltid med en rask avklaring: Hva er funksjonen, hva er risikoen, og hva er “good enough” for første iterasjon? Målet er å komme raskt til en fysisk del, lære, og deretter forbedre – uten å miste kontroll på toleranser, materiale og dokumentasjon.",
+
+          h3_deliverables: "Typiske leveranser",
+          d1: "📐 CAD / DfAM-anbefaling",
+          d2: "🧵 Gjenger / inserts",
+          d3: "🧰 Print + CNC-maskinering",
+          d4: "🧾 Enkel dokumentasjon",
+
+          h3_when_fit: "Når dette passer ekstra godt",
+          fit1_title: "Høy temperatur / kjemi",
+          fit1_text: "Deler i krevende miljø der standardplast blir myk, sprø eller angripes av kjemikalier.",
+          fit2_title: "Få deler – høy verdi",
+          fit2_text: "Prototyper, reservedeler og spesialkomponenter der leveringstid og fleksibilitet betyr mest.",
+          fit3_title: "Fixturer og verktøy",
+          fit3_text: "Jigger, holdere og produksjonshjelpemidler som ofte gir stor ROI med rask iterasjon.",
+
+          kpi1_title: "Hva du kan sende oss",
+          kpi1_b1: "STEP (.step/.stp) eller STL",
+          kpi1_b2: "Tegning / mål / bilder",
+          kpi1_b3: "Krav: temp, kjemi, last, toleranser",
+
+          kpi2_title: "Materialvalg",
+          kpi2_text:
+            "Vi foreslår material basert på driftstemperatur, kjemisk eksponering, stivhet og styrke (inkl. Z-retning). Ved behov kombinerer vi print med CNC for kritiske flater.",
+
+          kpi3_title: "Iterasjon",
+          kpi3_text:
+            "Mange prosjekter starter med en “første del” for form/fit/function, og går deretter til optimalisering for styrke, toleranser og repetérbarhet.",
+
+          h2_next: "Klar for å starte?",
+          p_next: "Send oss en kort beskrivelse og eventuelle filer – så svarer vi med forslag til material, prosess og neste steg.",
+          cta_send_request: "Send forespørsel",
+          cta_view_materials: "Se materialer"
         },
 
         en: {
@@ -125,8 +447,65 @@
           p_process_intro:
             "We can take anything from an idea, a sketch, or a STEP file — and deliver a finished component. Already have a part? We can also help improve and refine existing solutions.",
 
+          pill_fast: "⚡ Fast scoping",
+          pill_hpp: "🔥 High-performance polymers",
+          pill_cnc: "🧰 Print + CNC",
+          pill_quality: "✅ Documentation",
+
           cta_start_dialog: "Start a dialog",
           cta_view_services: "View services",
+
+          h2_flow: "A typical project flow",
+          flow_hint: "Tip: Scroll horizontally on mobile/desktop to view the full flow →",
+
+          s1_title: "Requirements",
+          s1_text: "Quick scoping of environment, loads, tolerances, volume and lead time. We recommend the right material and process.",
+          s2_title: "Input data",
+          s2_text: "STEP/STL, drawings, dimensions, or an existing part. No CAD? We can model and simplify geometry.",
+          s3_title: "DfAM & verification",
+          s3_text: "Orientation, wall thickness, interfaces, shrink/warp and Z-strength. If needed: topology optimization.",
+          s4_title: "3D printing",
+          s4_text: "Printing in the selected polymer. Process control focused on repeatability and mechanical performance.",
+          s5_title: "Post-processing",
+          s5_text: "CNC machining of critical surfaces/holes, threads, inserts and fits. Ready for assembly.",
+          s6_title: "Quality & delivery",
+          s6_text: "Dimensional checks on critical features, documentation if needed, and delivery. Iterate further if you want optimization.",
+
+          h2_how_we_work: "How we work",
+          p_how_we_work:
+            "We work closely with you and always start with fast scoping: function, risk, and what’s “good enough” for the first iteration. The goal is to get a physical part quickly, learn, and then improve — while staying in control of tolerances, materials, and documentation.",
+
+          h3_deliverables: "Typical deliverables",
+          d1: "📐 CAD / DfAM recommendations",
+          d2: "🧵 Threads / inserts",
+          d3: "🧰 Print + CNC machining",
+          d4: "🧾 Basic documentation",
+
+          h3_when_fit: "When this is a great fit",
+          fit1_title: "High temperature / chemicals",
+          fit1_text: "Parts in demanding environments where standard plastics soften, embrittle or degrade chemically.",
+          fit2_title: "Low volume — high value",
+          fit2_text: "Prototypes, spares and specialized components where lead time and flexibility matter most.",
+          fit3_title: "Fixtures and tooling",
+          fit3_text: "Jigs, fixtures and production aids that often deliver strong ROI with rapid iteration.",
+
+          kpi1_title: "What you can send us",
+          kpi1_b1: "STEP (.step/.stp) or STL",
+          kpi1_b2: "Drawing / dimensions / photos",
+          kpi1_b3: "Requirements: temp, chemicals, loads, tolerances",
+
+          kpi2_title: "Material selection",
+          kpi2_text:
+            "We propose materials based on service temperature, chemical exposure, stiffness and strength (incl. Z-direction). When needed, we combine printing with CNC for critical features.",
+
+          kpi3_title: "Iteration",
+          kpi3_text:
+            "Many projects start with a first part for form/fit/function, then move to optimization for strength, tolerances and repeatability.",
+
+          h2_next: "Ready to start?",
+          p_next: "Send a short description and any files — we’ll respond with suggested material, process and next steps.",
+          cta_send_request: "Send request",
+          cta_view_materials: "View materials"
         }
       };
 
