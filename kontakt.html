@@ -8,10 +8,7 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    .lang-switch{
-      display:flex; align-items:center; gap:10px;
-      margin-left:auto;
-    }
+    .lang-switch{ display:flex; align-items:center; gap:10px; margin-left:auto; }
     .flagbtn{
       display:inline-flex; align-items:center; justify-content:center;
       width:36px; height:26px;
@@ -36,28 +33,57 @@
       .header-panel .nav{ width:100%; justify-content:flex-start; }
     }
 
-    /* Kontakt-layout (enkelt og lesbart) */
+    /* To bokser under intro */
     .contact-grid{
       display:grid;
       gap:14px;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1fr 1fr;
       margin-top:14px;
     }
     @media (max-width:900px){
       .contact-grid{ grid-template-columns:1fr; }
     }
-    .input{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      color: #e8eefc;
-      outline:none;
+
+    .contact-card h2{
+      font-size:18px;
+      margin:0 0 10px 0;
     }
-    .input::placeholder{ color: rgba(147,164,199,.75); }
-    label{ display:block; margin:10px 0 6px; color: #93a4c7; font-size:13px; }
-    textarea.input{ min-height:140px; resize:vertical; }
+    .contact-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    .contact-list li{
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      color:#d9e4ff;
+      font-size:14px;
+    }
+    .contact-list li:last-child{ border-bottom:0; }
+    .contact-list b{ color:#eaf1ff; }
+
+    .map-wrap{
+      margin-top:10px;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+      height:260px;
+    }
+    .map-wrap iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
   </style>
 </head>
 
@@ -97,47 +123,47 @@
       </p>
 
       <div class="contact-grid">
-        <div class="panel card">
-          <h2 style="font-size:18px; margin-top:0;" data-i18n="form_h2">Forespørsel</h2>
+        <!-- Boks 1: E-post + telefon -->
+        <div class="panel card contact-card">
+          <h2 data-i18n="info_h2">Kontaktinfo</h2>
 
-          <label for="name" data-i18n="form_name">Navn</label>
-          <input class="input" id="name" type="text" placeholder="Ola Nordmann" />
+          <ul class="contact-list">
+            <li>
+              <b data-i18n="info_email_label">E-post:</b>
+              <span> post@eikoadditive.no</span>
+            </li>
+            <li>
+              <b data-i18n="info_phone_label">Telefon:</b>
+              <span> +47 XXX XX XXX</span>
+            </li>
+          </ul>
 
-          <label for="email" data-i18n="form_email">E-post</label>
-          <input class="input" id="email" type="email" placeholder="ola@firma.no" />
-
-          <label for="company" data-i18n="form_company">Firma (valgfritt)</label>
-          <input class="input" id="company" type="text" placeholder="Firma AS" />
-
-          <label for="message" data-i18n="form_message">Hva trenger du?</label>
-          <textarea class="input" id="message" placeholder="Materialkrav, temperatur, toleranser, størrelse, antall, lead time..."></textarea>
-
-          <div class="note" data-i18n="form_note">
-            Tips: Legg ved STEP/IGES via e-post. Skriv gjerne ønsket materiale (hvis du har) og hvilke flater som må CNC-maskineres.
-          </div>
-
-          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
-            <a class="btn primary" href="mailto:post@eikoadditive.no?subject=Foresp%C3%B8rsel%20LFAM%20/%20HPP" data-i18n="form_cta_email">
+          <div class="cta-row">
+            <a class="btn primary" href="mailto:post@eikoadditive.no?subject=Foresp%C3%B8rsel%20LFAM%20/%20HPP" data-i18n="cta_email">
               Send e-post
             </a>
-            <a class="btn" href="index.html" data-i18n="form_cta_back">Tilbake</a>
+            <a class="btn" href="index.html" data-i18n="cta_back">Tilbake</a>
           </div>
         </div>
 
-        <aside class="panel card">
-          <h2 style="font-size:18px; margin-top:0;" data-i18n="info_h2">Kontaktinfo</h2>
+        <!-- Boks 2: Adresse + kart -->
+        <aside class="panel card contact-card">
+          <h2 data-i18n="addr_h2">Adresse</h2>
 
-          <ul class="list">
-            <li><b data-i18n="info_email_label">E-post:</b> <span>post@eikoadditive.no</span></li>
-            <li><b data-i18n="info_phone_label">Telefon:</b> <span>+47 XXX XX XXX</span></li>
-            <li><b data-i18n="info_location_label">Lokasjon:</b> <span data-i18n="info_location_value">Norge</span></li>
-          </ul>
-
-          <div class="note" data-i18n="info_note">
-            Legg ved: STEP/IGES, krav til temperatur/kjemi, toleranser, ønsket antall og tidslinje.
+          <div style="color:#d9e4ff; font-size:14px; line-height:1.45;">
+            <div><b data-i18n="addr_label">Adresse:</b></div>
+            <div data-i18n="addr_value">Adressesen 1, 5918 Knarvik</div>
           </div>
 
-          <img class="cardimg" style="height:220px;" src="lfam.png" alt="LFAM">
+          <div class="map-wrap" aria-label="Google Maps">
+            <!-- Bytt gjerne denne embed-linken til den du får fra "Del" -> "Bygg inn et kart" i Google Maps -->
+            <iframe
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Adressesen%201,%205918%20Knarvik&output=embed"
+              title="Kart: Adressesen 1, 5918 Knarvik">
+            </iframe>
+          </div>
         </aside>
       </div>
     </section>
@@ -164,21 +190,16 @@
         contact_h1: "Send en forespørsel",
         contact_intro: "Fortell oss kort om del, krav og tidslinje. Legg gjerne ved STEP/IGES og relevante mål/toleranser.",
 
-        form_h2: "Forespørsel",
-        form_name: "Navn",
-        form_email: "E-post",
-        form_company: "Firma (valgfritt)",
-        form_message: "Hva trenger du?",
-        form_note: "Tips: Legg ved STEP/IGES via e-post. Skriv gjerne ønsket materiale (hvis du har) og hvilke flater som må CNC-maskineres.",
-        form_cta_email: "Send e-post",
-        form_cta_back: "Tilbake",
-
         info_h2: "Kontaktinfo",
         info_email_label: "E-post:",
         info_phone_label: "Telefon:",
-        info_location_label: "Lokasjon:",
-        info_location_value: "Norge",
-        info_note: "Legg ved: STEP/IGES, krav til temperatur/kjemi, toleranser, ønsket antall og tidslinje.",
+
+        cta_email: "Send e-post",
+        cta_back: "Tilbake",
+
+        addr_h2: "Adresse",
+        addr_label: "Adresse:",
+        addr_value: "Adressesen 1, 5918 Knarvik",
       },
 
       en: {
@@ -193,21 +214,16 @@
         contact_h1: "Send an inquiry",
         contact_intro: "Tell us briefly about your part, requirements and timeline. Attach STEP/IGES and key dimensions/tolerances if available.",
 
-        form_h2: "Inquiry",
-        form_name: "Name",
-        form_email: "Email",
-        form_company: "Company (optional)",
-        form_message: "What do you need?",
-        form_note: "Tip: Attach STEP/IGES by email. Include your preferred polymer (if any) and which surfaces/features require CNC machining.",
-        form_cta_email: "Send email",
-        form_cta_back: "Back",
-
         info_h2: "Contact info",
         info_email_label: "Email:",
         info_phone_label: "Phone:",
-        info_location_label: "Location:",
-        info_location_value: "Norway",
-        info_note: "Please include: STEP/IGES, temperature/chemical requirements, tolerances, quantity and timeline.",
+
+        cta_email: "Send email",
+        cta_back: "Back",
+
+        addr_h2: "Address",
+        addr_label: "Address:",
+        addr_value: "Adressesen 1, 5918 Knarvik",
       }
     };
 
