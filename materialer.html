@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EIKO Additive – Materialer</title>
-  <meta name="description" content="Materialtabell: maks driftstemperatur, UTS, flytegrense og E-modul." />
+  <meta name="description" content="Materialtabell: maks driftstemperatur, UTS og E-modul." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
@@ -42,12 +42,16 @@
     }
     .material-table th,
     .material-table td{
-      padding: 12px 12px;
+      padding: 16px 12px; /* litt høyere rader */
       border-bottom: 1px solid rgba(255,255,255,.06);
       vertical-align: middle;
       font-size: 13px;
       color: #d9e4ff;
       white-space: nowrap;
+      line-height: 1.25;
+    }
+    .material-table tbody tr{
+      height: 52px; /* litt høyere rader */
     }
     .material-table thead th{
       position: sticky;
@@ -118,9 +122,8 @@
               <th data-i18n="th_material">Material</th>
               <th data-i18n="th_max_temp">Maks driftstemperatur</th>
               <th data-i18n="th_uts">UTS</th>
-              <th data-i18n="th_yield">Flytegrense</th>
+              <th data-i18n="th_uts_z">UTS Z</th>
               <th data-i18n="th_emod">E-modul</th>
-              <th data-i18n="th_comment">Kommentar</th>
             </tr>
           </thead>
           <tbody>
@@ -128,43 +131,57 @@
               <td><strong>PEEK</strong></td>
               <td>240–260°C</td>
               <td>90–110 MPa</td>
-              <td>70–95 MPa</td>
+              <td>80–95 MPa</td>
               <td>3.5–4.0 GPa</td>
-              <td class="wrapcell"><span data-i18n="c_peek">Best når temperatur og kjemisk miljø er krevende.</span></td>
             </tr>
 
             <tr>
               <td><strong>PEKK</strong></td>
               <td>230–260°C</td>
               <td>85–110 MPa</td>
-              <td>65–90 MPa</td>
+              <td>75–95 MPa</td>
               <td>3.0–4.0 GPa</td>
-              <td class="wrapcell"><span data-i18n="c_pekk">PEEK-klasse ytelse, ofte enklere prosessering.</span></td>
             </tr>
 
             <tr>
               <td><strong>PEI (ULTEM)</strong></td>
               <td>160–180°C</td>
               <td>70–90 MPa</td>
-              <td>55–75 MPa</td>
+              <td>60–80 MPa</td>
               <td>2.8–3.4 GPa</td>
-              <td class="wrapcell"><span data-i18n="c_pei">God stivhet og pris/ytelse i høytemp-segmentet.</span></td>
+            </tr>
+
+            <tr>
+              <td><strong>PPS</strong> <span class="subtle" data-i18n="sub_pps">(Polyphenylenesulfid)</span></td>
+              <td>200–230°C</td>
+              <td>55–75 MPa</td>
+              <td>50–65 MPa</td>
+              <td>3.0–4.0 GPa</td>
+            </tr>
+
+            <tr>
+              <td><strong>PSU</strong> <span class="subtle" data-i18n="sub_psu">(Polysulfoner)</span></td>
+              <td>150–170°C</td>
+              <td>65–80 MPa</td>
+              <td>55–70 MPa</td>
+              <td>2.3–2.8 GPa</td>
             </tr>
 
             <tr>
               <td><strong>PA6-CF</strong></td>
               <td>100–150°C</td>
               <td>60–90 MPa</td>
-              <td>—</td>
+              <td>55–80 MPa</td>
               <td>5–10 GPa</td>
-              <td class="wrapcell"><span data-i18n="c_pa6cf">Høy stivhet. Egnet for jigger/fixtures og strukturdeler.</span></td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <div class="note" style="margin-top:12px;">
-        <span data-i18n="note_values">Verdier er typiske intervaller og avhenger av material-grade og print-retning.</span>
+        <span data-i18n="note_values">
+          Verdier er typiske intervaller og avhenger av material-grade og print-retning. Vi kan også levere 3D-print i et bredt utvalg av øvrige termoplaster ved forespørsel.
+        </span>
       </div>
     </section>
 
@@ -193,16 +210,13 @@
         th_material: "Material",
         th_max_temp: "Maks driftstemperatur",
         th_uts: "UTS",
-        th_yield: "Flytegrense",
+        th_uts_z: "UTS Z",
         th_emod: "E-modul",
-        th_comment: "Kommentar",
 
-        c_peek: "Best når temperatur og kjemisk miljø er krevende.",
-        c_pekk: "PEEK-klasse ytelse, ofte enklere prosessering.",
-        c_pei: "God stivhet og pris/ytelse i høytemp-segmentet.",
-        c_pa6cf: "Høy stivhet. Egnet for jigger/fixtures og strukturdeler.",
+        sub_pps: "(Polyphenylenesulfid)",
+        sub_psu: "(Polysulfoner)",
 
-        note_values: "Verdier er typiske intervaller og avhenger av material-grade og print-retning.",
+        note_values: "Verdier er typiske intervaller og avhenger av material-grade og print-retning. Vi kan også levere 3D-print i et bredt utvalg av øvrige termoplaster ved forespørsel."
       },
       en: {
         nav_home: "Home",
@@ -218,16 +232,13 @@
         th_material: "Material",
         th_max_temp: "Max service temperature",
         th_uts: "UTS",
-        th_yield: "Yield strength",
+        th_uts_z: "UTS Z",
         th_emod: "Elastic modulus",
-        th_comment: "Comment",
 
-        c_peek: "Best when temperature and chemical environment are demanding.",
-        c_pekk: "PEEK-class performance, often easier processing.",
-        c_pei: "Good stiffness and strong price/performance in high-temp applications.",
-        c_pa6cf: "High stiffness. Well suited for jigs/fixtures and structural parts.",
+        sub_pps: "(Polyphenylene sulfide)",
+        sub_psu: "(Polysulfones)",
 
-        note_values: "Values are typical ranges and depend on material grade and print orientation.",
+        note_values: "Values are typical ranges and depend on material grade and print orientation. We can also provide 3D printing in a wide range of other thermoplastics on request."
       }
     };
 
