@@ -48,22 +48,60 @@
       font-size:18px;
       margin:0 0 10px 0;
     }
-    .contact-list{
-      list-style:none;
-      padding:0;
-      margin:0;
+
+    /* Personkort */
+    .person-card{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
     }
-    .contact-list li{
-      padding:10px 0;
-      border-bottom:1px solid rgba(255,255,255,.06);
+    .person-img{
+      width:100%;
+      height:180px;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+    }
+    .person-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .person-meta{
       color:#d9e4ff;
       font-size:14px;
+      line-height:1.45;
     }
-    .contact-list li:last-child{ border-bottom:0; }
-    .contact-list b{ color:#eaf1ff; }
+    .person-meta b{ color:#eaf1ff; }
+
+    /* Stor boks under */
+    .contact-wide{
+      margin-top:14px;
+    }
+    .wide-inner{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .wide-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      align-items:flex-start;
+      color:#d9e4ff;
+      font-size:14px;
+      line-height:1.45;
+    }
+    .wide-row .block{
+      min-width:240px;
+    }
+    .wide-row b{ color:#eaf1ff; }
 
     .map-wrap{
-      margin-top:10px;
+      margin-top:6px;
       border-radius:16px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,.08);
@@ -122,21 +160,45 @@
         Fortell oss kort om del, krav og tidslinje. Legg gjerne ved STEP/IGES og relevante mål/toleranser.
       </p>
 
+      <!-- TO PERSONBOKSER -->
       <div class="contact-grid">
-        <!-- Boks 1: E-post + telefon -->
-        <div class="panel card contact-card">
-          <h2 data-i18n="info_h2">Kontaktinfo</h2>
+        <div class="panel card contact-card person-card">
+          <div class="person-img" aria-label="Daglig leder">
+            <!-- Bytt filnavn til ditt bilde -->
+            <img src="sak.png" alt="Daglig leder SAK">
+          </div>
+          <div class="person-meta">
+            <div><b data-i18n="p1_title">Daglig Leder</b> <span data-i18n="p1_code">"SAK"</span></div>
+            <div><b data-i18n="email_label">E-post:</b> <span data-i18n="p1_email">SK@eikoadditive.no</span></div>
+          </div>
+        </div>
 
-          <ul class="contact-list">
-            <li>
-              <b data-i18n="info_email_label">E-post:</b>
-              <span> post@eikoadditive.no</span>
-            </li>
-            <li>
-              <b data-i18n="info_phone_label">Telefon:</b>
-              <span> +47 XXX XX XXX</span>
-            </li>
-          </ul>
+        <div class="panel card contact-card person-card">
+          <div class="person-img" aria-label="Teknisk direktør">
+            <!-- Bytt filnavn til ditt bilde -->
+            <img src="me.png" alt="Teknisk direktør ME">
+          </div>
+          <div class="person-meta">
+            <div><b data-i18n="p2_title">Teknisk direktør</b> <span data-i18n="p2_code">"ME"</span></div>
+            <div><b data-i18n="email_label">E-post:</b> <span data-i18n="p2_email">ME@eikoadditive.no</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STOR AVLANGE BOKS MED ADRESSE + GENERELL E-POST + KART -->
+      <div class="panel card contact-card contact-wide">
+        <div class="wide-inner">
+          <div class="wide-row">
+            <div class="block">
+              <div><b data-i18n="addr_label">Adresse:</b></div>
+              <div data-i18n="addr_value">Adressesen 1, 5918 Knarvik</div>
+            </div>
+
+            <div class="block">
+              <div><b data-i18n="general_email_label">Generell e-post:</b></div>
+              <div data-i18n="general_email_value">post@eikoadditive.no</div>
+            </div>
+          </div>
 
           <div class="cta-row">
             <a class="btn primary" href="mailto:post@eikoadditive.no?subject=Foresp%C3%B8rsel%20LFAM%20/%20HPP" data-i18n="cta_email">
@@ -144,19 +206,8 @@
             </a>
             <a class="btn" href="index.html" data-i18n="cta_back">Tilbake</a>
           </div>
-        </div>
-
-        <!-- Boks 2: Adresse + kart -->
-        <aside class="panel card contact-card">
-          <h2 data-i18n="addr_h2">Adresse</h2>
-
-          <div style="color:#d9e4ff; font-size:14px; line-height:1.45;">
-            <div><b data-i18n="addr_label">Adresse:</b></div>
-            <div data-i18n="addr_value">Adressesen 1, 5918 Knarvik</div>
-          </div>
 
           <div class="map-wrap" aria-label="Google Maps">
-            <!-- Bytt gjerne denne embed-linken til den du får fra "Del" -> "Bygg inn et kart" i Google Maps -->
             <iframe
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
@@ -164,8 +215,9 @@
               title="Kart: Adressesen 1, 5918 Knarvik">
             </iframe>
           </div>
-        </aside>
+        </div>
       </div>
+
     </section>
 
     <footer>
@@ -190,14 +242,21 @@
         contact_h1: "Send en forespørsel",
         contact_intro: "Fortell oss kort om del, krav og tidslinje. Legg gjerne ved STEP/IGES og relevante mål/toleranser.",
 
-        info_h2: "Kontaktinfo",
-        info_email_label: "E-post:",
-        info_phone_label: "Telefon:",
+        p1_title: "Daglig Leder",
+        p1_code: "\"SAK\"",
+        p1_email: "SK@eikoadditive.no",
+
+        p2_title: "Teknisk direktør",
+        p2_code: "\"ME\"",
+        p2_email: "ME@eikoadditive.no",
+
+        email_label: "E-post:",
+        general_email_label: "Generell e-post:",
+        general_email_value: "post@eikoadditive.no",
 
         cta_email: "Send e-post",
         cta_back: "Tilbake",
 
-        addr_h2: "Adresse",
         addr_label: "Adresse:",
         addr_value: "Adressesen 1, 5918 Knarvik",
       },
@@ -214,14 +273,21 @@
         contact_h1: "Send an inquiry",
         contact_intro: "Tell us briefly about your part, requirements and timeline. Attach STEP/IGES and key dimensions/tolerances if available.",
 
-        info_h2: "Contact info",
-        info_email_label: "Email:",
-        info_phone_label: "Phone:",
+        p1_title: "Managing Director",
+        p1_code: "\"SAK\"",
+        p1_email: "SK@eikoadditive.no",
+
+        p2_title: "Technical Director",
+        p2_code: "\"ME\"",
+        p2_email: "ME@eikoadditive.no",
+
+        email_label: "Email:",
+        general_email_label: "General email:",
+        general_email_value: "post@eikoadditive.no",
 
         cta_email: "Send email",
         cta_back: "Back",
 
-        addr_h2: "Address",
         addr_label: "Address:",
         addr_value: "Adressesen 1, 5918 Knarvik",
       }
