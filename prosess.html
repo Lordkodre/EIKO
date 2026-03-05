@@ -100,6 +100,16 @@
     @media (max-width:560px){
       .stepflow{ grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* (Ny) enkel liste-stil som matcher resten uten å røre styles.css */
+    .qualitylist{
+      margin:10px 0 0 0;
+      padding-left:18px;
+      color: rgba(217,228,255,.92);
+      font-size:14px;
+      line-height:1.55;
+    }
+    .qualitylist li{ margin:6px 0; }
   </style>
 </head>
 
@@ -208,18 +218,39 @@
         </div>
       </div>
 
+      <!-- (Ny) Tekst under stegene -->
+      <div class="dividerline"></div>
+
+      <div>
+        <p class="small" data-i18n="p_after_flow_intro" style="font-size:15px; margin:0;">
+          Når prosessen er ferdig og du har fått komponentene levert med ønsket dokumentasjon, står du igjen med et svært spesielt produkt.
+          EIKO sine deler er nemlig ikke som «vanlige» 3D-printede deler. Grunnen er enkel: vi kombinerer dyp in-house kompetanse med
+          lidenskap for faget – og vi er kompromissløse på prosess, etterbearbeiding og kontroll.
+        </p>
+
+        <ul class="qualitylist" data-i18n-list="quality_points">
+          <li>Høyere og mer uniform styrke (styrke X = Y = Z)</li>
+          <li>Spesifisert overflateruhet</li>
+          <li>Svært høy nøyaktighet</li>
+          <li>Mindre porøsitet</li>
+          <li>Minimalt segmentert (mindre begrenset av størrelse)</li>
+        </ul>
+
+        <p class="small" data-i18n="p_after_flow_outro" style="font-size:15px; margin:10px 0 0 0;">
+          Dette gir deg 3D-printede komponenter av absolutt høyeste kvalitet – og muligheten til å bestille reservedeler med svært kort ledetid,
+          fordi delene kan lagres og gjenbestilles fra EIKO sitt digitale varelager.
+        </p>
+      </div>
+
+      <!-- (Ny) CTA nederst på siden -->
       <div class="dividerline"></div>
 
       <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
         <div>
-          <h2 data-i18n="h2_next">Klar for å starte?</h2>
-          <p class="small" data-i18n="p_next">
-            Send oss en kort beskrivelse og eventuelle filer – så svarer vi med forslag til neste steg.
-          </p>
+          <h2 data-i18n="h2_bottom_cta">Er din bedrift klar for det neste innovasjonssteget? →</h2>
         </div>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a class="btn primary" href="kontakt.html" data-i18n="cta_send_request">Send forespørsel</a>
-          <a class="btn" href="materialer.html" data-i18n="cta_view_materials">Se materialer</a>
+          <a class="btn primary" href="kontakt.html" data-i18n="cta_start_dialog_bottom">Start dialog</a>
         </div>
       </div>
     </section>
@@ -264,10 +295,13 @@ document.addEventListener("DOMContentLoaded", () => {
       s6_title: "Levering",
       s6_text: "Kontroll av mål og kritiske features, dokumentasjon ved behov, og levering. Ønsker du videre optimalisering kan vi iterere raskt.",
 
-      h2_next: "Klar for å starte?",
-      p_next: "Send oss en kort beskrivelse og eventuelle filer – så svarer vi med forslag til neste steg.",
-      cta_send_request: "Send forespørsel",
-      cta_view_materials: "Se materialer"
+      p_after_flow_intro:
+        "Når prosessen er ferdig og du har fått komponentene levert med ønsket dokumentasjon, står du igjen med et svært spesielt produkt. EIKO sine deler er nemlig ikke som «vanlige» 3D-printede deler. Grunnen er enkel: vi kombinerer dyp in-house kompetanse med lidenskap for faget – og vi er kompromissløse på prosess, etterbearbeiding og kontroll.",
+      p_after_flow_outro:
+        "Dette gir deg 3D-printede komponenter av absolutt høyeste kvalitet – og muligheten til å bestille reservedeler med svært kort ledetid, fordi delene kan lagres og gjenbestilles fra EIKO sitt digitale varelager.",
+
+      h2_bottom_cta: "Er din bedrift klar for det neste innovasjonssteget? →",
+      cta_start_dialog_bottom: "Start dialog"
     },
     en: {
       nav_home: "Home",
@@ -299,10 +333,34 @@ document.addEventListener("DOMContentLoaded", () => {
       s6_title: "Delivery",
       s6_text: "Checks of critical features, documentation when needed, and delivery. If you want further optimization, we can iterate quickly.",
 
-      h2_next: "Ready to start?",
-      p_next: "Send a short description and any files — we’ll respond with recommended next steps.",
-      cta_send_request: "Send request",
-      cta_view_materials: "View materials"
+      p_after_flow_intro:
+        "When the process is complete and your components are delivered with the requested documentation, you’re left with a truly special product. EIKO parts are not like “typical” 3D-printed parts. The reason is simple: we combine deep in-house expertise with genuine passion for the craft — and we’re uncompromising on process control, post-processing, and verification.",
+      p_after_flow_outro:
+        "This gives you 3D-printed components of the highest quality — and the ability to reorder spare parts with very short lead times, because parts can be stored and reproduced from EIKO’s digital inventory.",
+
+      h2_bottom_cta: "Is your company ready for the next innovation step? →",
+      cta_start_dialog_bottom: "Start dialog"
+    }
+  };
+
+  const listData = {
+    no: {
+      quality_points: [
+        "Høyere og mer uniform styrke (styrke X = Y = Z)",
+        "Spesifisert overflateruhet",
+        "Svært høy nøyaktighet",
+        "Mindre porøsitet",
+        "Minimalt segmentert (mindre begrenset av størrelse)"
+      ]
+    },
+    en: {
+      quality_points: [
+        "Higher and more uniform strength (strength X = Y = Z)",
+        "Specified surface roughness",
+        "Very high accuracy",
+        "Lower porosity",
+        "Minimal segmentation (less limited by size)"
+      ]
     }
   };
 
@@ -313,6 +371,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("[data-i18n]").forEach(el => {
       const key = el.getAttribute("data-i18n");
       if (dict[key]) el.textContent = dict[key];
+    });
+
+    // Lister (ul)
+    document.querySelectorAll("[data-i18n-list]").forEach(ul => {
+      const key = ul.getAttribute("data-i18n-list");
+      const items = (listData[lang] && listData[lang][key]) ? listData[lang][key] : (listData.no[key] || []);
+      ul.innerHTML = items.map(t => `<li>${t}</li>`).join("");
     });
 
     const btnNo = document.getElementById("btn-no");
