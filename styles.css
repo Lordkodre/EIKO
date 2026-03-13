@@ -1,0 +1,319 @@
+:root{
+  --bg:#0b0f17;
+  --card:#121a2a;
+  --muted:#93a4c7;
+  --text:#e8eefc;
+  --accent:#63b3ff;
+  --line:rgba(255,255,255,.08);
+  --radius:18px;
+  --shadow: 0 16px 40px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+html, body { min-height: 100%; }
+
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  /* Samlet til én bakgrunn (du hadde to "body" blokker) */
+  background:
+    radial-gradient(1200px 800px at 20% -10%, rgba(72,242,194,0.18), transparent 70%),
+    radial-gradient(1000px 700px at 80% 10%, rgba(122,167,255,0.22), transparent 75%),
+    linear-gradient(180deg, #071018 0%, #0b1c2a 50%, #071018 100%);
+  background-attachment: fixed;
+  color:var(--text);
+  line-height:1.55;
+}
+
+a{color:inherit; text-decoration:none}
+.wrap{max-width:1100px; margin:0 auto; padding:26px 18px 72px}
+
+/* Base header (ikke panel) */
+header{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  position:sticky; top:0; z-index: 1000;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(to bottom, rgba(11,15,23,.75), rgba(11,15,23,.2));
+  border-bottom:1px solid var(--line);
+  padding:14px 18px; margin:0 -18px 28px;
+}
+
+/* Header som panel-boks (brukes i sidene dine) */
+.header-panel{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:14px 18px;
+  margin-bottom:22px;
+}
+
+.brandlogo{
+  height: 70px;
+  width: auto;
+  display: block;
+}
+
+.nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+.header-panel .nav{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+.nav a{
+  padding:8px 10px;
+  border-radius:10px;
+  color:var(--muted);
+}
+.nav a:hover{background:rgba(255,255,255,.05); color:var(--text)}
+.nav a.active{
+  background: rgba(99,179,255,.14);
+  border: 1px solid rgba(99,179,255,.22);
+  color: var(--text);
+}
+
+.panel{
+  background:rgba(18,26,42,.82);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+.kicker{
+  color:var(--muted);
+  font-weight:600;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+}
+
+.small{font-size:13px; color:var(--muted)}
+h1{margin:0 0 10px; font-size: clamp(28px, 4vw, 44px); letter-spacing:-.02em}
+h2{margin:0 0 10px; font-size:22px}
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:11px 14px; border-radius:14px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  font-weight:600;
+  cursor:pointer;
+}
+.btn.primary{
+  background: linear-gradient(135deg, rgba(99,179,255,.95), rgba(99,179,255,.35));
+  border-color: rgba(99,179,255,.45);
+  color:#06101f;
+}
+.btn:hover{transform: translateY(-1px)}
+
+.list{margin:10px 0 0; padding:0; list-style:none; color:var(--muted)}
+.list li{padding:8px 0; border-top:1px solid var(--line)}
+.list li:first-child{border-top:0}
+
+footer{
+  margin-top:26px; padding-top:18px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+}
+
+.hero{
+  display:grid; gap:18px;
+  grid-template-columns: 1.25fr .75fr;
+  align-items:stretch;
+}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  header{position:relative}
+}
+.hero .left{padding:26px}
+.right{padding:18px; display:flex; flex-direction:column; gap:14px}
+.badge{
+  padding:14px; border-radius:16px; border:1px solid var(--line);
+  background: rgba(255,255,255,.03);
+}
+
+.page{ padding:22px; }
+.pagehead{
+  display:flex; gap:14px; align-items:flex-end; justify-content:space-between; flex-wrap:wrap;
+  padding:22px;
+}
+.pagehead .meta{max-width:720px}
+
+.grid2{
+  display:grid; gap:14px;
+  grid-template-columns: 1fr 1fr;
+  margin-top:14px;
+}
+@media (max-width:900px){ .grid2{grid-template-columns:1fr} }
+
+.grid3{
+  display:grid; gap:14px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top:14px;
+}
+@media (max-width:900px){ .grid3{grid-template-columns:1fr} }
+
+.card{padding:18px}
+
+/* Tables */
+table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background: rgba(255,255,255,.02);
+}
+th, td{
+  text-align:left;
+  padding:12px 12px;
+  border-bottom:1px solid var(--line);
+  color: var(--muted);
+  vertical-align:top;
+}
+th{
+  color: var(--text);
+  font-weight:700;
+  background: rgba(255,255,255,.03);
+}
+tr:last-child td{border-bottom:0}
+
+.note{
+  margin-top:12px;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(99,179,255,.22);
+  background: rgba(99,179,255,.10);
+  color: var(--muted);
+}
+
+/* Card image (du hadde to; behold én konsekvent) */
+.cardimg{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:16px;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  margin-bottom:12px;
+  box-shadow: 0 16px 30px rgba(0,0,0,.25);
+  opacity:0.95;
+}
+@media (max-width:900px){
+  .cardimg{height:170px;}
+}
+
+/* =========================
+   FAQ (bruker eksisterende .panel)
+   ========================= */
+.faq-wrap{
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+.faq-item{
+  overflow: hidden;
+}
+.faq-item > summary{
+  cursor: pointer;
+  padding: 14px 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  user-select: none;
+}
+.faq-item > summary::-webkit-details-marker{ display: none; }
+.faq-item > summary::marker{ content: ""; }
+.faq-item > summary::after{
+  content: "›";
+  transform: rotate(90deg);
+  transition: transform 180ms ease;
+  opacity: .85;
+  font-size: 18px;
+  line-height: 1;
+}
+.faq-item[open] > summary::after{
+  transform: rotate(-90deg);
+}
+.faq-body{
+  padding: 0 14px 14px;
+}
+.faq-item[open] > summary{
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+.faq-item > summary:focus{ outline: none; }
+.faq-item > summary:focus-visible{
+  outline: 2px solid rgba(72,242,194,.45);
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+@media (prefers-reduced-motion: reduce){
+  .faq-item > summary::after{ transition: none; }
+}
+
+/* =========================
+   PROSESS – steg (fjern horisontal scroll)
+   Legg denne i styles.css, så kan prosess-siden være enklere.
+   ========================= */
+.stepflow{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+  overflow: visible;
+  padding-bottom: 0;
+}
+@media (max-width: 1100px){
+  .stepflow{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 650px){
+  .stepflow{ grid-template-columns: 1fr; }
+}
+
+.stepcard{
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.02);
+  box-shadow: 0 18px 40px rgba(0,0,0,.18);
+  padding: 14px;
+  min-height: 200px;
+}
+
+.stepnum{
+  width: 30px; height: 30px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.stepicon{
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.steptitle{
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 8px 0;
+  font-size: 14px;
+}
+
+.steptext{
+  margin: 0;
+  color: rgba(217,228,255,.92);
+  font-size: 13px;
+  line-height: 1.45;
+}

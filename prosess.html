@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EIKO Additive – Prosess</title>
+  <meta name="description" content="Fra idé til ferdig del: design, DfAM, materialvalg, 3D-print i høyytelsespolymerer, CNC-etterbearbeiding og kvalitetssikring." />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .lang-switch{ display:flex; align-items:center; gap:10px; margin-left:auto; }
+    .flagbtn{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:36px; height:26px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      cursor:pointer; padding:0;
+    }
+    .flagbtn img{ width:22px; height:16px; object-fit:cover; border-radius:3px; display:block; }
+    .flagbtn.active{
+      border-color: rgba(99,179,255,.45);
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+    }
+    @media (max-width:900px){
+      .lang-switch{ width:100%; justify-content:flex-end; }
+      .header-panel{ flex-wrap:wrap; }
+      .header-panel .nav{ width:100%; justify-content:flex-start; }
+    }
+
+    /* ✅ 1 linje, uten scroll-bar: krymp boksene litt */
+    .stepflow{
+      display:grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap:8px;
+      margin-top:12px;
+
+      /* Viktig: ingen overflow/scrollbar */
+      overflow: hidden;
+    }
+
+    .stepcard{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+
+      /* Litt strammere for å få alt på én linje */
+      padding:10px 10px 9px;
+      min-height:185px;
+    }
+
+    .stepnum{
+      width:26px; height:26px;
+      border-radius:9px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800;
+      color:#eaf1ff;
+      margin-bottom:7px;
+      font-size:12px;
+    }
+    .stepicon{
+      font-size:18px;
+      margin-bottom:5px;
+    }
+    .steptitle{
+      font-weight:800;
+      color:#eaf1ff;
+      margin:0 0 6px 0;
+      font-size:13px;
+      line-height:1.15;
+    }
+    .steptext{
+      margin:0;
+      color: rgba(217,228,255,.92);
+      font-size:12px;
+      line-height:1.32;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    /* Ikke relevant når vi ikke har scroll */
+    .arrowhint{ display:none; }
+
+    .dividerline{
+      height:1px;
+      background: rgba(255,255,255,.08);
+      margin:20px 0;
+    }
+
+    /* Mobil: her er det fysisk umulig å få 6 bokser på én linje uten mikrotekst,
+       så vi lar de pakke seg pent i 2 rader. */
+    @media (max-width:900px){
+      .stepflow{ grid-template-columns: repeat(3, 1fr); gap:10px; overflow: visible; }
+      .stepcard{ min-height:170px; }
+      .steptext{ font-size:12px; }
+    }
+    @media (max-width:560px){
+      .stepflow{ grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Liste-stil (kun denne siden) */
+    .qualitylist{
+      margin:10px 0 0 0;
+      padding-left:18px;
+      color: rgba(217,228,255,.92);
+      font-size:14px;
+      line-height:1.55;
+    }
+    .qualitylist li{ margin:6px 0; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header class="panel header-panel">
+      <div class="brand">
+        <a class="brandlink" href="index.html">
+          <img class="brandlogo" src="logo.png" alt="EIKO Additive logo" />
+        </a>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" data-i18n="nav_home">Hjem</a>
+        <a href="tjenester.html" data-i18n="nav_services">Tjenester</a>
+        <a href="materialer.html" data-i18n="nav_materials">Materialer</a>
+        <a class="active" href="prosess.html" data-i18n="nav_process">Prosess</a>
+        <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
+      </nav>
+
+      <div class="lang-switch">
+        <button class="flagbtn" id="btn-no" type="button" aria-label="Norsk">
+          <img src="flag-no.png" alt="Norsk flagg">
+        </button>
+        <button class="flagbtn" id="btn-en" type="button" aria-label="English">
+          <img src="flag-us.png" alt="US flag">
+        </button>
+      </div>
+    </header>
+
+    <section class="panel pagehead">
+      <div class="meta">
+        <div class="kicker" data-i18n="kicker_process">Prosess</div>
+        <h1 data-i18n="h1_process">Fra konsept til ferdig del</h1>
+        <p class="small" data-i18n="p_process_intro" style="font-size:16px; margin:0;">
+          Vi kan ta imot alt fra en idé, en skisse eller en STEP-fil – og levere en ferdig komponent.
+        </p>
+      </div>
+
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn primary" href="kontakt.html" data-i18n="cta_start_dialog">Start en dialog</a>
+        <a class="btn" href="tjenester.html" data-i18n="cta_view_services">Se tjenester</a>
+      </div>
+    </section>
+
+    <section class="panel page" style="margin-top:14px;">
+      <h2 data-i18n="h2_flow">Slik ser et typisk løp ut</h2>
+      <p class="small" data-i18n="p_flow_intro">
+        For de fleste prosjekter starter vi med en rask avklaring, før vi går videre til data, DfAM, produksjon og levering.
+      </p>
+
+      <div class="stepflow">
+        <div class="stepcard">
+          <div class="stepnum">1</div>
+          <div class="stepicon">📩</div>
+          <div class="steptitle" data-i18n="s1_title">Behov & krav</div>
+          <p class="steptext" data-i18n="s1_text">
+            Kort avklaring av miljø, last, toleranser, volum og leveringstid. Vi foreslår material og prosess basert på bruksområdet.
+          </p>
+        </div>
+
+        <div class="stepcard">
+          <div class="stepnum">2</div>
+          <div class="stepicon">🧩</div>
+          <div class="steptitle" data-i18n="s2_title">Data inn</div>
+          <p class="steptext" data-i18n="s2_text">
+            STEP/STL, tegning, mål, eller en eksisterende del. Mangler du CAD? Vi kan modellere og forenkle geometri for print og CNC.
+          </p>
+        </div>
+
+        <div class="stepcard">
+          <div class="stepnum">3</div>
+          <div class="stepicon">🧠</div>
+          <div class="steptitle" data-i18n="s3_title">DfAM</div>
+          <p class="steptext" data-i18n="s3_text">
+            Optimalisering for printretning, veggtykkelser, innfesting og Z-styrke. Ved behov planlegger vi også CNC-flater og toleranser.
+          </p>
+        </div>
+
+        <div class="stepcard">
+          <div class="stepnum">4</div>
+          <div class="stepicon">🖨️</div>
+          <div class="steptitle" data-i18n="s4_title">3D-print</div>
+          <p class="steptext" data-i18n="s4_text">
+            Produksjon i valgt polymer med prosesskontroll for best mulig repeterbarhet og mekaniske egenskaper.
+          </p>
+        </div>
+
+        <div class="stepcard">
+          <div class="stepnum">5</div>
+          <div class="stepicon">🛠️</div>
+          <div class="steptitle" data-i18n="s5_title">Etterbearbeiding</div>
+          <p class="steptext" data-i18n="s5_text">
+            CNC-maskinering av kritiske flater og hull, gjenger, innpressmuttere og tilpasninger. Leveres klar for montering.
+          </p>
+        </div>
+
+        <div class="stepcard">
+          <div class="stepnum">6</div>
+          <div class="stepicon">📦</div>
+          <div class="steptitle" data-i18n="s6_title">Levering</div>
+          <p class="steptext" data-i18n="s6_text">
+            Kontroll av mål og kritiske features, dokumentasjon ved behov, og levering. Ønsker du videre optimalisering kan vi iterere raskt.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tekst under stegene (oppdatert) -->
+      <div class="dividerline"></div>
+
+      <div>
+        <p class="small" data-i18n="p_after_flow_intro" style="font-size:15px; margin:0;">
+          Når prosessen er ferdig og komponentene er levert med ønsket dokumentasjon, står du igjen med et produkt som skiller seg tydelig ut.
+          EIKO-deler er ikke «vanlige» 3D-printede deler. Vi kombinerer solid in-house kompetanse med ekte lidenskap for faget – og er
+          kompromissløse på prosesskontroll, etterbearbeiding og verifikasjon.
+        </p>
+
+        <ul class="qualitylist" data-i18n-list="quality_points">
+          <li>Høyere og mer uniform styrke (styrke X = Y = Z)</li>
+          <li>Spesifisert overflateruhet</li>
+          <li>Svært høy nøyaktighet</li>
+          <li>Mindre porøsitet</li>
+          <li>Minimalt segmentert (mindre begrenset av størrelse)</li>
+        </ul>
+
+        <p class="small" data-i18n="p_after_flow_outro" style="font-size:15px; margin:10px 0 0 0;">
+          Resultatet er 3D-printede komponenter i absolutt toppklasse – og muligheten til å bestille reservedeler med svært kort ledetid,
+          fordi delene kan lagres og gjenbestilles fra EIKO sitt digitale varelager.
+        </p>
+      </div>
+
+      <!-- CTA nederst på siden -->
+      <div class="dividerline"></div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+        <div>
+          <h2 data-i18n="h2_bottom_cta">Er din bedrift klar for det neste innovasjonssteget? →</h2>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn primary" href="kontakt.html" data-i18n="cta_start_dialog_bottom">Start dialog</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> EIKO Additive</div>
+    </footer>
+  </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const i18n = {
+    no: {
+      nav_home: "Hjem",
+      nav_services: "Tjenester",
+      nav_materials: "Materialer",
+      nav_process: "Prosess",
+      nav_contact: "Kontakt",
+
+      kicker_process: "Prosess",
+      h1_process: "Fra konsept til ferdig del",
+      p_process_intro: "Vi kan ta imot alt fra en idé, en skisse eller en STEP-fil – og levere en ferdig komponent.",
+
+      cta_start_dialog: "Start en dialog",
+      cta_view_services: "Se tjenester",
+
+      h2_flow: "Slik ser et typisk løp ut",
+      p_flow_intro: "For de fleste prosjekter starter vi med en rask avklaring, før vi går videre til data, DfAM, produksjon og levering.",
+
+      s1_title: "Behov & krav",
+      s1_text: "Kort avklaring av miljø, last, toleranser, volum og leveringstid. Vi foreslår material og prosess basert på bruksområdet.",
+      s2_title: "Data inn",
+      s2_text: "STEP/STL, tegning, mål, eller en eksisterende del. Mangler du CAD? Vi kan modellere og forenkle geometri for print og CNC.",
+      s3_title: "DfAM",
+      s3_text: "Optimalisering for printretning, veggtykkelser, innfesting og Z-styrke. Ved behov planlegger vi også CNC-flater og toleranser.",
+      s4_title: "3D-print",
+      s4_text: "Produksjon i valgt polymer med prosesskontroll for best mulig repeterbarhet og mekaniske egenskaper.",
+      s5_title: "Etterbearbeiding",
+      s5_text: "CNC-maskinering av kritiske flater og hull, gjenger, innpressmuttere og tilpasninger. Leveres klar for montering.",
+      s6_title: "Levering",
+      s6_text: "Kontroll av mål og kritiske features, dokumentasjon ved behov, og levering. Ønsker du videre optimalisering kan vi iterere raskt.",
+
+      p_after_flow_intro:
+        "Når prosessen er ferdig og komponentene er levert med ønsket dokumentasjon, står du igjen med et produkt som skiller seg tydelig ut. EIKO-deler er ikke «vanlige» 3D-printede deler. Vi kombinerer solid in-house kompetanse med ekte lidenskap for faget – og er kompromissløse på prosesskontroll, etterbearbeiding og verifikasjon.",
+      p_after_flow_outro:
+        "Resultatet er 3D-printede komponenter i absolutt toppklasse – og muligheten til å bestille reservedeler med svært kort ledetid, fordi delene kan lagres og gjenbestilles fra EIKO sitt digitale varelager.",
+
+      h2_bottom_cta: "Er din bedrift klar for det neste innovasjonssteget? →",
+      cta_start_dialog_bottom: "Start dialog"
+    },
+    en: {
+      nav_home: "Home",
+      nav_services: "Services",
+      nav_materials: "Materials",
+      nav_process: "Process",
+      nav_contact: "Contact",
+
+      kicker_process: "Process",
+      h1_process: "From concept to finished part",
+      p_process_intro: "We can take anything from an idea, a sketch, or a STEP file — and deliver a finished component.",
+
+      cta_start_dialog: "Start a dialog",
+      cta_view_services: "View services",
+
+      h2_flow: "A typical project flow",
+      p_flow_intro: "Most projects start with quick scoping, then move through data, DfAM, production and delivery.",
+
+      s1_title: "Requirements",
+      s1_text: "Quick scoping of environment, loads, tolerances, volume and lead time. We recommend material and process based on the use case.",
+      s2_title: "Input data",
+      s2_text: "STEP/STL, drawings, dimensions, or an existing part. No CAD? We can model and simplify geometry for printing and CNC.",
+      s3_title: "DfAM",
+      s3_text: "Optimization for print orientation, wall thickness, interfaces and Z-strength. When needed, we also plan CNC surfaces and tolerances.",
+      s4_title: "3D printing",
+      s4_text: "Production in the selected polymer with process control aimed at repeatability and mechanical performance.",
+      s5_title: "Post-processing",
+      s5_text: "CNC machining of critical surfaces and holes, threads, inserts and fits. Delivered ready for assembly.",
+      s6_title: "Delivery",
+      s6_text: "Checks of critical features, documentation when needed, and delivery. If you want further optimization, we can iterate quickly.",
+
+      p_after_flow_intro:
+        "When the process is complete and the components are delivered with the requested documentation, you’re left with a product that clearly stands out. EIKO parts are not “typical” 3D-printed parts. We combine strong in-house expertise with genuine passion for the craft — and we’re uncompromising on process control, post-processing, and verification.",
+      p_after_flow_outro:
+        "The result is top-tier 3D-printed components — and the ability to reorder spare parts with very short lead times, because parts can be stored and reproduced from EIKO’s digital inventory.",
+
+      h2_bottom_cta: "Is your company ready for the next innovation step? →",
+      cta_start_dialog_bottom: "Start dialog"
+    }
+  };
+
+  const listData = {
+    no: {
+      quality_points: [
+        "Høyere og mer uniform styrke (styrke X = Y = Z)",
+        "Spesifisert overflateruhet",
+        "Svært høy nøyaktighet",
+        "Mindre porøsitet",
+        "Minimalt segmentert (mindre begrenset av størrelse)"
+      ]
+    },
+    en: {
+      quality_points: [
+        "Higher and more uniform strength (strength X = Y = Z)",
+        "Specified surface roughness",
+        "Very high accuracy",
+        "Lower porosity",
+        "Minimal segmentation (less limited by size)"
+      ]
+    }
+  };
+
+  function setLanguage(lang){
+    const dict = i18n[lang] || i18n.no;
+    document.documentElement.lang = (lang === "en") ? "en" : "no";
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (dict[key]) el.textContent = dict[key];
+    });
+
+    // Lister (ul)
+    document.querySelectorAll("[data-i18n-list]").forEach(ul => {
+      const key = ul.getAttribute("data-i18n-list");
+      const items = (listData[lang] && listData[lang][key]) ? listData[lang][key] : (listData.no[key] || []);
+      ul.innerHTML = items.map(t => `<li>${t}</li>`).join("");
+    });
+
+    const btnNo = document.getElementById("btn-no");
+    const btnEn = document.getElementById("btn-en");
+    if (btnNo) btnNo.classList.toggle("active", lang === "no");
+    if (btnEn) btnEn.classList.toggle("active", lang === "en");
+
+    localStorage.setItem("eiko_lang", lang);
+  }
+
+  document.getElementById("btn-no").addEventListener("click", () => setLanguage("no"));
+  document.getElementById("btn-en").addEventListener("click", () => setLanguage("en"));
+
+  const saved = localStorage.getItem("eiko_lang");
+  setLanguage(saved === "en" ? "en" : "no");
+});
+</script>
+
+</body>
+</html>
