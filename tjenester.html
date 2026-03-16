@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EIKO Additive – Tjenester</title>
-  <meta name="description" content="EIKO Additive leverer 3D-printing i høyytelsespolymerer, CNC, design og topologioptimalisering." />
+  <title>EIKO Additive – Produkter & Tjenester</title>
+  <meta name="description" content="EIKO Additive leverer produkter, additive manufacturing i høyytelsespolymerer, CNC-maskinering, CAD og engineering." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
@@ -31,19 +31,53 @@
       box-shadow: 0 10px 24px rgba(0,0,0,.25);
     }
 
-    /* 🔹 20% høyere service-bilder */
     .cardimg{
       width:100%;
-      height:192px;   /* tidligere 160px → +20% */
+      height:192px;
       object-fit:cover;
       border-radius:12px;
       margin-bottom:16px;
+    }
+
+    .main-sections{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:14px;
+      align-items:start;
+    }
+
+    .mainbox{
+      padding:20px;
+    }
+
+    .mainbox-head{
+      margin-bottom:18px;
+    }
+
+    .mainbox-head .kicker{
+      margin-bottom:6px;
+    }
+
+    .mainbox-head h2{
+      margin:0;
+    }
+
+    .inner-cards{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .inner-cards .card{
+      margin:0;
     }
 
     @media (max-width:900px){
       .lang-switch{ width:100%; justify-content:flex-end; }
       .header-panel{ flex-wrap:wrap; }
       .header-panel .nav{ width:100%; justify-content:flex-start; }
+      .main-sections{ grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -61,7 +95,7 @@
 
       <nav class="nav">
         <a href="index.html" data-i18n="nav_home">Hjem</a>
-        <a class="active" href="tjenester.html" data-i18n="nav_services">Tjenester</a>
+        <a class="active" href="tjenester.html" data-i18n="nav_services">Produkter &amp; Tjenester</a>
         <a href="materialer.html" data-i18n="nav_materials">Materialer</a>
         <a href="prosess.html" data-i18n="nav_process">Prosess</a>
         <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
@@ -77,82 +111,127 @@
       </div>
     </header>
 
-    <!-- PAGE HEAD -->
-    <section class="panel pagehead">
-      <div class="meta">
-        <div class="kicker" data-i18n="page_kicker">Tjenester</div>
-        <h1 data-i18n="page_h1">Fra idé til ferdig komponent</h1>
-        <p class="small" style="font-size:16px; margin:0;" data-i18n="page_p">
-          Vi tilbyr additive manufacturing i høyytelsespolymerer, maskinering på CNC, og støtte til CAD og engineering.
-        </p>
-      </div>
-    </section>
+    <!-- TO STORE HOVEDBOKSER -->
+    <section class="main-sections">
 
-    <!-- SERVICES -->
-    <section class="grid2" style="margin-top:14px;">
+      <!-- VENSTRE HOVEDBOKS -->
+      <div class="panel mainbox">
+        <div class="mainbox-head">
+          <div class="kicker" data-i18n="products_kicker">Produkter</div>
+          <h2 data-i18n="products_h2">Produkter</h2>
+        </div>
 
-      <!-- 🔹 Additive manufacturing med nytt bilde -->
-      <div class="panel card">
-        <img class="cardimg" src="PEEKFFF.png" alt="Additive manufacturing PEEK" />
-        <div class="kicker" data-i18n="svc1_kicker">LFAM / FFF</div>
-        <h2 data-i18n="svc1_h2">Additive manufacturing</h2>
-        <p class="small" data-i18n="svc1_p">
-          Store funksjonelle deler i polymerer som tåler varme, kjemi og mekanisk last. Vi hjelper også med materialvalg og prosess for å sikre riktig ytelse og levetid.
-        </p>
-        <ul class="list">
-          <li data-i18n="svc1_li1">Store geometrier og tykke vegger (LFAM/FFF)</li>
-          <li data-i18n="svc1_li2">HPP-materialer: PEEK, PEKK, PEI (ULTEM), TPI</li>
-          <li data-i18n="svc1_li3">One-off komponener og småserier – print alene eller print + maskinering</li>
-        </ul>
-      </div>
+        <div class="inner-cards">
+          <div class="panel card">
+            <img class="cardimg" src="VALKYRI.png" alt="Langdistanse inspeksjonsplattform" />
+            <div class="kicker" data-i18n="prod1_kicker">Produkt</div>
+            <h2 data-i18n="prod1_h2">Langdistanse inspeksjonsplattform</h2>
+            <p class="small" data-i18n="prod1_p">
+              En lett og effektiv plattform utviklet for inspeksjon, kartlegging og datainnsamling over store avstander.
+            </p>
+            <ul class="list">
+              <li data-i18n="prod1_li1">Bruksområde: inspeksjon og kartlegging</li>
+              <li data-i18n="prod1_li2">Lang rekkevidde og effektiv utforming</li>
+              <li data-i18n="prod1_li3">Styring: autonom og pilot</li>
+            </ul>
+          </div>
 
-      <!-- Maskinering -->
-      <div class="panel card">
-        <img class="cardimg" src="CNCFFF.png" alt="Maskinering / CNC" />
-        <div class="kicker" data-i18n="svc2_kicker">CNC</div>
-        <h2 data-i18n="svc2_h2">Maskinering</h2>
-        <p class="small" data-i18n="svc2_p">
-          Vi maskinerer kritiske flater, hull og innfestinger slik at du får riktige toleranser der det trengs.
-        </p>
-        <ul class="list">
-          <li data-i18n="svc2_li1">Planhet, tetningsflater og presisjonshull</li>
-          <li data-i18n="svc2_li2">Bearbeiding av store emner</li>
-          <li data-i18n="svc2_li3">Kombi: print + maskinering</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="grid2">
-
-      <!-- CAD -->
-      <div class="panel card">
-        <img class="cardimg" src="CADFFF.png" alt="CAD design" />
-        <div class="kicker" data-i18n="svc3_kicker">CAD</div>
-        <h2 data-i18n="svc3_h2">CAD design</h2>
-        <p class="small" data-i18n="svc3_p">
-          Vi hjelper deg med CAD fra konsept til produksjonsklar modell – tilpasset additive manufacturing og etterarbeid.
-        </p>
-        <ul class="list">
-          <li data-i18n="svc3_li1">Bistand med design for printing</li>
-          <li data-i18n="svc3_li2">Optimalisering av geometri</li>
-          <li data-i18n="svc3_li3">Design for produksjon</li>
-        </ul>
+          <div class="panel card">
+            <img class="cardimg" src="SLEIPNER.png" alt="Høyhastighets inspeksjonsplattform" />
+            <div class="kicker" data-i18n="prod2_kicker">Produkt</div>
+            <h2 data-i18n="prod2_h2">Høyhastighets inspeksjonsplattform</h2>
+            <p class="small" data-i18n="prod2_p">
+              En kompakt plattform utviklet for raske oppdrag innen inspeksjon, observasjon og teknisk datainnhenting.
+            </p>
+            <ul class="list">
+              <li data-i18n="prod2_li1">Bruksområde: raske inspeksjonsoppdrag</li>
+              <li data-i18n="prod2_li2">Aerodynamisk design og høy effektivitet</li>
+              <li data-i18n="prod2_li3">Styring: autonom og pilot</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <!-- Engineering -->
-      <div class="panel card">
-        <img class="cardimg" src="ENGFFF.png" alt="Engineering" />
-        <div class="kicker" data-i18n="svc4_kicker">Engineering</div>
-        <h2 data-i18n="svc4_h2">Engineering</h2>
-        <p class="small" data-i18n="svc4_p">
-          Vi støtter utvikling med topologioptimalisering og analyser for å redusere vekt, øke stivhet og forbedre ytelse.
-        </p>
-        <ul class="list">
-          <li data-i18n="svc4_li1">Vi bistår med topologiotimalisering for print</li>
-          <li data-i18n="svc4_li2">Strukturanalyse av deler</li>
-          <li data-i18n="svc4_li3">Styrkekrav og vekt</li>
-        </ul>
+      <!-- HØYRE HOVEDBOKS -->
+      <div class="panel mainbox">
+        <div class="mainbox-head">
+          <div class="kicker" data-i18n="services_kicker">Produksjon og Engineering</div>
+          <h2 data-i18n="services_h2">Produksjon og Engineering</h2>
+        </div>
+
+        <div class="inner-cards">
+          <div class="panel card">
+            <img class="cardimg" src="PEEKFFF.png" alt="Additive manufacturing PEEK" />
+            <div class="kicker" data-i18n="svc1_kicker">LFAM / FFF</div>
+            <h2 data-i18n="svc1_h2">Additive manufacturing</h2>
+            <p class="small" data-i18n="svc1_p">
+              Store funksjonelle deler i polymerer som tåler varme, kjemi og mekanisk last. Vi hjelper også med materialvalg og prosess for å sikre riktig ytelse og levetid.
+            </p>
+            <ul class="list">
+              <li data-i18n="svc1_li1">Store geometrier og tykke vegger (LFAM/FFF)</li>
+              <li data-i18n="svc1_li2">HPP-materialer: PEEK, PEKK, PEI (ULTEM), TPI</li>
+              <li data-i18n="svc1_li3">One-off komponenter og småserier – print alene eller print + maskinering</li>
+            </ul>
+          </div>
+
+          <div class="panel card">
+            <img class="cardimg" src="MULTIFFF.png" alt="Multi Material Printing" />
+            <div class="kicker" data-i18n="svc5_kicker">FFF</div>
+            <h2 data-i18n="svc5_h2">Multi Material Printing</h2>
+            <p class="small" data-i18n="svc5_p">
+              Vi tilbyr 3D-printede komponenter med flere polymerer i samme print, slik at ulike soner i delen kan få ulike egenskaper.
+            </p>
+            <ul class="list">
+              <li data-i18n="svc5_li1">Flere polymerer i samme komponent</li>
+              <li data-i18n="svc5_li2">Tilpassede egenskaper i ulike soner</li>
+              <li data-i18n="svc5_li3">Mulighet for mer funksjonelle og integrerte deler</li>
+            </ul>
+          </div>
+
+          <div class="panel card">
+            <img class="cardimg" src="CNCFFF.png" alt="Maskinering / CNC" />
+            <div class="kicker" data-i18n="svc2_kicker">CNC</div>
+            <h2 data-i18n="svc2_h2">Maskinering</h2>
+            <p class="small" data-i18n="svc2_p">
+              Vi maskinerer kritiske flater, hull og innfestinger slik at du får riktige toleranser der det trengs.
+            </p>
+            <ul class="list">
+              <li data-i18n="svc2_li1">Planhet, tetningsflater og presisjonshull</li>
+              <li data-i18n="svc2_li2">Bearbeiding av store emner</li>
+              <li data-i18n="svc2_li3">Kombi: print + maskinering</li>
+            </ul>
+          </div>
+
+          <div class="panel card">
+            <img class="cardimg" src="CADFFF.png" alt="CAD design" />
+            <div class="kicker" data-i18n="svc3_kicker">CAD</div>
+            <h2 data-i18n="svc3_h2">CAD design</h2>
+            <p class="small" data-i18n="svc3_p">
+              Vi hjelper deg med CAD fra konsept til produksjonsklar modell – tilpasset additive manufacturing og etterarbeid.
+            </p>
+            <ul class="list">
+              <li data-i18n="svc3_li1">Bistand med design for printing</li>
+              <li data-i18n="svc3_li2">Optimalisering av geometri</li>
+              <li data-i18n="svc3_li3">Design for produksjon</li>
+            </ul>
+          </div>
+
+          <div class="panel card">
+            <img class="cardimg" src="ENGFFF.png" alt="Engineering" />
+            <div class="kicker" data-i18n="svc4_kicker">Engineering</div>
+            <h2 data-i18n="svc4_h2">Engineering</h2>
+            <p class="small" data-i18n="svc4_p">
+              Vi støtter utvikling med topologioptimalisering og analyser for å redusere vekt, øke stivhet og forbedre ytelse.
+            </p>
+            <ul class="list">
+              <li data-i18n="svc4_li1">Vi bistår med topologioptimalisering for print</li>
+              <li data-i18n="svc4_li2">Strukturanalyse av deler</li>
+              <li data-i18n="svc4_li3">Styrkekrav og vekt</li>
+            </ul>
+          </div>
+        </div>
       </div>
+
     </section>
 
     <footer>
@@ -164,25 +243,47 @@
     document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // Enkel i18n (NO/EN)
       const i18n = {
         no: {
           nav_home: "Hjem",
-          nav_services: "Tjenester",
+          nav_services: "Produkter & Tjenester",
           nav_materials: "Materialer",
           nav_process: "Prosess",
           nav_contact: "Kontakt",
 
-          page_kicker: "Tjenester",
-          page_h1: "Fra idé til ferdig komponent",
-          page_p: "Vi tilbyr additive manufacturing i høyytelsespolymerer, maskinering på CNC, og støtte til CAD og engineering.",
+          products_kicker: "Produkter",
+          products_h2: "Produkter",
+
+          services_kicker: "Produksjon og Engineering",
+          services_h2: "Produksjon og Engineering",
+
+          prod1_kicker: "Produkt",
+          prod1_h2: "Langdistanse inspeksjonsplattform",
+          prod1_p: "En lett og effektiv plattform utviklet for inspeksjon, kartlegging og datainnsamling over store avstander.",
+          prod1_li1: "Bruksområde: inspeksjon og kartlegging",
+          prod1_li2: "Lang rekkevidde og effektiv utforming",
+          prod1_li3: "Styring: autonom og pilot",
+
+          prod2_kicker: "Produkt",
+          prod2_h2: "Høyhastighets inspeksjonsplattform",
+          prod2_p: "En kompakt plattform utviklet for raske oppdrag innen inspeksjon, observasjon og teknisk datainnhenting.",
+          prod2_li1: "Bruksområde: raske inspeksjonsoppdrag",
+          prod2_li2: "Aerodynamisk design og høy effektivitet",
+          prod2_li3: "Styring: autonom og pilot",
 
           svc1_kicker: "LFAM / FFF",
           svc1_h2: "Additive manufacturing",
           svc1_p: "Store funksjonelle deler i polymerer som tåler varme, kjemi og mekanisk last. Vi hjelper også med materialvalg og prosess for å sikre riktig ytelse og levetid.",
           svc1_li1: "Store geometrier og tykke vegger (LFAM/FFF)",
           svc1_li2: "HPP-materialer: PEEK, PEKK, PEI (ULTEM), TPI",
-          svc1_li3: "One-off komponener og småserier – print alene eller print + maskinering",
+          svc1_li3: "One-off komponenter og småserier – print alene eller print + maskinering",
+
+          svc5_kicker: "FFF",
+          svc5_h2: "Multi Material Printing",
+          svc5_p: "Vi tilbyr 3D-printede komponenter med flere polymerer i samme print, slik at ulike soner i delen kan få ulike egenskaper.",
+          svc5_li1: "Flere polymerer i samme komponent",
+          svc5_li2: "Tilpassede egenskaper i ulike soner",
+          svc5_li3: "Mulighet for mer funksjonelle og integrerte deler",
 
           svc2_kicker: "CNC",
           svc2_h2: "Maskinering",
@@ -201,28 +302,51 @@
           svc4_kicker: "Engineering",
           svc4_h2: "Engineering",
           svc4_p: "Vi støtter utvikling med topologioptimalisering og analyser for å redusere vekt, øke stivhet og forbedre ytelse.",
-          svc4_li1: "Vi bistår med topologiotimalisering for print",
+          svc4_li1: "Vi bistår med topologioptimalisering for print",
           svc4_li2: "Strukturanalyse av deler",
-          svc4_li3: "Styrkekrav og vekt",
+          svc4_li3: "Styrkekrav og vekt"
         },
 
         en: {
           nav_home: "Home",
-          nav_services: "Services",
+          nav_services: "Products & Services",
           nav_materials: "Materials",
           nav_process: "Process",
           nav_contact: "Contact",
 
-          page_kicker: "Services",
-          page_h1: "From idea to finished component",
-          page_p: "We provide additive manufacturing in high-performance polymers, CNC machining, and support with CAD and engineering.",
+          products_kicker: "Products",
+          products_h2: "Products",
+
+          services_kicker: "Production and Engineering",
+          services_h2: "Production and Engineering",
+
+          prod1_kicker: "Product",
+          prod1_h2: "Long-range inspection platform",
+          prod1_p: "A lightweight and efficient platform developed for inspection, mapping, and data collection over long distances.",
+          prod1_li1: "Application: inspection and mapping",
+          prod1_li2: "Long range and efficient design",
+          prod1_li3: "Control: autonomous and pilot",
+
+          prod2_kicker: "Product",
+          prod2_h2: "High-speed inspection platform",
+          prod2_p: "A compact platform developed for rapid inspection, observation, and technical data acquisition.",
+          prod2_li1: "Application: fast inspection missions",
+          prod2_li2: "Aerodynamic design and high efficiency",
+          prod2_li3: "Control: autonomous and pilot",
 
           svc1_kicker: "LFAM / FFF",
           svc1_h2: "Additive manufacturing",
           svc1_p: "Large functional polymer parts built for heat, chemicals, and mechanical loads. We also support material selection and process planning to ensure performance and lifetime.",
           svc1_li1: "Large geometries and thick walls (LFAM/FFF)",
           svc1_li2: "HPP materials: PEEK, PEKK, PEI (ULTEM), TPI",
-          svc1_li3: "One-offs and small series — print only or print + machining",
+          svc1_li3: "One-off components and small series — print only or print + machining",
+
+          svc5_kicker: "FFF",
+          svc5_h2: "Multi Material Printing",
+          svc5_p: "We offer 3D-printed components with multiple polymers in the same print, allowing different zones of the part to have different properties.",
+          svc5_li1: "Multiple polymers in the same component",
+          svc5_li2: "Tailored properties in different zones",
+          svc5_li3: "Enables more functional and integrated parts",
 
           svc2_kicker: "CNC",
           svc2_h2: "Machining",
@@ -243,7 +367,7 @@
           svc4_p: "We support development with topology optimization and analyses to reduce weight, increase stiffness, and improve performance.",
           svc4_li1: "Topology optimization for printing",
           svc4_li2: "Structural analysis of parts",
-          svc4_li3: "Strength requirements and weight",
+          svc4_li3: "Strength requirements and weight"
         }
       };
 
