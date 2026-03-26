@@ -49,6 +49,13 @@
       margin:0 0 10px 0;
     }
 
+    .team-title{
+      margin:18px 0 10px 0;
+      font-size:22px;
+      line-height:1.2;
+      color:#eaf1ff;
+    }
+
     /* Personkort */
     .person-card{
       display:flex;
@@ -160,25 +167,25 @@
         Fortell oss kort om del, krav og tidslinje. Legg gjerne ved STEP/IGES og relevante mål/toleranser.
       </p>
 
+      <h2 class="team-title" data-i18n="team_title">Vårt team</h2>
+
       <!-- TO PERSONBOKSER -->
       <div class="contact-grid">
         <div class="panel card contact-card person-card">
-          <div class="person-img" aria-label="Daglig leder">
-            <!-- Bytt filnavn til ditt bilde -->
-            <img src="sak.png" alt="Daglig leder SAK">
+          <div class="person-img" aria-label="SAK">
+            <img src="sak.png" alt="SAK">
           </div>
           <div class="person-meta">
-            <div><b data-i18n="p1_title">Daglig Leder</b> <span data-i18n="p1_code">"SAK"</span></div>
+            <div><b data-i18n="p1_name">SAK</b></div>
           </div>
         </div>
 
         <div class="panel card contact-card person-card">
-          <div class="person-img" aria-label="Teknisk direktør">
-            <!-- Bytt filnavn til ditt bilde -->
-            <img src="me.png" alt="Teknisk direktør ME">
+          <div class="person-img" aria-label="ME">
+            <img src="me.png" alt="ME">
           </div>
           <div class="person-meta">
-            <div><b data-i18n="p2_title">Teknisk direktør</b> <span data-i18n="p2_code">"ME"</span></div>
+            <div><b data-i18n="p2_name">ME</b></div>
           </div>
         </div>
       </div>
@@ -240,11 +247,9 @@
         contact_h1: "Send en forespørsel",
         contact_intro: "Fortell oss kort om del, krav og tidslinje. Legg gjerne ved STEP/IGES og relevante mål/toleranser.",
 
-        p1_title: "Daglig Leder",
-        p1_code: "\"SAK\"",
-
-        p2_title: "Teknisk direktør",
-        p2_code: "\"ME\"",
+        team_title: "Vårt team",
+        p1_name: "SAK",
+        p2_name: "ME",
 
         email_label: "E-post:",
         general_email_label: "Generell e-post:",
@@ -269,11 +274,9 @@
         contact_h1: "Send an inquiry",
         contact_intro: "Tell us briefly about your part, requirements and timeline. Attach STEP/IGES and key dimensions/tolerances if available.",
 
-        p1_title: "Managing Director",
-        p1_code: "\"SAK\"",
-
-        p2_title: "Technical Director",
-        p2_code: "\"ME\"",
+        team_title: "Our team",
+        p1_name: "SAK",
+        p2_name: "ME",
 
         email_label: "Email:",
         general_email_label: "General email:",
@@ -313,4 +316,3 @@
   </script>
 </body>
 </html>
-
