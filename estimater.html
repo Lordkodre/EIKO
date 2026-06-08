@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EIKO Additive – Estimater</title>
+  <meta name="description" content="Last opp en STL-fil og få et uforpliktende hurtigestimat for storformat 3D-print." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="estimator.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a href="index.html" class="brand" aria-label="EIKO Additive hjem">
+        <img class="brandlogo" src="logo.png" alt="EIKO Additive logo">
+      </a>
+      <nav class="nav" aria-label="Hovedmeny">
+        <a href="index.html" data-i18n="nav_home">Hjem</a>
+        <a href="tjenester.html" data-i18n="nav_services">Produkter &amp; Tjenester</a>
+        <a href="materialer.html" data-i18n="nav_materials">Materialer</a>
+        <a href="prosess.html" data-i18n="nav_process">Prosess</a>
+        <a class="active" href="estimater.html" data-i18n="nav_estimates">Estimater</a>
+        <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
+      </nav>
+      <a class="header-cta" href="kontakt.html" data-i18n="header_cta">Send forespørsel</a>
+      <div class="lang-switch" aria-label="Velg språk">
+        <button class="flagbtn" id="btn-no" type="button" aria-label="Norsk"><img src="flag-no.png" alt=""></button>
+        <button class="flagbtn" id="btn-en" type="button" aria-label="English"><img src="flag-us.png" alt=""></button>
+      </div>
+    </header>
+
+    <section class="estimate-hero">
+      <div class="meta">
+        <div class="kicker" data-i18n="kicker">Hurtigestimat</div>
+        <h1 data-i18n="title">Last opp STL og få et prisestimat</h1>
+        <p class="small estimate-intro" data-i18n="intro">
+          STL-filen analyseres lokalt i nettleseren. Estimatet er uforpliktende og må verifiseres før bestilling.
+        </p>
+      </div>
+      <div class="privacy-pill" data-i18n="privacy">Filen forlater ikke nettleseren</div>
+    </section>
+
+    <main class="estimate-layout">
+      <section class="panel estimator-form">
+        <div id="dropZone" class="drop-zone" tabindex="0" role="button">
+          <input id="stlFile" type="file" accept=".stl,model/stl" hidden>
+          <div class="drop-mark">STL</div>
+          <div>
+            <strong data-i18n="drop_title">Dra STL-filen hit</strong>
+            <p data-i18n="drop_sub">eller klikk for å velge fil</p>
+          </div>
+          <div id="fileStatus" class="file-status" data-i18n="no_file">Ingen fil valgt</div>
+        </div>
+
+        <div class="settings-grid">
+          <label class="field">
+            <span data-i18n="material">Materiale</span>
+            <select id="material"></select>
+          </label>
+
+          <label class="field">
+            <span><span data-i18n="nozzle">Dysestørrelse</span> <b id="nozzleOut">3.0 mm</b></span>
+            <input id="nozzle" type="range" min="0.4" max="5" step="0.1" value="3">
+          </label>
+
+          <label class="field">
+            <span><span data-i18n="layer">Laghøyde</span> <b id="layerOut">1.5 mm</b></span>
+            <input id="layer" type="range" min="0.1" max="4" step="0.05" value="1.5">
+          </label>
+
+          <label class="field">
+            <span><span data-i18n="infill">Fyllgrad</span> <b id="infillOut">35 %</b></span>
+            <input id="infill" type="range" min="20" max="100" step="5" value="35">
+          </label>
+
+          <label class="field">
+            <span data-i18n="walls">Vegglinjer / perimetere</span>
+            <input id="walls" type="number" min="1" max="12" step="1" value="3">
+          </label>
+
+          <label class="field">
+            <span data-i18n="topBottom">Massive topp-/bunnlag</span>
+            <input id="topBottom" type="number" min="1" max="20" step="1" value="4">
+          </label>
+
+          <label class="field">
+            <span data-i18n="quantity">Antall</span>
+            <input id="quantity" type="number" min="1" max="100" step="1" value="1">
+          </label>
+
+          <label class="field">
+            <span data-i18n="postprocess">Etterbearbeiding</span>
+            <select id="postprocess">
+              <option value="none" selected data-i18n-option="post_none">Ingen etterbearbeiding</option>
+              <option value="cleanup" data-i18n-option="post_cleanup">Standard rensk – support og kanter</option>
+              <option value="inspect" data-i18n-option="post_inspect">Rensk og kontroll – support, kanter og måling</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="validation" id="validation"></div>
+        <button id="calculate" class="btn primary calculate-btn" type="button" data-i18n="calculate">Beregn hurtigestimat</button>
+      </section>
+
+      <aside class="panel result-panel">
+        <div class="result-head">
+          <div>
+            <div class="kicker" data-i18n="result_kicker">Estimert produksjon</div>
+            <h2 id="price">–</h2>
+          </div>
+          <span class="estimate-badge" data-i18n="ex_vat">eks. mva.</span>
+        </div>
+
+        <div class="metric-grid metric-grid-compact">
+          <div class="metric"><span data-i18n="dimensions">Ytre mål</span><b id="dimensions">–</b></div>
+          <div class="metric"><span data-i18n="material_use">Estimert komponentvekt</span><b id="mass">–</b></div>
+        </div>
+
+        <div class="note result-note" data-i18n="disclaimer">
+          Estimatoren er kun veiledende og viser ikke endelig pris. Endelig tilbud gis etter en teknisk vurdering.
+        </div>
+        <a class="btn quote-btn" href="kontakt.html" data-i18n="request_quote">Be om verifisert tilbud</a>
+      </aside>
+    </main>
+
+    <footer><div>© <span id="year"></span> EIKO Additive</div></footer>
+  </div>
+  <script src="estimator.js"></script>
+</body>
+</html>
